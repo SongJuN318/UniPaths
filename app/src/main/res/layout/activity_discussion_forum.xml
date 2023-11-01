@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer_layout"
+    tools:context=".Activities.DiscussionForum"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start"
+    >
+
+        <com.google.android.material.navigation.NavigationView
+            android:background="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:itemIconTint="#20339A"
+            app:itemTextColor="#20339A"
+            app:headerLayout="@layout/header"
+            app:menu="@menu/main_menu"
+            android:id="@+id/nav_view"
+            android:layout_gravity="start"/>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background"
+            tools:context=".Activities.DiscussionForum">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="#00000000"
+                    android:backgroundTint="#FFFFFF"
+                    android:foregroundTint="#FFFFFF"
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="?attr/actionBarTheme"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:navigationIcon="@drawable/menu_icon"
+                    app:title="Discussions"
+                    app:titleTextColor="@color/white" />
+
+                <FrameLayout
+                    android:id="@+id/frame_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                </FrameLayout>
+
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bottomNavigationView"
+                    android:layout_width="393dp"
+                    android:layout_height="51dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/background"
+                    app:itemIconTint="@color/white"
+                    app:itemTextColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:menu="@menu/bottom_nav_menu" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="630dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/main_discussion"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.533" />
+
+                <Button
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/notification_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.957"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.022" />
+
+                <View
+                    android:id="@+id/indicator"
+                    android:layout_width="40dp"
+                    android:layout_height="3.74dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:background="#3550DC"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.136" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

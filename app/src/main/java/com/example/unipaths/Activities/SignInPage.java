@@ -120,6 +120,7 @@ public class SignInPage extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 loadingProgress.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
+                                    loadingProgress.setVisibility(View.GONE);
                                     Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(getApplicationContext(), DiscussionForum.class);
                                     startActivity(intent);
@@ -151,6 +152,7 @@ public class SignInPage extends AppCompatActivity {
         if (requestCode == 1000) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
+                loadingProgress.setVisibility(View.GONE);
                 task.getResult(ApiException.class);
                 navigateToSecondAcitivity();
             } catch (ApiException e) {

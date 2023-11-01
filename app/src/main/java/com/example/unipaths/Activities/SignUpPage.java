@@ -116,13 +116,14 @@ public class SignUpPage extends AppCompatActivity {
 
                 if(email.isEmpty() || password.isEmpty() || password2.isEmpty() || name.isEmpty() || !password.equals(password2)){
                     showMessage("Please Verify all fields");
-                    signup.setVisibility(View.VISIBLE);
-                    loadingProgress.setVisibility(View.INVISIBLE);
+                    loadingProgress.setVisibility(View.GONE);
                 }else{
+                    loadingProgress.setVisibility(View.VISIBLE);
                     CreateUserAccount(email, name, password);
                 }
             }
         });
+
     }
 
     void signIn(){

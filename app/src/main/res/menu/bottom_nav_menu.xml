@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="Discussion Forum"
+        android:icon="@drawable/discussion_icon"
+        android:id="@+id/discussion_icon"/>
+    <item
+        android:title="Personality Test"
+        android:icon="@drawable/personality_icon"
+        android:id="@+id/personality_icon"/>
+    <item
+        android:title="Basic Knowledge"
+        android:icon="@drawable/knowledge_icon"
+        android:id="@+id/knowledge_icon"/>
+    <item
+        android:title="Scholarship"
+        android:icon="@drawable/scholarship_icon"
+        android:id="@+id/scholarship_icon"/>
+    <item
+        android:title="Quizzes"
+        android:icon="@drawable/quizzes"
+        android:id="@+id/quizzes_icon"/>
+</menu>

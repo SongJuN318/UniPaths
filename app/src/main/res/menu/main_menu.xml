@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/setting_icon"
+            android:icon="@drawable/setting_icon"
+            android:title="Setting and Privacy" />
+        <item android:id="@+id/saved_icon"
+            android:icon="@drawable/baseline_bookmark_border_24"
+            android:title="Saved"/>
+        <item android:id="@+id/history_icon"
+            android:icon="@drawable/baseline_history_24"
+            android:title="History" />
+        <item android:id="@+id/liked_icon"
+            android:icon="@drawable/baseline_favorite_24"
+            android:title="Liked"/>
+        <item android:id="@+id/friend_icon"
+            android:icon="@drawable/baseline_friends_24"
+            android:title="Following"/>
+        <item android:id="@+id/tags_icon"
+            android:icon="@drawable/baseline_tag_24"
+            android:title="Tags"/>
+        <item android:id="@+id/help_icon"
+            android:icon="@drawable/baseline_help_24"
+            android:title="Help and support"/>
+        <item android:id="@+id/logout_icon"
+            android:icon="@drawable/baseline_logout_24"
+            android:title="Log Out"/>
+    </group>
+</menu>

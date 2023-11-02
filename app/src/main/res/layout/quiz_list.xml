@@ -44,7 +44,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/let_s_test_"
         android:layout_width="wrap_content"
         android:layout_height="23dp"
         android:layout_alignParentLeft="true"
@@ -57,10 +56,11 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hello_xxx" />
+        app:layout_constraintTop_toBottomOf="@+id/hello_xxx"
+        android:textStyle="bold"/>
 
     <View
-        android:id="@+id/view3"
+        android:id="@+id/view2"
         android:layout_width="395dp"
         android:layout_height="658dp"
         android:layout_marginEnd="4dp"
@@ -71,4 +71,141 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fillViewport="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view2">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_argriculture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="15dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/ubunturegular"
+                android:text="Agriculture, Food &amp;\n Natural Resources"
+                android:textAllCaps="false"
+                android:textColor="#999999" />
+
+            <Button
+                android:id="@+id/button_architecture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="15dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/ubunturegular"
+                android:text="Architecture &amp;\n Construction"
+                android:textAllCaps="false"
+                android:textColor="#999999" />
+
+            <Button
+                android:id="@+id/button_arts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="15dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/ubunturegular"
+                android:text="Arts &amp;\n Communication"
+                android:textAllCaps="false"
+                android:textColor="#999999" />
+
+            <Button
+                android:id="@+id/button_business"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="15dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/ubunturegular"
+                android:text="Business &amp;\n Finance"
+                android:textAllCaps="false"
+                android:textColor="#999999" />
+
+            <Button
+                android:id="@+id/button_education"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="15dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/ubunturegular"
+                android:text="Education"
+                android:textAllCaps="false"
+                android:textColor="#999999" />
+
+            <Button
+                android:id="@+id/button_health"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="15dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/ubunturegular"
+                android:text="Health Science"
+                android:textAllCaps="false"
+                android:textColor="#999999" />
+
+            <Button
+                android:id="@+id/button_it"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="15dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/ubunturegular"
+                android:text="Information \n Technology"
+                android:textAllCaps="false"
+                android:textColor="#999999" />
+
+            <Button
+                android:id="@+id/button_law"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="15dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/ubunturegular"
+                android:text="Law"
+                android:textAllCaps="false"
+                android:textColor="#999999" />
+
+            <Button
+                android:id="@+id/button_language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="15dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/ubunturegular"
+                android:text="Language"
+                android:textAllCaps="false"
+                android:textColor="#999999" />
+
+            <Button
+                android:id="@+id/button_science"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="15dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/ubunturegular"
+                android:text="Science, Technology \n Engineering &amp; Math"
+                android:textAllCaps="false"
+                android:textColor="#999999" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -61,8 +61,8 @@
 
     <View
         android:id="@+id/view2"
-        android:layout_width="395dp"
-        android:layout_height="658dp"
+        android:layout_width="402dp"
+        android:layout_height="608dp"
         android:layout_marginEnd="4dp"
         android:background="@drawable/signup_page"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -76,7 +76,8 @@
         android:id="@+id/hsvFieldList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
         android:fillViewport="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view2">
@@ -181,7 +182,8 @@
                 android:fontFamily="@font/ubunturegular"
                 android:text="Law"
                 android:textAllCaps="false"
-                android:textColor="#999999" />
+                android:textColor="#999999"
+                />
 
             <Button
                 android:id="@+id/button_language"

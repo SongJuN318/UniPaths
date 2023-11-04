@@ -8,7 +8,9 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.graphics.PorterDuff;
@@ -27,55 +29,63 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.tabs.TabLayout;
 
 public class DiscussionForum extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawerLayout;
-    NavigationView navigationView;
+    BottomNavigationView bottomNavigationView;
+    FragmentManager fragmentManager;
     Toolbar toolbar;
-    GoogleSignInOptions gso;
-    GoogleSignInClient gsc;
-
-    ActivityDiscussionForumBinding binding;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_discussion_forum);
 
-        drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
-        binding = ActivityDiscussionForumBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-//        replaceFragment(new Personality_test());
-
-        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
-            if (item.getItemId() == R.id.personality_icon) {
-                replaceFragment(new Personality_test());
-            }
-            return true;
-        });
-
         setSupportActionBar(toolbar);
 
-        navigationView.bringToFront();
+        drawerLayout = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
+        NavigationView navigationView = findViewById(R.id.navigation_drawer);
         navigationView.setNavigationItemSelectedListener(this);
 
-        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
-        gsc = GoogleSignIn.getClient(this, gso);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setBackground(null);
 
-        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
-        if(acct!=null){
-            String personName = acct.getDisplayName();
-            String personEmail = acct.getEmail();
-        }
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int itemId = item.getItemId();
+                if(itemId == R.id.personality_icon){
+                    openFragment(new Personality_test());
+                    return  true;
+                }
+                return false;
+            }
+        });
 
+        fragmentManager = getSupportFragmentManager();
+
+        tabLayout = findViewById(R.id.tabLayout);
+        viewPager = findViewById(R.id.viewpager);
+
+        tabLayout.setupWithViewPager(viewPager);
+
+        VPAdapter vpAdapter = new VPAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        vpAdapter.addFragment(new DiscussionFragment(), "DISCUSSION");
+        vpAdapter.addFragment(new SearchFollowing(), "FOLLOWINGS");
+        vpAdapter.addFragment(new TagsFragment(), "TAGS");
+        viewPager.setAdapter(vpAdapter);
     }
 
     @Override
@@ -96,13 +106,13 @@ public class DiscussionForum extends AppCompatActivity implements NavigationView
             startActivity(intent);
         }
         return true;
+
     }
 
-    private void replaceFragment(Fragment fragment){
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.frame_layout, fragment);
-        fragmentTransaction.commit();
+    private void openFragment(Fragment fragment){
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.fram_container, fragment);
+        transaction.commit();
     }
 
 

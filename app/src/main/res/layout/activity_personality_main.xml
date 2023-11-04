@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="417dp"
+        android:layout_height="372dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/background" />
+    <!-- Auto layout, variables, and unit scale are not yet supported -->
+    <ImageButton
+        android:id="@+id/menuButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="Open Menu"
+        android:src="@drawable/baseline_menu_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="414dp"
+        android:layout_height="543dp"
+        app:srcCompat="@drawable/signup_page"
+        tools:layout_editor_absoluteX="-2dp"
+        tools:layout_editor_absoluteY="128dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/dmsans"
+        android:text="Good day, xxx"
+        android:textColor="#FFFFFF"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="64dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/dmsans"
+        android:text="Do you seek guidance?"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="95dp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="48dp"
+        android:layout_height="4dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="26dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:srcCompat="@drawable/signin_btn_style" />
+
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="59dp"
+        android:text="Myself"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="59dp"
+        android:layout_marginEnd="75dp"
+        android:text="Guidance"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+
+    <FrameLayout
+        android:id="@+id/take_quiz_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="47dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2">
+
+        <ImageButton
+            android:id="@+id/take_quiz_icon"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:background="@drawable/login_btn"
+            android:elevation="5dp"
+            android:paddingBottom="18dp"
+            app:srcCompat="@drawable/take_quiz"
+            tools:layout_editor_absoluteX="51dp"
+            tools:layout_editor_absoluteY="271dp" />
+
+        <TextView
+            android:id="@+id/take_quiz_txt"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="8dp"
+            android:clickable="false"
+            android:elevation="6dp"
+            android:fontFamily="@font/dmsans"
+            android:lineSpacingMultiplier="0.7"
+            android:padding="4dp"
+            android:text="Take the personality test"
+            android:textAlignment="center"
+            android:textColor="#FA2A75"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="51dp"
+            tools:layout_editor_absoluteY="372dp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/career_rec_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:layout_marginEnd="52dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3">
+
+        <ImageButton
+            android:id="@+id/career_rec_icon"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:background="@drawable/login_btn"
+            android:elevation="5dp"
+            android:paddingBottom="18dp"
+            app:srcCompat="@drawable/career_rec"
+            tools:layout_editor_absoluteX="51dp"
+            tools:layout_editor_absoluteY="271dp" />
+
+        <TextView
+            android:id="@+id/career_rec_txt"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="8dp"
+            android:clickable="false"
+            android:elevation="6dp"
+            android:fontFamily="@font/dmsans"
+            android:lineSpacingMultiplier="0.7"
+            android:padding="4dp"
+            android:text="Career guidance"
+            android:textAlignment="center"
+            android:textColor="#787FF6"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="51dp"
+            tools:layout_editor_absoluteY="372dp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/peer_connect_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/take_quiz_layout">
+
+        <TextView
+            android:id="@+id/peer_connect_txt"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="8dp"
+            android:clickable="false"
+            android:elevation="6dp"
+            android:fontFamily="@font/dmsans"
+            android:lineSpacingMultiplier="0.7"
+            android:padding="4dp"
+            android:text="Connect with peers"
+            android:textAlignment="center"
+            android:textColor="#4ADEDE"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="51dp"
+            tools:layout_editor_absoluteY="372dp" />
+
+        <ImageButton
+            android:id="@+id/peer_connect_icon"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:background="@drawable/login_btn"
+            android:elevation="5dp"
+            android:paddingBottom="18dp"
+            app:srcCompat="@drawable/peer_connect" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/edit_trait_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="52dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/career_rec_layout">
+
+        <TextView
+            android:id="@+id/edit_trait_txt"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="8dp"
+            android:clickable="false"
+            android:elevation="6dp"
+            android:fontFamily="@font/dmsans"
+            android:lineSpacingMultiplier="0.7"
+            android:padding="4dp"
+            android:text="Update traits"
+            android:textAlignment="center"
+            android:textColor="#1CA7EC"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="51dp"
+            tools:layout_editor_absoluteY="372dp" />
+
+        <ImageButton
+            android:id="@+id/edit_trait_icon"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:background="@drawable/login_btn"
+            android:elevation="5dp"
+            android:paddingBottom="18dp"
+            app:srcCompat="@drawable/edit_trait" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

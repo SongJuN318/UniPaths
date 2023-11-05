@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:rowCount="2"
+    android:columnCount="2"
+    android:paddingTop="80dp"
+    tools:context=".Activities.PersonalityGuidanceFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/take_quiz_card_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="47dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="5dp">
+        <FrameLayout
+            android:id="@+id/take_quiz_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/take_quiz_icon"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:background="@drawable/login_btn"
+                android:contentDescription="Take Quiz"
+                android:paddingBottom="18dp"
+                app:srcCompat="@drawable/take_quiz"
+                tools:layout_editor_absoluteX="51dp"
+                tools:layout_editor_absoluteY="271dp" />
+
+            <TextView
+                android:id="@+id/take_quiz_txt"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_marginBottom="8dp"
+                android:clickable="false"
+                android:fontFamily="@font/ubunturegular"
+                android:lineSpacingMultiplier="0.9"
+                android:padding="4dp"
+                android:text="Take the personality test"
+                android:textAlignment="center"
+                android:textColor="#FA2A75"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="51dp"
+                tools:layout_editor_absoluteY="372dp" />
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/career_rec_card_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="47dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="5dp">
+        <FrameLayout
+            android:id="@+id/career_rec_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/career_rec_icon"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:background="@drawable/login_btn"
+                android:contentDescription="Career guidance"
+                android:paddingBottom="18dp"
+                app:srcCompat="@drawable/career_rec"
+                tools:layout_editor_absoluteX="51dp"
+                tools:layout_editor_absoluteY="271dp" />
+
+            <TextView
+                android:id="@+id/career_rec_txt"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_marginBottom="8dp"
+                android:clickable="false"
+                android:fontFamily="@font/ubunturegular"
+                android:lineSpacingMultiplier="0.9"
+                android:padding="4dp"
+                android:text="Career recommendation"
+                android:textAlignment="center"
+                android:textColor="#787FF6"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="51dp"
+                tools:layout_editor_absoluteY="372dp" />
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/peer_connect_card_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="47dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="5dp">
+        <FrameLayout
+            android:id="@+id/peer_connect_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/peer_connect_iconco"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:background="@drawable/login_btn"
+                android:contentDescription="Connect with peers"
+                android:paddingBottom="18dp"
+                app:srcCompat="@drawable/peer_connect"
+                tools:layout_editor_absoluteX="51dp"
+                tools:layout_editor_absoluteY="271dp" />
+
+            <TextView
+                android:id="@+id/peer_connect_txt"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_marginBottom="8dp"
+                android:clickable="false"
+                android:fontFamily="@font/ubunturegular"
+                android:lineSpacingMultiplier="0.9"
+                android:padding="4dp"
+                android:text="Connect with peers"
+                android:textAlignment="center"
+                android:textColor="#4ADEDE"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="51dp"
+                tools:layout_editor_absoluteY="372dp" />
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/edit_trait_card_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="47dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="5dp">
+        <FrameLayout
+            android:id="@+id/edit_trait_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/edit_trait_icon"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:background="@drawable/login_btn"
+                android:contentDescription="Edit trait"
+                android:paddingBottom="18dp"
+                app:srcCompat="@drawable/edit_trait"
+                tools:layout_editor_absoluteX="51dp"
+                tools:layout_editor_absoluteY="271dp" />
+
+            <TextView
+                android:id="@+id/edit_trait_txt"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_marginBottom="8dp"
+                android:clickable="false"
+                android:fontFamily="@font/ubunturegular"
+                android:lineSpacingMultiplier="0.9"
+                android:padding="4dp"
+                android:text="Edit traits"
+                android:textAlignment="center"
+                android:textColor="#1CA7EC"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="51dp"
+                tools:layout_editor_absoluteY="372dp" />
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+
+</GridLayout>

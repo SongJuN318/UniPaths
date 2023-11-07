@@ -1,10 +1,15 @@
 package com.example.unipaths.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 import com.example.unipaths.R;
 import com.google.android.material.tabs.TabLayout;
@@ -19,10 +24,10 @@ public class Activity_personality_main extends AppCompatActivity {
 
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         ViewPager2 viewPager2 = findViewById(R.id.viewpager);
-
         PersonalityVPAdapter adapter = new PersonalityVPAdapter(this);
         viewPager2.setAdapter(adapter);
 
+        //Links viewPager2 with the tabLayout
         new TabLayoutMediator(tabLayout, viewPager2,
                 (tab, position) -> {
                     switch(position){
@@ -35,5 +40,8 @@ public class Activity_personality_main extends AppCompatActivity {
                     }
                 }
         ).attach();
+
+
     }
+
 }

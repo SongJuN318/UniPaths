@@ -14,18 +14,30 @@
         android:id="@+id/profile_pic"
         android:layout_width="97dp"
         android:layout_height="97dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="4dp"
         android:src="@drawable/profile_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/dmsans"
+        android:text="Student of University Malaya"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/profile_pic"
+        app:layout_constraintTop_toBottomOf="@+id/Username" />
+
+    <TextView
         android:id="@+id/Username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/dmsans"
         android:text="Name here"
         android:textSize="20sp"
@@ -33,26 +45,14 @@
         app:layout_constraintStart_toEndOf="@+id/profile_pic"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="2dp"
-        android:fontFamily="@font/dmsans"
-        android:text="Student of University Malaya"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/profile_pic"
-        app:layout_constraintTop_toBottomOf="@+id/Username" />
-
     <ImageView
         android:id="@+id/separator_bar"
         android:layout_width="330dp"
         android:layout_height="2dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_pic" />
 
@@ -61,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/ubunturegular"
         android:text="I am..."
         android:textSize="32sp"
@@ -69,53 +69,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/separator_bar" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <include
+        android:id="@+id/item_trait"
+        layout="@layout/item_traits"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="47dp"
-        android:background="@drawable/blue_btn"
-        android:gravity="center_vertical|center_horizontal"
-        android:orientation="vertical"
-        android:padding="15dp"
+        android:layout_marginTop="22dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/i_am">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:fontFamily="@font/ubunturegular"
-            android:text="Analyst"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="50dp"></TextView>
-
-        <TextView
-            android:layout_width="238dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/ubunturegular"
-            android:text="You are critical towards any form of data"
-            android:textAlignment="center"
-            android:textColor="@color/white"></TextView>
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/i_am" />
 
     <Button
         android:id="@+id/check_traits"
         android:layout_width="183dp"
         android:layout_height="63dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/blue_btn"
         android:fontFamily="@font/ubunturegular"
         android:padding="10dp"
-        android:textSize="15dp"
         android:text="Check your other traits"
         android:textAllCaps="false"
+        android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/item_trait" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

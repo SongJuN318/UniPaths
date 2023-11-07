@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:rowCount="2"
-    android:columnCount="2"
-    android:paddingTop="80dp"
     tools:context=".Activities.PersonalityGuidanceFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -14,10 +11,12 @@
         android:id="@+id/take_quiz_card_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="47dp"
+        android:layout_marginStart="50dp"
         app:cardCornerRadius="20dp"
-        app:cardElevation="5dp">
+        app:cardElevation="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <FrameLayout
             android:id="@+id/take_quiz_layout"
             android:layout_width="wrap_content"
@@ -57,10 +56,12 @@
         android:id="@+id/career_rec_card_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="47dp"
+        android:layout_marginEnd="50dp"
         app:cardCornerRadius="20dp"
-        app:cardElevation="5dp">
+        app:cardElevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <FrameLayout
             android:id="@+id/career_rec_layout"
             android:layout_width="wrap_content"
@@ -100,10 +101,13 @@
         android:id="@+id/peer_connect_card_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="47dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
         app:cardCornerRadius="20dp"
-        app:cardElevation="5dp">
+        app:cardElevation="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/take_quiz_card_view">
+
         <FrameLayout
             android:id="@+id/peer_connect_layout"
             android:layout_width="wrap_content"
@@ -143,10 +147,13 @@
         android:id="@+id/edit_trait_card_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="47dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
         app:cardCornerRadius="20dp"
-        app:cardElevation="5dp">
+        app:cardElevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/career_rec_card_view">
+
         <FrameLayout
             android:id="@+id/edit_trait_layout"
             android:layout_width="wrap_content"
@@ -182,4 +189,4 @@
         </FrameLayout>
     </androidx.cardview.widget.CardView>
 
-</GridLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

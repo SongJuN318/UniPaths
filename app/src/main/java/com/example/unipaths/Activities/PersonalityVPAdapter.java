@@ -9,6 +9,7 @@ public class PersonalityVPAdapter extends FragmentStateAdapter {
     public PersonalityVPAdapter(@NonNull FragmentActivity fragmentActivity){
         super(fragmentActivity);
     }
+    //Set up fragments in the viewPager2
     @NonNull
     @Override
     public Fragment createFragment(int position) {
@@ -21,9 +22,10 @@ public class PersonalityVPAdapter extends FragmentStateAdapter {
                 return null;
         }
     }
-
+    //The amount of pages of viewPager2
     @Override
     public int getItemCount() {
         return 2;
     }
+
 }

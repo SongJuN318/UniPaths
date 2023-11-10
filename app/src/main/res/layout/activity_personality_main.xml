@@ -7,21 +7,20 @@
     android:clipChildren="false">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="417dp"
+        android:id="@+id/background"
+        android:layout_width="match_parent"
         android:layout_height="372dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/background" />
     <!-- Auto layout, variables, and unit scale are not yet supported -->
-    <ImageButton
+    <Button
         android:id="@+id/menuButton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_margin="16dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/transparent"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/menu_icon"
         android:contentDescription="Open Menu"
         android:src="@drawable/baseline_menu_24"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,8 +41,8 @@
         android:id="@+id/greet_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/dmsans"
         android:text="Good day, xxx"
         android:textColor="#FFFFFF"
@@ -54,8 +53,8 @@
         android:id="@+id/greet_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="11dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/ubunturegular"
         android:text="Do you seek guidance?"
         android:textColor="#FFFFFF"
@@ -64,7 +63,7 @@
         app:layout_constraintTop_toBottomOf="@+id/greet_1" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/blue_line"
         android:layout_width="48dp"
         android:layout_height="4dp"
         android:layout_alignParentLeft="true"
@@ -99,6 +98,21 @@
             android:layout_weight="1"/>
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/ubunturegular"
+        android:text="Personality"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toEndOf="@+id/menuButton"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,11 +17,26 @@
         android:theme="@style/Theme.UniPaths"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.Activity_personality_test"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".Activities.Activity_personality_update_trait"
             android:exported="false" />
         <activity
             android:name=".Activities.Activity_personality_career_rec"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Activities.Activity_personality_peer_connect"
             android:exported="true">

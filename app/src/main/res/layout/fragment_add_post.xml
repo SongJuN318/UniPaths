@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background"
+        android:orientation="vertical"
+        tools:context=".Activities.SearchFollowing">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="630dp"
+            android:padding="8dp"
+            android:background="@drawable/main_discussion"
+            android:layout_marginTop="85dp"
+            android:orientation="vertical">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="55dp"
+                android:elevation="0dp"
+                android:background="@color/white"
+                android:id="@+id/bar">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:elevation="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:id="@+id/toolbar">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:src="@drawable/baseline_close_24"
+                            android:id="@+id/close"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="POST"
+                            android:id="@+id/post"
+                            android:textSize="16sp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentEnd="true"
+                            android:textColor="#20339A"/>
+
+                    </RelativeLayout>
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tagsLayout"
+                style="@style/Widget.Material3.TextInputEditText.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="20sp"
+                app:helperText="Enter each tags space separated"
+                android:layout_marginEnd="20sp"
+                android:hint="Add your tags"
+                app:boxCornerRadiusBottomEnd="10sp"
+                app:boxCornerRadiusBottomStart="10sp"
+                app:boxCornerRadiusTopEnd="10sp"
+                app:boxCornerRadiusTopStart="10sp"
+                app:boxStrokeWidth="0sp"
+                app:boxStrokeWidthFocused="0sp"
+                app:hintTextColor="#20339A">
+
+                <com.example.unipaths.Activities.TagsInputEditText
+                    android:id="@+id/tagsET"
+                    style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#20339A"
+                    android:textColor="#20339A"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:drawableLeft="@drawable/baseline_tag_24"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:background="@drawable/background"
+                android:text="Add tag"
+                android:textSize="10sp"
+                app:backgroundTint="#878FBF" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="centerInside"
+                android:layout_gravity="center"
+                android:src="@drawable/add_image_icon"
+                android:id="@+id/image_added"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:hint="Description"
+                android:textStyle="bold"
+                android:layout_marginEnd="20sp"
+                android:layout_marginStart="20sp"
+                android:textColor="@color/black"
+                android:maxLines="5"
+                android:id="@+id/description"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CHOOSE IMAGE"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:background="@drawable/background"
+                android:id="@+id/mButtonChooseImage"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</ScrollView>

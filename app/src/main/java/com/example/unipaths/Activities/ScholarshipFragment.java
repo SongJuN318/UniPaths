@@ -12,10 +12,10 @@ import com.example.unipaths.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link QuizList_Agriculture#newInstance} factory method to
+ * Use the {@link ScholarshipFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class QuizList_Agriculture extends Fragment {
+public class ScholarshipFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class QuizList_Agriculture extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public QuizList_Agriculture() {
+    public ScholarshipFragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class QuizList_Agriculture extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment QuizList_Agriculture.
+     * @return A new instance of fragment ScholarshipFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static QuizList_Agriculture newInstance(String param1, String param2) {
-        QuizList_Agriculture fragment = new QuizList_Agriculture();
+    public static ScholarshipFragment newInstance(String param1, String param2) {
+        ScholarshipFragment fragment = new ScholarshipFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class QuizList_Agriculture extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_quizlist_agriculture, container, false);
+        return inflater.inflate(R.layout.fragment_scholarship, container, false);
     }
 }

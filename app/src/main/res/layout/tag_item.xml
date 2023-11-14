@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:elevation="2dp"
+    android:layout_height="wrap_content"
+    android:padding="12dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/hastag_icon"
+        android:src="@drawable/hashtag_icon"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/hastag_icon"
+        android:layout_marginStart="10dp"
+        android:orientation="vertical"
+        android:layout_centerVertical="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tag_name"
+            android:text="Tag Name"
+            android:maxLines="1"
+            android:textStyle="bold"
+            android:fontFamily="@font/playfair_display"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/posts_count"
+            android:text="0 Posts"
+            android:maxLines="1"/>
+
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="85dp"
+        android:layout_height="30dp"
+        android:background="#EAF5FF"
+        android:id="@+id/btn_follow"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:fontFamily="@font/ubunturegular"
+        android:textSize="12dp"
+        android:textAllCaps="false"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone"/>
+
+
+</RelativeLayout>

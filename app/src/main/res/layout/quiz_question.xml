@@ -98,7 +98,7 @@
                 android:layout_marginRight="20dp"
                 android:background="@drawable/roundedbutton"
                 android:text="@string/_3"
-                android:textSize="18dp"/>
+                android:textSize="18dp" />
 
             <Button
                 android:id="@+id/question_4"

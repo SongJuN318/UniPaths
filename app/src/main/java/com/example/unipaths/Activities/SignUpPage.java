@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.unipaths.R;
+import com.example.unipaths.Models.UserHelperClass;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -27,6 +28,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Arrays;
 
@@ -38,6 +41,8 @@ public class SignUpPage extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     CallbackManager callbackManager;
+    FirebaseDatabase database;
+    DatabaseReference reference;
 
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
@@ -108,6 +113,8 @@ public class SignUpPage extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                database = FirebaseDatabase.getInstance();
+                reference = database.getReference("users");
                 loadingProgress.setVisibility(View.VISIBLE);
                 final String password = userPassword.getText().toString();
                 final String password2 = userPassword2.getText().toString();
@@ -162,7 +169,13 @@ public class SignUpPage extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            FirebaseUser firebaseUser = mAuth.getCurrentUser();
+                            String userid = firebaseUser.getUid();
+                            String bio = "Busy";
+                            String imageurl = "https://firebasestorage.googleapis.com/v0/b/unipaths-adb69.appspot.com/o/profile_icon.png?alt=media&token=bfae9b79-9bc4-4c77-b718-72a4051d1341";
+                            UserHelperClass helperClass = new UserHelperClass(name, email, password, userid, bio, imageurl);
                             loadingProgress.setVisibility(View.GONE);
+                            reference.child(userid).setValue(helperClass);
                             Toast.makeText(SignUpPage.this, "Account created", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
                             startActivity(intent);

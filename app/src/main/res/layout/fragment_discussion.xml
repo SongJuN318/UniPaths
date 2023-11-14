@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".Activities.SearchFollowing">
+    tools:context=".Activities.DiscussionFragment">
 
     <View
         android:id="@+id/view"
@@ -16,11 +16,16 @@
         android:layout_marginTop="85dp"
         android:background="@drawable/main_discussion" />
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="560dp"
+        android:layout_marginTop="155dp"
+        android:id="@+id/recycler_view"/>
+
+    <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Discussion"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"/>
+        android:id="@+id/progress_circular"
+        android:layout_centerInParent="true"/>
 
 </RelativeLayout>

@@ -14,6 +14,10 @@
     <string name="quiz_name">[Quiz Name]</string>
     <string name="_10_questions">10 Questions</string>
     <string name="time">1 hour 15 mins</string>
+    <string name="local">Local</string>
+    <string name="international">International</string>
+    <string name="for_athletes">For Athletes</string>
+    <string name="for_disabled_students">For Disabled Students</string>
 
 
 </resources>

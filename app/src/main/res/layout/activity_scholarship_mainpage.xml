@@ -3,18 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="360dp">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="360dp"
-        android:layout_marginTop="3dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="1dp"
         android:src="@drawable/background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
 
     <TextView
         android:id="@+id/HelloUser"
@@ -53,10 +54,11 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:scrollbars="none"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/BottomPart">
@@ -67,59 +69,86 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/ViewAllButton"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:background="@android:color/transparent"
                 android:paddingHorizontal="20dp"
                 android:text="@string/view_all"
-                android:textColor="@color/grey"
-                android:background="@android:color/transparent"
                 android:textAllCaps="false"
-                />
+                android:textColor="@color/grey" />
 
             <Button
+                android:id="@+id/LocalButton"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:paddingHorizontal="20dp"
-                android:text="International"
-                android:textColor="@color/grey"
                 android:background="@android:color/transparent"
+                android:paddingHorizontal="20dp"
+                android:text="@string/local"
                 android:textAllCaps="false"
-                />
+                android:textColor="@color/grey" />
 
             <Button
+                android:id="@+id/InternationalButton"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:paddingHorizontal="20dp"
-                android:text="Local"
-                android:textColor="@color/grey"
                 android:background="@android:color/transparent"
+                android:paddingHorizontal="20dp"
+                android:text="@string/international"
                 android:textAllCaps="false"
-                />
+                android:textColor="@color/grey" />
 
             <Button
+                android:id="@+id/ForAthletesButton"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:paddingHorizontal="20dp"
-                android:text="For Athletes"
-                android:textColor="@color/grey"
                 android:background="@android:color/transparent"
+                android:paddingHorizontal="20dp"
+                android:text="@string/for_athletes"
                 android:textAllCaps="false"
-                />
+                android:textColor="@color/grey" />
 
             <Button
+                android:id="@+id/ForDisabledButton"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:paddingHorizontal="20dp"
-                android:text="For Disabled Students"
-                android:textColor="@color/grey"
                 android:background="@android:color/transparent"
+                android:paddingHorizontal="20dp"
+                android:text="@string/for_disabled_students"
                 android:textAllCaps="false"
-                />
-
+                android:textColor="@color/grey" />
 
 
         </LinearLayout>
     </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="350dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/NaviButton"
+        android:contentDescription="Navigation Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:padding="12dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:srcCompat="@drawable/menu_icon" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="630dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/main_discussion"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.533" />
+
+    <Button
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@drawable/menu_icon"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <TextView
+        android:id="@+id/text_header1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What should you know"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.078"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.061" />
+
+    <Button
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@drawable/notification_icon"
+        android:backgroundTint="#FFFFFF"
+        android:foregroundTint="#FFFFFF"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.957"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:background="#00FFFFFF"
+        android:drawableTop="@drawable/knowledge_icon"
+        android:gravity="center"
+        android:text="Basic Knowledge"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.249"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.988" />
+
+    <Button
+        android:layout_width="85dp"
+        android:layout_height="45dp"
+        android:background="#00FFFFFF"
+        android:drawableTop="@drawable/personality_icon"
+        android:gravity="center"
+        android:text="Personality Test"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.016"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.988" />
+
+    <Button
+        android:layout_width="70dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:background="#00FFFFFF"
+        android:drawableTop="@drawable/scholarship_icon"
+        android:gravity="center"
+        android:text="Scholarship"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.988" />
+
+    <Button
+        android:layout_width="85dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:background="#00FFFFFF"
+        android:drawableTop="@drawable/discussion_icon"
+        android:gravity="center"
+        android:text="Discussion Forum"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.988" />
+
+    <Button
+        android:layout_width="70dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:background="#00FFFFFF"
+        android:drawableTop="@drawable/quizzes"
+        android:gravity="center"
+        android:text="Quizzes"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.996"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.988" />
+
+    <!--Start own design -->
+
+
+    <!-- Auto layout, variables, and unit scale are not yet supported -->
+    <View
+        android:id="@+id/filter_title"
+        android:layout_width="330dp"
+        android:layout_height="23dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="110dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/requirement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:gravity="top"
+        android:text="Requirements"
+        app:layout_constraintStart_toStartOf="@+id/filter_title"
+        app:layout_constraintTop_toTopOf="@id/filter_title" />
+
+    <TextView
+        android:id="@+id/universities"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="30dp"
+        android:gravity="top"
+        android:text="Universities"
+        app:layout_constraintStart_toEndOf="@+id/requirement"
+        app:layout_constraintTop_toTopOf="@id/filter_title" />
+
+    <TextView
+        android:id="@+id/courses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="30dp"
+        android:gravity="top"
+        android:text="Courses"
+        app:layout_constraintStart_toEndOf="@+id/universities"
+        app:layout_constraintTop_toTopOf="@id/filter_title" />
+
+    <TextView
+        android:id="@+id/fee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="30dp"
+        android:gravity="top"
+        android:text="Fee"
+        app:layout_constraintStart_toEndOf="@+id/courses"
+        app:layout_constraintTop_toTopOf="@id/filter_title" />
+        />
+
+    <View
+        android:id="@+id/line_chosen"
+        android:layout_width="70dp"
+        android:layout_height="1dp"
+        android:background="#3F51B5"
+        app:layout_constraintEnd_toEndOf="@id/requirement"
+        app:layout_constraintStart_toStartOf="@id/requirement"
+        app:layout_constraintTop_toBottomOf="@+id/requirement" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Requirements"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/filter_title" />
+
+    <View
+        android:id="@+id/rectangle_content1"
+        android:layout_width="320dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <TextView
+        android:id="@+id/number1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:text="1."
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/rectangle_content1"
+        app:layout_constraintTop_toTopOf="@id/rectangle_content1" />
+
+    <TextView
+        android:id="@+id/requirement1"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="0dp"
+        android:text="Result of Malaysia University English Test (MUET):"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/rectangle_content1"
+        app:layout_constraintTop_toTopOf="@id/number1" />
+
+    <TextView
+        android:id="@+id/number1a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:text="a."
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@id/rectangle_content1"
+        app:layout_constraintTop_toBottomOf="@id/requirement1" />
+
+    <TextView
+        android:id="@+id/requirement1a"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:text="at least band 1 (might vary for different courses and universities)"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@id/rectangle_content1"
+        app:layout_constraintTop_toBottomOf="@id/requirement1" />
+
+    <View
+        android:id="@+id/rectangle_content2"
+        android:layout_width="320dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rectangle_content1" />
+
+    <TextView
+        android:id="@+id/number2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:text="2."
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/rectangle_content2"
+        app:layout_constraintTop_toTopOf="@id/rectangle_content2" />
+
+    <TextView
+        android:id="@+id/requirement2"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="0dp"
+        android:text="Result of Sijil Pelajaran Malaysia (SPM):"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/rectangle_content2"
+        app:layout_constraintTop_toTopOf="@id/number2" />
+
+    <TextView
+        android:id="@+id/number2ab"
+        android:layout_width="12dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:text="a.b."
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@id/rectangle_content2"
+        app:layout_constraintTop_toBottomOf="@id/requirement2" />
+
+    <TextView
+        android:id="@+id/requirement2ab"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:text="C grade in Bahasa Malaysia passing grade in History"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@id/rectangle_content2"
+        app:layout_constraintTop_toBottomOf="@id/requirement2" />
+
+    <View
+        android:id="@+id/rectangle_content3"
+        android:layout_width="320dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rectangle_content2" />
+
+    <TextView
+        android:id="@+id/number3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:text="3."
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/rectangle_content3"
+        app:layout_constraintTop_toTopOf="@id/rectangle_content3" />
+
+    <TextView
+        android:id="@+id/requirement3"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="0dp"
+        android:text="Result of Sijil Pelajaran Malaysia (SPM):"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/rectangle_content3"
+        app:layout_constraintTop_toTopOf="@id/number3" />
+
+    <TextView
+        android:id="@+id/number3a"
+        android:layout_width="12dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:text="a."
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/rectangle_content3"
+        app:layout_constraintTop_toBottomOf="@id/requirement3" />
+
+    <TextView
+        android:id="@+id/requirement3a"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:text="Malaysian Higher School Certificate (STPM): "
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/rectangle_content3"
+        app:layout_constraintTop_toBottomOf="@id/requirement3" />
+
+    <TextView
+        android:id="@+id/number3ai"
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:text="  i. ii."
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/requirement3a"
+        app:layout_constraintStart_toStartOf="@id/rectangle_content3"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

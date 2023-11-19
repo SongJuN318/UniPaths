@@ -23,25 +23,6 @@
                     android:layout_marginTop="85dp"
                     android:background="@drawable/main_discussion" />
 
-                <View
-                    android:id="@+id/indicator_top"
-                    android:layout_marginLeft="180dp"
-                    android:layout_marginRight="180dp"
-                    android:layout_marginTop="100dp"
-                    android:layout_width="40dp"
-                    android:layout_height="3.74dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:background="#3550DC" />
-
-                <Button
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:background="@drawable/notification_icon"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginLeft="350dp"/>
-
                 <androidx.viewpager.widget.ViewPager
                     android:id="@+id/viewpager"
                     android:layout_width="wrap_content"
@@ -51,19 +32,24 @@
                     android:id="@+id/tabLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="121dp"
+                    android:layout_marginTop="110dp"
                     app:tabTextColor="#999999"
                     app:tabSelectedTextColor="#3179E3">
 
                         <com.google.android.material.tabs.TabItem
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Discussions" />
+                            android:text="Discussion" />
 
                         <com.google.android.material.tabs.TabItem
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Followings"/>
+                            android:text="AddPost"/>
+
+                        <com.google.android.material.tabs.TabItem
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Following"/>
 
                         <com.google.android.material.tabs.TabItem
                             android:layout_width="wrap_content"
@@ -86,8 +72,8 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:gravity="center">
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
 
                                 <TextView
                                     android:id="@+id/toolbar_title"
@@ -96,11 +82,21 @@
                                     android:text="Discussions"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
-                                    android:layout_marginRight="35dp"
-                                    android:layout_gravity="center"
-                                    android:gravity="center" />
+                                    android:layout_marginRight="80dp"
+                                    android:layout_marginLeft="80dp"/>
+
+                                <de.hdodenhof.circleimageview.CircleImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    app:shapeAppearanceOverlay="@style/circular"
+                                    app:strokeColor="#787FF6"
+                                    app:strokeWidth="2dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:id="@+id/profile_img_side"
+                                    android:src="@drawable/profile_icon"/>
 
                         </LinearLayout>
+
                 </androidx.appcompat.widget.Toolbar>
 
                 <FrameLayout
@@ -119,6 +115,7 @@
                             android:layout_gravity="bottom"
                             android:backgroundTint="#00000000"
                             app:fabCradleMargin="10dp"
+                            android:background="@drawable/background"
                             app:fabCradleRoundedCornerRadius="50dp">
 
                                 <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -126,6 +123,7 @@
                                     android:layout_height="wrap_content"
                                     android:id="@+id/bottom_navigation"
                                     app:labelVisibilityMode="labeled"
+                                    android:layout_gravity="bottom"
                                     app:itemTextColor="@color/white"
                                     app:itemIconTint="@color/white"
                                     app:menu="@menu/bottom_nav_menu"
@@ -134,6 +132,18 @@
                         </com.google.android.material.bottomappbar.BottomAppBar>
 
                 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+                <View
+                    android:id="@+id/indicator_top"
+                    android:layout_marginLeft="180dp"
+                    android:layout_marginRight="180dp"
+                    android:layout_marginTop="100dp"
+                    android:layout_width="40dp"
+                    android:layout_height="3.74dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:background="#3550DC" />
         </RelativeLayout>
 
         <com.google.android.material.navigation.NavigationView

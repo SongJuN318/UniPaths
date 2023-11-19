@@ -1,4 +1,4 @@
 package com.example.unipaths.Activities;
 
-public class QuizList {
+public class ScholarshipPage {
 }

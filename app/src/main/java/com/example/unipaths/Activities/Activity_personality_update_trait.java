@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.unipaths.R;
 
-public class MainActivity_Uni_Requirement extends AppCompatActivity {
+public class Activity_personality_update_trait extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_uni_requirement);
+        setContentView(R.layout.activity_personality_update_trait);
     }
 }

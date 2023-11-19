@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="personality_test_array">
+        <!--Extraversion -->
+        <item>Do you regularly seek out social interactions and enjoy meeting new people?</item>
+        <item>Are you often the one initiating conversations or social activities with friends?</item>
+        <item>Do you feel energized and enthusiastic in group settings or social events?</item>
+        <item>Are you comfortable speaking up and expressing your thoughts in a group?</item>
+        <item>Do you enjoy being the center of attention in social situations?</item>
+        <item>Are you more likely to say "yes" to invitations to social events than decline?</item>
+        <item>Do you find it easy to strike up conversations with strangers?</item>
+        <item>Are you generally outgoing and assertive in your interactions with others?</item>
+
+        <!--Introversion -->
+        <item>Do you prefer spending time alone or in smaller, more intimate settings?</item>
+        <item>Are you more inclined to observe and listen in social situations rather than actively participate?</item>
+        <item>Do you feel the need for regular periods of solitude to recharge?</item>
+        <item>Do you find large social gatherings draining and prefer quieter, more relaxed settings?</item>
+        <item>Are you selective about the people with whom you share your thoughts and feelings?</item>
+        <item>Do you prefer one-on-one conversations over group discussions?</item>
+        <item>Are you more comfortable with a few close friends rather than a large circle of acquaintances?</item>
+    </string-array>
+</resources>

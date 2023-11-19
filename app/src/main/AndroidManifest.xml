@@ -56,7 +56,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
->>>>>>> zhengyu
         <activity
             android:name=".Activities.DiscussionForum"
             android:enableOnBackInvokedCallback="true"

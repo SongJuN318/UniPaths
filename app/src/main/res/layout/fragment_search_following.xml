@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".Activities.SearchFollowing">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/bar"
+        android:background="#00000000">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_marginLeft="30dp"
+            android:layout_width="330dp"
+            android:layout_height="40dp"
+            android:background="@drawable/searchbar_style"
+            android:layout_marginTop="175dp"
+            android:id="@+id/toolbar2">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_search_24"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/search_bar"
+                android:textColor="#20339A"
+                android:background="#EAF5FF"
+                android:hint="Search"
+                android:textSize="10dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/playfair_display"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="630dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="85dp"
+        android:background="@drawable/main_discussion" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="480dp"
+        android:layout_marginTop="230dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/recycler_view"/>
+
+</RelativeLayout>

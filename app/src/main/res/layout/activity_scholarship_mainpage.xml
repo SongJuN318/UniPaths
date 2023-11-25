@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:fontFamily="sans-serif-condensed-medium"
-        android:text="@string/explore_scholarship_opportunities"
+        android:text="explore_scholarship_opportunities"
         android:textColor="#FFFFFF"
         android:textColorLink="#FFFFFF"
         android:textSize="25sp"
@@ -75,7 +75,7 @@
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
                 android:paddingHorizontal="20dp"
-                android:text="@string/view_all"
+                android:text="view_all"
                 android:textAllCaps="false"
                 android:textColor="@color/grey" />
 

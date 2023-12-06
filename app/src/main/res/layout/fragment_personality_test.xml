@@ -16,10 +16,4 @@
         android:layout_marginTop="85dp"
         android:background="@drawable/main_discussion" />
 
-    <TextView
-        android:layout_width="30dp"
-        android:layout_height="18dp"
-        android:text="hello"
-        android:textColor="@color/black" />
-
 </FrameLayout>

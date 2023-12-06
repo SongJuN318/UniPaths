@@ -8,13 +8,14 @@
     android:background="@color/white"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <com.google.android.material.imageview.ShapeableImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:padding="2dp"
         android:layout_width="80dp"
         android:layout_height="80dp"
         app:shapeAppearanceOverlay="@style/circular"
         app:strokeColor="#787FF6"
         app:strokeWidth="2dp"
+        android:id="@+id/profile_img"
         android:src="@drawable/profile_icon"/>
 
     <TextView
@@ -23,6 +24,7 @@
         android:layout_height="wrap_content"
         android:text="Android Knowledge"
         android:textColor="#20339A"
+        android:id="@+id/fullname"
         android:textSize="18dp"
         android:textStyle="bold"/>
 

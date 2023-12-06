@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.unipaths.R;
+import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -34,5 +35,6 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 }

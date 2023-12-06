@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="417dp"
+        android:layout_width="match_parent"
         android:layout_height="372dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -16,6 +17,7 @@
 
     <ImageButton
         android:id="@+id/menuButton"
+        android:padding="12dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -61,13 +63,12 @@
 
     <View
         android:id="@+id/view2"
-        android:layout_width="402dp"
+        android:layout_width="match_parent"
         android:layout_height="608dp"
-        android:layout_marginEnd="4dp"
         android:background="@drawable/signup_page"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.714"
+        app:layout_constraintHorizontal_bias="0.384"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
@@ -78,9 +79,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
         android:fillViewport="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view2">
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -96,9 +99,10 @@
                 android:layout_marginBottom="15dp"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/ubunturegular"
-                android:text="Agriculture, Food &amp;\n Natural Resources"
+                android:text="@string/agriculture"
                 android:textAllCaps="false"
-                android:textColor="#999999" />
+                android:textColor="#999999"
+                style="?android:attr/buttonBarButtonStyle" />
 
             <Button
                 android:id="@+id/button_architecture"
@@ -108,9 +112,10 @@
                 android:layout_marginBottom="15dp"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/ubunturegular"
-                android:text="Architecture &amp;\n Construction"
+                android:text="@string/architecture"
                 android:textAllCaps="false"
-                android:textColor="#999999" />
+                android:textColor="#999999"
+                style="?android:attr/buttonBarButtonStyle" />
 
             <Button
                 android:id="@+id/button_arts"
@@ -120,9 +125,10 @@
                 android:layout_marginBottom="15dp"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/ubunturegular"
-                android:text="Arts &amp;\n Communication"
+                android:text="@string/arts"
                 android:textAllCaps="false"
-                android:textColor="#999999" />
+                android:textColor="#999999"
+                style="?android:attr/buttonBarButtonStyle"/>
 
             <Button
                 android:id="@+id/button_business"
@@ -132,9 +138,10 @@
                 android:layout_marginBottom="15dp"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/ubunturegular"
-                android:text="Business &amp;\n Finance"
+                android:text="@string/business"
                 android:textAllCaps="false"
-                android:textColor="#999999" />
+                android:textColor="#999999"
+                style="?android:attr/buttonBarButtonStyle" />
 
             <Button
                 android:id="@+id/button_education"
@@ -144,9 +151,10 @@
                 android:layout_marginBottom="15dp"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/ubunturegular"
-                android:text="Education"
+                android:text="@string/education"
                 android:textAllCaps="false"
-                android:textColor="#999999" />
+                android:textColor="#999999"
+                style="?android:attr/buttonBarButtonStyle"/>
 
             <Button
                 android:id="@+id/button_health"
@@ -156,9 +164,10 @@
                 android:layout_marginBottom="15dp"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/ubunturegular"
-                android:text="Health Science"
+                android:text="@string/health_science"
                 android:textAllCaps="false"
-                android:textColor="#999999" />
+                android:textColor="#999999"
+                style="?android:attr/buttonBarButtonStyle"/>
 
             <Button
                 android:id="@+id/button_it"
@@ -168,9 +177,10 @@
                 android:layout_marginBottom="15dp"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/ubunturegular"
-                android:text="Information \n Technology"
+                android:text="@string/information_n_technology"
                 android:textAllCaps="false"
-                android:textColor="#999999" />
+                android:textColor="#999999"
+                style="?android:attr/buttonBarButtonStyle"/>
 
             <Button
                 android:id="@+id/button_law"
@@ -180,9 +190,10 @@
                 android:layout_marginBottom="15dp"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/ubunturegular"
-                android:text="Law"
+                android:text="@string/law"
                 android:textAllCaps="false"
                 android:textColor="#999999"
+                style="?android:attr/buttonBarButtonStyle"
                 />
 
             <Button
@@ -193,9 +204,10 @@
                 android:layout_marginBottom="15dp"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/ubunturegular"
-                android:text="Language"
+                android:text="@string/language"
                 android:textAllCaps="false"
-                android:textColor="#999999" />
+                android:textColor="#999999"
+                style="?android:attr/buttonBarButtonStyle"/>
 
             <Button
                 android:id="@+id/button_science"
@@ -205,18 +217,18 @@
                 android:layout_marginBottom="15dp"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/ubunturegular"
-                android:text="Science, Technology \n Engineering &amp; Math"
+                android:text="@string/science_technology"
                 android:textAllCaps="false"
-                android:textColor="#999999" />
-
+                android:textColor="#999999"
+                style="?android:attr/buttonBarButtonStyle"/>
         </LinearLayout>
     </HorizontalScrollView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvQuizList"
-        android:layout_width="329dp"
-        android:layout_height="414dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="315dp"
+        android:layout_height="482dp"
+        android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hsvFieldList" />

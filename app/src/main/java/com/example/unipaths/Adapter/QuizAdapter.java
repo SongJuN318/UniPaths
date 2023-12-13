@@ -41,8 +41,6 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.QuizViewHolder
         Glide.with(context)
                 .load(quizItem.getImageResourceUrl())
                 .into(holder.ivQuizImage);
-        holder.ivArticleIcon.setImageResource(R.drawable.baseline_article_24);
-        holder.ivTimeIcon.setImageResource(R.drawable.baseline_access_time_24);
     }
 
     @Override
@@ -52,7 +50,7 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.QuizViewHolder
 
     public static class QuizViewHolder extends RecyclerView.ViewHolder {
         public TextView tvQuizName;
-        public ImageView ivQuizImage, ivArticleIcon, ivTimeIcon;
+        public ImageView ivQuizImage;
 
         public QuizViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -61,4 +59,3 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.QuizViewHolder
         }
     }
 }
-

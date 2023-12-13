@@ -1,23 +1,15 @@
 package com.example.unipaths.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.ImageView;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.unipaths.Adapter.QuizAdapter;
 import com.example.unipaths.R;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,7 +22,7 @@ import java.util.List;
 public class Activity_quiz extends AppCompatActivity {
     private RecyclerView recyclerView;
     private QuizAdapter quizAdapter;
-    private List<QuizItem> quizItemList= new ArrayList<>();
+    private List<QuizItem> quizItemList;
 
     private DatabaseReference databaseReference;
 
@@ -39,12 +31,13 @@ public class Activity_quiz extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.quiz_list);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Quiz");
-
         recyclerView = findViewById(R.id.rvQuizList);
+        quizItemList = new ArrayList<>();
         quizAdapter = new QuizAdapter(this, quizItemList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(quizAdapter);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("Quiz").child("Agriculture"); // Change to your desired category
 
         fetchDataFromFirebase();
     }
@@ -55,15 +48,21 @@ public class Activity_quiz extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 quizItemList.clear();
 
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    for (DataSnapshot quizSnapshot : snapshot.getChildren()) {
-                        QuizItem quizItem = quizSnapshot.getValue(QuizItem.class);
-                        if (quizItem != null) {
-                            quizItemList.add(quizItem);
-                        }
-                    }
+                for (DataSnapshot quizSnapshot : dataSnapshot.getChildren()) {
+                    String imageResourceUrl = quizSnapshot.child("imageResourceUrl").getValue(String.class);
+                    String quizName = quizSnapshot.child("quizName").getValue(String.class);
+
+                    // Create a QuizItem for each quiz
+                    QuizItem quizItem = new QuizItem(quizName, imageResourceUrl);
+
+                    // Add the QuizItem to the list
+                    quizItemList.add(quizItem);
+
+                    Log.d("FirebaseData", "QuizName: " + quizName);
+                    Log.d("FirebaseData", "ImageResourceUrl: " + imageResourceUrl);
                 }
 
+                Log.d("FirebaseData", "Number of items: " + quizItemList.size());
                 quizAdapter.notifyDataSetChanged();
             }
 
@@ -73,5 +72,4 @@ public class Activity_quiz extends AppCompatActivity {
             }
         });
     }
-
 }

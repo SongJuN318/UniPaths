@@ -2,6 +2,8 @@ package com.example.unipaths.Activities;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.HorizontalScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,11 +39,53 @@ public class Activity_quiz extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(quizAdapter);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Quiz").child("Agriculture"); // Change to your desired category
+        databaseReference = FirebaseDatabase.getInstance().getReference("Quiz").child("Agriculture");
 
         fetchDataFromFirebase();
+
+        HorizontalScrollView hsvFieldList = findViewById(R.id.hsvFieldList);
+        hsvFieldList.setHorizontalScrollBarEnabled(false);
+
+        // Add click listeners to the buttons
+        Button btnAgriculture = findViewById(R.id.button_argriculture);
+        btnAgriculture.setOnClickListener(v -> setDatabaseReferenceAndFetchData("Agriculture"));
+
+        Button btnArchitecture = findViewById(R.id.button_architecture);
+        btnArchitecture.setOnClickListener(v -> setDatabaseReferenceAndFetchData("Architecture"));
+
+        Button btnArts = findViewById(R.id.button_arts);
+        btnArts.setOnClickListener(v -> setDatabaseReferenceAndFetchData("Arts"));
+
+        Button btnBusiness = findViewById(R.id.button_business);
+        btnBusiness.setOnClickListener(v -> setDatabaseReferenceAndFetchData("Business"));
+
+        Button btnEducation = findViewById(R.id.button_education);
+        btnEducation.setOnClickListener(v -> setDatabaseReferenceAndFetchData("Education"));
+
+        Button btnHealth = findViewById(R.id.button_health);
+        btnHealth.setOnClickListener(v -> setDatabaseReferenceAndFetchData("Health"));
+
+        Button btnIT = findViewById(R.id.button_it);
+        btnIT.setOnClickListener(v -> setDatabaseReferenceAndFetchData("InformationTechnology"));
+
+        Button btnLanguage = findViewById(R.id.button_language);
+        btnLanguage.setOnClickListener(v -> setDatabaseReferenceAndFetchData("Language"));
+
+        Button btnLaw = findViewById(R.id.button_law);
+        btnLaw.setOnClickListener(v -> setDatabaseReferenceAndFetchData("Law"));
+
+        Button btnSTEM = findViewById(R.id.button_science);
+        btnSTEM.setOnClickListener(v -> setDatabaseReferenceAndFetchData("STEM"));
+
     }
 
+    private void setDatabaseReferenceAndFetchData(String category) {
+        // Set the database reference based on the selected category
+        databaseReference = FirebaseDatabase.getInstance().getReference("Quiz").child(category);
+
+        // Fetch data from the updated reference
+        fetchDataFromFirebase();
+    }
     private void fetchDataFromFirebase() {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override

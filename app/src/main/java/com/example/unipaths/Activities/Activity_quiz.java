@@ -1,5 +1,6 @@
 package com.example.unipaths.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -24,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Activity_quiz extends AppCompatActivity {
+public class Activity_quiz extends AppCompatActivity implements QuizAdapter.OnQuizItemClickListener{
     private RecyclerView recyclerView;
     private QuizAdapter quizAdapter;
     private List<QuizItem> quizItemList;
@@ -76,6 +77,19 @@ public class Activity_quiz extends AppCompatActivity {
         setButtonClickListener(btnSTEM, "STEM");
 
         displayUsername();
+
+        quizAdapter.setOnQuizItemClickListener(this);
+    }
+
+    @Override
+    public void onQuizItemClick(int position) {
+        QuizItem clickedItem = quizItemList.get(position);
+        List<Question> questions = clickedItem.getQuestions();
+        // Handle the item click, for example, start the next activity
+        Intent intent = new Intent(Activity_quiz.this, QuizQuestionActivity.class);
+        //intent.putExtra("questions", new ArrayList<>(questions));
+        intent.putExtra("quizName", clickedItem.getQuizName()); // Pass necessary data to the next activity
+        startActivity(intent);
     }
 
     private void displayUsername() {
@@ -126,8 +140,14 @@ public class Activity_quiz extends AppCompatActivity {
                     String imageResourceUrl = quizSnapshot.child("imageResourceUrl").getValue(String.class);
                     String quizName = quizSnapshot.child("quizName").getValue(String.class);
 
+                    List<Question> questions = new ArrayList<>();
+                    for (DataSnapshot questionSnapshot : quizSnapshot.child("questions").getChildren()) {
+                        Question question = questionSnapshot.getValue(Question.class);
+                        questions.add(question);
+                    }
+
                     // Create a QuizItem for each quiz
-                    QuizItem quizItem = new QuizItem(quizName, imageResourceUrl);
+                    QuizItem quizItem = new QuizItem(quizName, imageResourceUrl,questions);
 
                     // Add the QuizItem to the list
                     quizItemList.add(quizItem);

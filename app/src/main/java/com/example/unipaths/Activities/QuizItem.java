@@ -9,9 +9,10 @@ public class QuizItem {
     public QuizItem() {
     }
 
-    public QuizItem(String quizName, String imageResourceUrl) {
+    public QuizItem(String quizName, String imageResourceUrl, List<Question> questions) {
         this.quizName = quizName;
         this.imageResourceUrl = imageResourceUrl;
+        this.questions=questions;
     }
 
     public String getQuizName() {

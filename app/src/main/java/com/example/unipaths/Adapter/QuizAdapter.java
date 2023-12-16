@@ -17,12 +17,22 @@ import com.example.unipaths.R;
 import java.util.List;
 
 public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.QuizViewHolder> {
+
     private Context context;
     private List<QuizItem> quizItemList;
+    private OnQuizItemClickListener onQuizItemClickListener;
 
     public QuizAdapter(Context context, List<QuizItem> quizItemList) {
         this.context = context;
         this.quizItemList = quizItemList;
+    }
+
+    public interface OnQuizItemClickListener {
+        void onQuizItemClick(int position);
+    }
+
+    public void setOnQuizItemClickListener(OnQuizItemClickListener listener) {
+        this.onQuizItemClickListener = listener;
     }
 
     @NonNull
@@ -41,6 +51,13 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.QuizViewHolder
         Glide.with(context)
                 .load(quizItem.getImageResourceUrl())
                 .into(holder.ivQuizImage);
+
+        // Set click listener
+        holder.itemView.setOnClickListener(view -> {
+            if (onQuizItemClickListener != null) {
+                onQuizItemClickListener.onQuizItemClick(position);
+            }
+        });
     }
 
     @Override
@@ -56,6 +73,9 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.QuizViewHolder
             super(itemView);
             tvQuizName = itemView.findViewById(R.id.tvQuizName);
             ivQuizImage = itemView.findViewById(R.id.quizListImage);
+
         }
     }
 }
+
+

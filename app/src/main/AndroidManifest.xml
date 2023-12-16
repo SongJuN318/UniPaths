@@ -27,6 +27,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".Activities.QuizQuestionActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.Knowledge_Courses"
             android:exported="false" />
         <activity

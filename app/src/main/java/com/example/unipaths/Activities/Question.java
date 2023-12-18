@@ -1,8 +1,9 @@
 package com.example.unipaths.Activities;
 
+import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Question {
+public class Question implements Parcelable{
     private String correctAnswer;
     private String optionA;
     private String optionB;
@@ -70,4 +71,41 @@ public class Question {
     public void setQuestionText(String questionText) {
         this.questionText = questionText;
     }
+
+    protected Question(Parcel in) {
+        correctAnswer = in.readString();
+        optionA = in.readString();
+        optionB = in.readString();
+        optionC = in.readString();
+        optionD = in.readString();
+        questionText = in.readString();
+    }
+
+    public static final Creator<Question> CREATOR = new Creator<Question>() {
+        @Override
+        public Question createFromParcel(Parcel in) {
+            return new Question(in);
+        }
+
+        @Override
+        public Question[] newArray(int size) {
+            return new Question[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(correctAnswer);
+        dest.writeString(optionA);
+        dest.writeString(optionB);
+        dest.writeString(optionC);
+        dest.writeString(optionD);
+        dest.writeString(questionText);
+    }
 }
+

@@ -87,7 +87,7 @@ public class Activity_quiz extends AppCompatActivity implements QuizAdapter.OnQu
         List<Question> questions = clickedItem.getQuestions();
         // Handle the item click, for example, start the next activity
         Intent intent = new Intent(Activity_quiz.this, QuizQuestionActivity.class);
-        //intent.putExtra("questions", new ArrayList<>(questions));
+        intent.putExtra("questions", new ArrayList<>(questions));
         intent.putExtra("quizName", clickedItem.getQuizName()); // Pass necessary data to the next activity
         startActivity(intent);
     }
@@ -154,6 +154,7 @@ public class Activity_quiz extends AppCompatActivity implements QuizAdapter.OnQu
 
                     Log.d("FirebaseData", "QuizName: " + quizName);
                     Log.d("FirebaseData", "ImageResourceUrl: " + imageResourceUrl);
+                    Log.d("FirebaseData", "Question: " + questions.size());
                 }
 
                 Log.d("FirebaseData", "Number of items: " + quizItemList.size());

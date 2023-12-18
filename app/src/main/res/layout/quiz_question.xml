@@ -79,7 +79,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginRight="20dp"
-                android:background="@drawable/roundedbutton"
+                android:background="@drawable/button_question_selector"
                 android:text="@string/_1"
                 android:textSize="18dp"/>
 
@@ -88,7 +88,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginRight="20dp"
-                android:background="@drawable/roundedbutton"
+                android:background="@drawable/button_question_selector"
                 android:text="@string/_2"
                 android:textSize="18dp"/>
 
@@ -97,7 +97,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginRight="20dp"
-                android:background="@drawable/roundedbutton"
+                android:background="@drawable/button_question_selector"
                 android:text="@string/_3"
                 android:textSize="18dp" />
 
@@ -106,7 +106,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginRight="20dp"
-                android:background="@drawable/roundedbutton"
+                android:background="@drawable/button_question_selector"
                 android:text="@string/_4"
                 android:textSize="18dp"/>
 
@@ -115,7 +115,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginRight="20dp"
-                android:background="@drawable/roundedbutton"
+                android:background="@drawable/button_question_selector"
                 android:text="@string/_5"
                 android:textSize="18dp"/>
 
@@ -124,7 +124,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginRight="20dp"
-                android:background="@drawable/roundedbutton"
+                android:background="@drawable/button_question_selector"
                 android:text="@string/_6"
                 android:textSize="18dp"/>
 
@@ -133,7 +133,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginRight="20dp"
-                android:background="@drawable/roundedbutton"
+                android:background="@drawable/button_question_selector"
                 android:text="@string/_7"
                 android:textSize="18dp"/>
 
@@ -142,7 +142,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginRight="20dp"
-                android:background="@drawable/roundedbutton"
+                android:background="@drawable/button_question_selector"
                 android:text="@string/_8"
                 android:textSize="18dp"/>
 
@@ -151,7 +151,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginRight="20dp"
-                android:background="@drawable/roundedbutton"
+                android:background="@drawable/button_question_selector"
                 android:text="@string/_9"
                 android:textSize="18dp"/>
 
@@ -159,7 +159,7 @@
                 android:id="@+id/question_10"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:background="@drawable/roundedbutton"
+                android:background="@drawable/button_question_selector"
                 android:text="@string/_10"
                 android:textSize="18dp"/>
         </LinearLayout>
@@ -167,7 +167,7 @@
 
     <TextView
         android:id="@+id/question"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
         android:layout_marginLeft="36dp"
@@ -254,7 +254,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
         android:layout_marginBottom="36dp"
-        android:background="@drawable/roundedbutton"
+        android:background="@drawable/button_enable"
         android:contentDescription="@string/back"
         android:minWidth="48dp"
         android:minHeight="48dp"
@@ -269,7 +269,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="26dp"
         android:layout_marginBottom="36dp"
-        android:background="@drawable/roundedbutton"
+        android:background="@drawable/button_enable"
         android:contentDescription="@string/back"
         android:minWidth="48dp"
         android:minHeight="48dp"

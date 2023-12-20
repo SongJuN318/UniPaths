@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.unipaths.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class QuizQuestionActivity extends AppCompatActivity {
@@ -27,12 +28,15 @@ public class QuizQuestionActivity extends AppCompatActivity {
     private List<Question> questions;
     private int currentQuestionIndex = 0;
     private List<String> userSelectedAnswers;
+    private HashMap<Integer, Integer> selectedOptionsMap = new HashMap<>();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.quiz_question);
 
-         //Initialize views
+        //Initialize views
         tvQuizName = findViewById(R.id.tvQuizName);
         rgAnswerOption = findViewById(R.id.rgAnswerOption);
         buttonLastQuestion = findViewById(R.id.buttonLastQuestion);
@@ -55,7 +59,7 @@ public class QuizQuestionActivity extends AppCompatActivity {
 
         tvQuizName.setText(quizName);
 
-         //Set click listeners for question buttons
+        //Set click listeners for question buttons
         setButtonClickListener(btnQ1, 0);
         setButtonClickListener(btnQ2, 1);
         setButtonClickListener(btnQ3, 2);
@@ -67,12 +71,12 @@ public class QuizQuestionActivity extends AppCompatActivity {
         setButtonClickListener(btnQ9, 8);
         setButtonClickListener(btnQ10, 9);
 
-         //Initialize UI with the first question
+        //Initialize UI with the first question
         updateUIForQuestion(0);
         btnQ1.setSelected(true);
         buttonNextQuestion.setActivated(true);
 
-         //Set click listeners for navigation buttons
+        //Set click listeners for navigation buttons
         buttonNextQuestion.setOnClickListener(v -> {
             if (currentQuestionIndex < questions.size() - 1) {
                 currentQuestionIndex++;
@@ -89,34 +93,49 @@ public class QuizQuestionActivity extends AppCompatActivity {
             }
         });
 
-        // Set click listener for submit button
         buttonSubmit.setOnClickListener(v -> {
-            int selectedRadioButtonId = rgAnswerOption.getCheckedRadioButtonId();
-            if (selectedRadioButtonId != -1) {
-                RadioButton selectedRadioButton = findViewById(selectedRadioButtonId);
-                String selectedAnswer = selectedRadioButton.getText().toString();
+            // Check if any option is selected
+            int selectedOptionId = rgAnswerOption.getCheckedRadioButtonId();
 
+            if (selectedOptionId != -1) {
+                // Get the selected option
+                RadioButton selectedOption = findViewById(selectedOptionId);
+
+                // Get the index of the selected option (A, B, C, D)
+                int selectedOptionIndex = rgAnswerOption.indexOfChild(selectedOption);
+
+                // Store the selected option index in the map
+                selectedOptionsMap.put(currentQuestionIndex, selectedOptionIndex);
+
+                // Get the current question
                 Question currentQuestion = questions.get(currentQuestionIndex);
-                String correctAnswer = currentQuestion.getCorrectAnswer();
 
-                // Check if the selected answer is correct
-                if (selectedAnswer.equals(correctAnswer)) {
-                    // User selected the correct answer
-                    selectedRadioButton.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light));
-                } else {
-                    // User selected the wrong answer
-                    selectedRadioButton.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light));
+                // Check if the selected option is correct
+                boolean isCorrect = (selectedOptionIndex == currentQuestion.getCorrectOptionIndex());
 
-                    // Find and highlight the correct answer
-                    highlightCorrectAnswer(correctAnswer);
-                }
-
-                // Disable radio buttons after submission
-                disableRadioButtons();
-
-                // You can add additional logic here, such as updating the score
+                // Update UI based on correctness
+                updateUIForSubmission(selectedOption, isCorrect);
             }
         });
+    }
+
+    private void updateUIForSubmission(RadioButton selectedOption, boolean isCorrect) {
+        // Disable radio buttons
+        for (int i = 0; i < rgAnswerOption.getChildCount(); i++) {
+            rgAnswerOption.getChildAt(i).setEnabled(false);
+        }
+
+        // Highlight the selected option
+        if (isCorrect) {
+            selectedOption.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+        } else {
+            selectedOption.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
+
+            // Highlight the correct option
+            RadioButton correctOption = (RadioButton) rgAnswerOption.getChildAt(
+                    questions.get(currentQuestionIndex).getCorrectOptionIndex());
+            correctOption.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+        }
     }
 
     private void setButtonClickListener(Button button, int questionIndex) {
@@ -126,6 +145,14 @@ public class QuizQuestionActivity extends AppCompatActivity {
 
             currentQuestionIndex = questionIndex;
             updateUIForQuestion(currentQuestionIndex);
+            updateButtonStates();
+
+            // Highlight the selected answer if available
+            int selectedOptionIndex = selectedOptionsMap.getOrDefault(currentQuestionIndex, -1);
+            if (selectedOptionIndex != -1) {
+                RadioButton selectedOption = getRadioButtonForIndex(selectedOptionIndex);
+                selectedOption.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+            }
         });
     }
 
@@ -137,6 +164,8 @@ public class QuizQuestionActivity extends AppCompatActivity {
         switch (currentQuestionIndex) {
             case 0:
                 btnQ1.setSelected(true);
+                buttonLastQuestion.setActivated(false);
+                buttonNextQuestion.setActivated(true);
                 break;
             case 1:
                 btnQ2.setSelected(true);
@@ -164,9 +193,12 @@ public class QuizQuestionActivity extends AppCompatActivity {
                 break;
             case 9:
                 btnQ10.setSelected(true);
+                buttonNextQuestion.setActivated(false);
+                buttonLastQuestion.setActivated(true);
                 break;
             default:
-                // Handle other cases if needed
+                buttonLastQuestion.setActivated(true);
+                buttonNextQuestion.setActivated(true);
                 break;
         }
 
@@ -174,6 +206,7 @@ public class QuizQuestionActivity extends AppCompatActivity {
         buttonLastQuestion.setActivated(currentQuestionIndex > 0);
         buttonNextQuestion.setActivated(currentQuestionIndex < questions.size() - 1);
     }
+
     private void clearButtonSelection() {
         // Clear the selected state for all buttons
         btnQ1.setSelected(false);
@@ -187,6 +220,7 @@ public class QuizQuestionActivity extends AppCompatActivity {
         btnQ9.setSelected(false);
         btnQ10.setSelected(false);
     }
+
     private void updateUIForQuestion(int questionIndex) {
         // Clear previous selections
         rgAnswerOption.clearCheck();
@@ -200,49 +234,58 @@ public class QuizQuestionActivity extends AppCompatActivity {
         // Display options
         RadioButton option1 = findViewById(R.id.option1);
         option1.setText(currentQuestion.getOptionA());
+        option1.setTextColor(getResources().getColor(R.color.question_text)); // Reset text color
+        option1.setEnabled(true); // Re-enable the radio button
 
         RadioButton option2 = findViewById(R.id.option2);
         option2.setText(currentQuestion.getOptionB());
+        option2.setTextColor(getResources().getColor(R.color.question_text));
+        option2.setEnabled(true);
 
         RadioButton option3 = findViewById(R.id.option3);
         option3.setText(currentQuestion.getOptionC());
+        option3.setTextColor(getResources().getColor(R.color.question_text));
+        option3.setEnabled(true);
 
         RadioButton option4 = findViewById(R.id.option4);
         option4.setText(currentQuestion.getOptionD());
-    }
+        option4.setTextColor(getResources().getColor(R.color.question_text));
+        option4.setEnabled(true);
 
-    // Add this method to highlight the correct answer
-    private void highlightCorrectAnswer(String correctAnswer) {
-        for (int i = 0; i < rgAnswerOption.getChildCount(); i++) {
-            RadioButton radioButton = (RadioButton) rgAnswerOption.getChildAt(i);
-            if (radioButton.getText().toString().equals(correctAnswer)) {
-                radioButton.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light));
-                break;
+        // Highlight the selected answer if available
+        int selectedOptionIndex = selectedOptionsMap.getOrDefault(questionIndex, -1);
+        if (selectedOptionIndex != -1) {
+            RadioButton selectedOption = getRadioButtonForIndex(selectedOptionIndex);
+
+            // Check if the selected option is correct
+            boolean isCorrect = (selectedOptionIndex == currentQuestion.getCorrectOptionIndex());
+
+            // Highlight the selected option in red (wrong) or green (correct)
+            if (isCorrect) {
+                selectedOption.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+            } else {
+                selectedOption.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
             }
+        }
+        if (selectedOptionsMap.containsKey(questionIndex)) {
+            RadioButton correctOption = getRadioButtonForIndex(currentQuestion.getCorrectOptionIndex());
+            correctOption.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
         }
     }
 
-    // Add this method to disable radio buttons after submission
-    private void disableRadioButtons() {
-        for (int i = 0; i < rgAnswerOption.getChildCount(); i++) {
-            rgAnswerOption.getChildAt(i).setEnabled(false);
+    private RadioButton getRadioButtonForIndex(int index) {
+        switch (index) {
+            case 0:
+                return findViewById(R.id.option1);
+            case 1:
+                return findViewById(R.id.option2);
+            case 2:
+                return findViewById(R.id.option3);
+            case 3:
+                return findViewById(R.id.option4);
+            default:
+                return null;
         }
-        new Handler().postDelayed(() -> {
-            for (int i = 0; i < rgAnswerOption.getChildCount(); i++) {
-                RadioButton radioButton = (RadioButton) rgAnswerOption.getChildAt(i);
-
-                // Reset background color
-                radioButton.setBackgroundColor(0); // 0 means no color, you can also use Color.TRANSPARENT
-
-                radioButton.setEnabled(true);
-            }
-
-            // Move to the next question
-            if (currentQuestionIndex < questions.size() - 1) {
-                currentQuestionIndex++;
-                updateUIForQuestion(currentQuestionIndex);
-            }
-        }, 1000);
     }
 }
 

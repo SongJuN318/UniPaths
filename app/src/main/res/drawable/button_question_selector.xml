@@ -3,7 +3,6 @@
 
     <!-- Selected state -->
     <item android:state_selected="true" android:state_enabled="true" android:drawable="@drawable/blue_rounded_button" />
-
     <!-- Default state -->
     <item android:drawable="@drawable/roundedbutton" /> <!-- Change to your default color -->
 </selector>

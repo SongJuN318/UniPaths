@@ -3,6 +3,9 @@ package com.example.unipaths.Activities;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Question implements Parcelable{
     private String correctAnswer;
     private String optionA;
@@ -10,6 +13,16 @@ public class Question implements Parcelable{
     private String optionC;
     private String optionD;
     private String questionText;
+    private int selectedOptionIndex = -1;
+    private List<Integer> selectedOptions = new ArrayList<>();
+
+    public List<Integer> getSelectedOptions() {
+        return selectedOptions;
+    }
+
+    public void addSelectedOption(int selectedOption) {
+        selectedOptions.add(selectedOption);
+    }
 
     public Question() {
 
@@ -107,5 +120,24 @@ public class Question implements Parcelable{
         dest.writeString(optionD);
         dest.writeString(questionText);
     }
+    public int getSelectedOptionIndex() {
+        return selectedOptionIndex;
+    }
+
+    public int getCorrectOptionIndex() {
+        // Calculate and return the index of the correct option based on your business logic
+        if (correctAnswer.equals(optionA)) {
+            return 0;
+        } else if (correctAnswer.equals(optionB)) {
+            return 1;
+        } else if (correctAnswer.equals(optionC)) {
+            return 2;
+        } else if (correctAnswer.equals(optionD)) {
+            return 3;
+        } else {
+            return -1; // Indicate an error or default value
+        }
+    }
 }
+
 

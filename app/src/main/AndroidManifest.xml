@@ -30,6 +30,9 @@
             android:name=".Activities.QuizQuestionActivity"
             android:exported="false" />
         <activity
+            android:name=".Activities.QuizSummaryActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.Knowledge_Courses"
             android:exported="false" />
         <activity

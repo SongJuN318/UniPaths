@@ -14,7 +14,7 @@
         app:srcCompat="@drawable/background" />
 
     <ImageButton
-        android:id="@+id/menuButton"
+        android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -41,7 +41,7 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/menuButton"
+        app:layout_constraintStart_toEndOf="@+id/backButton"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <View

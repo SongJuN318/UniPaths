@@ -1,5 +1,6 @@
 package com.example.unipaths.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Button;
@@ -27,7 +28,6 @@ public class QuizQuestionActivity extends AppCompatActivity {
     private int score = 0;
     private List<Question> questions;
     private int currentQuestionIndex = 0;
-    private List<String> userSelectedAnswers;
     private HashMap<Integer, Integer> selectedOptionsMap = new HashMap<>();
 
 
@@ -42,6 +42,7 @@ public class QuizQuestionActivity extends AppCompatActivity {
         buttonLastQuestion = findViewById(R.id.buttonLastQuestion);
         buttonNextQuestion = findViewById(R.id.buttonNextQuestion);
         buttonSubmit = findViewById(R.id.buttonSubmit);
+        ImageButton backButton = findViewById(R.id.backButton);
 
         btnQ1 = findViewById(R.id.question_1);
         btnQ2 = findViewById(R.id.question_2);
@@ -115,7 +116,30 @@ public class QuizQuestionActivity extends AppCompatActivity {
 
                 // Update UI based on correctness
                 updateUIForSubmission(selectedOption, isCorrect);
+                if (isCorrect) {
+                    score += 10;
+                }
+                if (currentQuestionIndex == questions.size() - 1) {
+                    // All questions answered, add a delay before navigating to QuizSummaryActivity
+                    new Handler().postDelayed(() -> {
+                        Intent intent = new Intent(QuizQuestionActivity.this, QuizSummaryActivity.class);
+                        intent.putExtra("score", score);
+                        startActivity(intent);
+                        finish(); // Finish the current activity to prevent going back with the back button
+                    }, 2000); // 2000 milliseconds (2 seconds) delay, adjust as needed
+                }
             }
+        });
+        backButton.setOnClickListener(v -> {
+            // Handle the back button click
+            // You can add any additional logic here before finishing the activity
+
+            // Create an Intent to start the QuizListActivity
+            Intent intent = new Intent(QuizQuestionActivity.this, Activity_quiz.class);
+            startActivity(intent);
+
+            // Finish the current activity
+            finish();
         });
     }
 

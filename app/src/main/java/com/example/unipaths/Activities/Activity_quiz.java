@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
-import android.widget.HorizontalScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -29,7 +28,6 @@ public class Activity_quiz extends AppCompatActivity implements QuizAdapter.OnQu
     private RecyclerView recyclerView;
     private QuizAdapter quizAdapter;
     private List<QuizItem> quizItemList;
-
     private TextView helloTextView;
     private DatabaseReference databaseReference;
 

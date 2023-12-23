@@ -58,6 +58,7 @@ public class QuizQuestionActivity extends AppCompatActivity {
         String quizName = getIntent().getStringExtra("quizName");
         questions = new ArrayList<>(getIntent().getParcelableArrayListExtra("questions"));
 
+
         tvQuizName.setText(quizName);
 
         //Set click listeners for question buttons
@@ -124,6 +125,8 @@ public class QuizQuestionActivity extends AppCompatActivity {
                     new Handler().postDelayed(() -> {
                         Intent intent = new Intent(QuizQuestionActivity.this, QuizSummaryActivity.class);
                         intent.putExtra("score", score);
+                        intent.putExtra("quizName",quizName);
+                        intent.putParcelableArrayListExtra("questions",new ArrayList<>(questions));
                         startActivity(intent);
                         finish(); // Finish the current activity to prevent going back with the back button
                     }, 2000); // 2000 milliseconds (2 seconds) delay, adjust as needed

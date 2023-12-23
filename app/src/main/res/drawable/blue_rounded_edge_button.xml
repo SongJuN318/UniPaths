@@ -5,5 +5,5 @@
         android:startColor="#20579A"
         android:endColor="#3599DC"
         android:type="linear"
-        android:angle="-135"/> <!-- Adjust the angle for the gradient direction -->
+        android:angle="0"/> <!-- Adjust the angle for the gradient direction -->
 </shape>

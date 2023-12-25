@@ -9,7 +9,7 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="@string/background"
+        android:contentDescription="Background"
         android:src="@drawable/background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -20,8 +20,8 @@
         android:id="@+id/HelloUser"
         android:layout_width="141dp"
         android:layout_height="40dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="72dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/hello"
         android:textColor="#FFFFFF"
@@ -47,9 +47,12 @@
         android:id="@+id/BottomPart"
         android:layout_width="0dp"
         android:layout_height="540dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="188dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/signup_btn"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -66,7 +69,7 @@
         app:layout_constraintTop_toTopOf="@id/BottomPart">
 
         <Button
-            android:id="@+id/ViewAllButton"
+            android:id="@+id/BeforeButton"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="120dp"
             android:layout_height="match_parent"
@@ -77,7 +80,7 @@
             android:textColor="@color/grey" />
 
         <Button
-            android:id="@+id/LocalButton"
+            android:id="@+id/DuringButton"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="120dp"
             android:layout_height="match_parent"
@@ -88,7 +91,7 @@
             android:textColor="@color/grey" />
 
         <Button
-            android:id="@+id/InternationalButton"
+            android:id="@+id/AfterButton"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="120dp"
             android:layout_height="match_parent"
@@ -108,14 +111,14 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:background="@android:color/transparent"
-        android:contentDescription="@string/navigation_button"
+        android:contentDescription="Navigation Button"
         android:padding="12dp"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView"
         app:srcCompat="@drawable/menu_icon" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/personalityButton"
         android:layout_width="85dp"
         android:layout_height="48dp"
         android:background="#00FFFFFF"
@@ -133,7 +136,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/basicKnowledgeButton"
         android:layout_width="80dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
@@ -153,7 +156,7 @@
 
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/scholarshipButton"
         android:layout_width="70dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
@@ -172,7 +175,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/discussionButton"
         android:layout_width="85dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
@@ -191,7 +194,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/quizButton"
         android:layout_width="70dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
@@ -211,7 +214,7 @@
 
     <ScrollView
         android:layout_width="372dp"
-        android:layout_height="462dp"
+        android:layout_height="465dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp"
@@ -227,70 +230,11 @@
 
 
             <TextView
+                android:id="@+id/tipsTextView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Research the Scholarship\n"
-                android:textStyle="bold" />
+                android:layout_height="509dp"
+                android:text="@string/before_tips" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Understand the scholarship organization, its values, and the criteria for selection. Tailor your responses to align with what they are looking for\n" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Know Your Application\n"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Be prepared to discuss the information you provided in your application. Review your achievements, experiences, and goals\n" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Prepare Common Questions\n"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Anticipate common interview questions and practice your answers. This includes questions about your strengths, weaknesses, achievements, and future goals\n" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Prepare Questions\n"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Prepare thoughtful questions to ask the interviewers. This shows your genuine interest in the scholarship and the organization\n" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Dress Appropriately\n"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Wear professional attire. Dressing well shows respect for the occasion and reflects your seriousness about the scholarship\n" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Mock Interviews\n"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Practice with friends, family, or mentors. They can provide valuable feedback and help you refine your answers and body language\n" />
 
 
         </LinearLayout>

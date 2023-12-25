@@ -26,16 +26,18 @@ public class QuizSummaryActivity extends AppCompatActivity {
         int score = getIntent().getIntExtra("score", 0);
 
         // Find TextViews in your layout
+        TextView tvTotalAnswered = findViewById(R.id.tvTotalAnswered);
         TextView tvCorrectlyAnswered = findViewById(R.id.tvCorrectlyAnswered);
         TextView tvWronglyAnswered = findViewById(R.id.tvWronglyAnswered);
         TextView tvScore = findViewById(R.id.tvScore);
 
         // Calculate values for your TextViews
-        int totalQuestions = 10;
+        int totalQuestions = getIntent().getIntExtra("NUM_QUESTIONS_ANSWERED",0);
         int correctlyAnswered = score / 10;
         int wronglyAnswered = totalQuestions - correctlyAnswered;
 
         // Update the TextViews
+        tvTotalAnswered.setText(String.valueOf(totalQuestions));
         tvCorrectlyAnswered.setText(String.valueOf(correctlyAnswered));
         tvWronglyAnswered.setText(String.valueOf(wronglyAnswered));
         tvScore.setText(String.valueOf(score));

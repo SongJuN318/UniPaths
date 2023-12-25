@@ -2,6 +2,7 @@ package com.example.unipaths.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -29,7 +30,9 @@ public class QuizQuestionActivity extends AppCompatActivity {
     private List<Question> questions;
     private int currentQuestionIndex = 0;
     private HashMap<Integer, Integer> selectedOptionsMap = new HashMap<>();
-
+    private CountDownTimer countDownTimer;
+    private TextView timerTextView;
+    private int totalAnswered = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,32 @@ public class QuizQuestionActivity extends AppCompatActivity {
         buttonNextQuestion = findViewById(R.id.buttonNextQuestion);
         buttonSubmit = findViewById(R.id.buttonSubmit);
         ImageButton backButton = findViewById(R.id.backButton);
+        timerTextView = findViewById(R.id.timerTextView);
+
+        long timerDuration = 30 * 60 * 1000;
+
+        String quizName = getIntent().getStringExtra("quizName");
+        questions = new ArrayList<>(getIntent().getParcelableArrayListExtra("questions"));
+
+
+        tvQuizName.setText(quizName);
+
+        countDownTimer = new CountDownTimer(timerDuration, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                // Update the timerTextView with the remaining time
+                long minutes = millisUntilFinished / (60 * 1000);
+                long seconds = (millisUntilFinished / 1000) % 60;
+                timerTextView.setText(String.format("%02d:%02d", minutes, seconds));
+            }
+
+            @Override
+            public void onFinish() {
+                goToQuizSummaryActivity(quizName);
+            }
+        }.start();
+
+
 
         btnQ1 = findViewById(R.id.question_1);
         btnQ2 = findViewById(R.id.question_2);
@@ -55,11 +84,7 @@ public class QuizQuestionActivity extends AppCompatActivity {
         btnQ9 = findViewById(R.id.question_9);
         btnQ10 = findViewById(R.id.question_10);
 
-        String quizName = getIntent().getStringExtra("quizName");
-        questions = new ArrayList<>(getIntent().getParcelableArrayListExtra("questions"));
 
-
-        tvQuizName.setText(quizName);
 
         //Set click listeners for question buttons
         setButtonClickListener(btnQ1, 0);
@@ -126,26 +151,43 @@ public class QuizQuestionActivity extends AppCompatActivity {
                         Intent intent = new Intent(QuizQuestionActivity.this, QuizSummaryActivity.class);
                         intent.putExtra("score", score);
                         intent.putExtra("quizName",quizName);
+                        intent.putExtra("NUM_QUESTIONS_ANSWERED", 10);
                         intent.putParcelableArrayListExtra("questions",new ArrayList<>(questions));
                         startActivity(intent);
-                        finish(); // Finish the current activity to prevent going back with the back button
-                    }, 2000); // 2000 milliseconds (2 seconds) delay, adjust as needed
+                        finish();
+                    }, 2000);
                 }
+                totalAnswered+=1;
             }
         });
         backButton.setOnClickListener(v -> {
-            // Handle the back button click
-            // You can add any additional logic here before finishing the activity
 
-            // Create an Intent to start the QuizListActivity
             Intent intent = new Intent(QuizQuestionActivity.this, Activity_quiz.class);
             startActivity(intent);
 
-            // Finish the current activity
             finish();
         });
+
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Cancel the countdown timer to avoid memory leaks
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
+        }
+    }
+
+    private void goToQuizSummaryActivity(String quizName) {
+        Intent intent = new Intent(QuizQuestionActivity.this, QuizSummaryActivity.class);
+        intent.putExtra("NUM_QUESTIONS_ANSWERED", totalAnswered);
+        intent.putExtra("score", score);
+        intent.putExtra("quizName",quizName);
+        intent.putParcelableArrayListExtra("questions",new ArrayList<>(questions));
+        startActivity(intent);
+        finish();
+    }
     private void updateUIForSubmission(RadioButton selectedOption, boolean isCorrect) {
         // Disable radio buttons
         for (int i = 0; i < rgAnswerOption.getChildCount(); i++) {

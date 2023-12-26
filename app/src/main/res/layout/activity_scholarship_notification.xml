@@ -69,7 +69,7 @@
             android:layout_marginTop="28dp"
             android:layout_marginEnd="20dp"
             android:layout_weight="1"
-            android:text="This section allows you to turn on your notification to send you reminders before the deadlines of your starred scholarships"
+            android:text="This section allows you to turn on your notification to send you reminders before the deadlines of your scholarships"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.291"
             app:layout_constraintStart_toStartOf="parent"

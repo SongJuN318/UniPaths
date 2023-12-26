@@ -13,17 +13,27 @@ public class ScholarshipItem implements Parcelable{
     String imageURL;
     String itemDescription;
     String itemWebsite;
+    String deadline;
+
+    public String getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(String deadline) {
+        this.deadline = deadline;
+    }
 
     public String getItemWebsite() {
         return itemWebsite;
     }
 
 
-    public ScholarshipItem(String itemName, String imageURL, String itemDescription, String itemWebsite) {
+    public ScholarshipItem(String itemName, String imageURL, String itemDescription, String itemWebsite, String deadline) {
         this.itemName = itemName;
         this.imageURL = imageURL;
         this.itemDescription = itemDescription;
         this.itemWebsite = itemWebsite;
+        this.deadline = deadline;
     }
 
     public String getItemDescription() {

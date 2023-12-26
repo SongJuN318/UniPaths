@@ -121,12 +121,13 @@ public class ScholarshipMainPage extends AppCompatActivity implements Scholarshi
                     String imageUrl = dataSnapshot.child("imageURL").getValue(String.class);
                     String description = dataSnapshot.child("itemDescription").getValue(String.class);
                     String websiteUrl = dataSnapshot.child("itemWebsite").getValue(String.class);
+                    String deadline = dataSnapshot.child("deadline").getValue(String.class);
 
                     Log.d("ScholarshipMainPage", "DataSnapshot: " + dataSnapshot.toString());
                     Log.d("ScholarshipMainPage", "Name: " + name);
 
 
-                    ScholarshipItem scholarshipItem= new ScholarshipItem(name,imageUrl,description,websiteUrl);
+                    ScholarshipItem scholarshipItem= new ScholarshipItem(name,imageUrl,description,websiteUrl,deadline);
                     list.add(scholarshipItem);
                 }
                 scholarshipAdapter.notifyDataSetChanged();
@@ -148,6 +149,7 @@ public class ScholarshipMainPage extends AppCompatActivity implements Scholarshi
         intent.putExtra("imageURL", clickedItem.getImageURL());
         intent.putExtra("description", clickedItem.getItemDescription());
         intent.putExtra("websiteURL",clickedItem.getItemWebsite());
+        intent.putExtra("deadline",clickedItem.getDeadline());
         startActivity(intent);
     }
 

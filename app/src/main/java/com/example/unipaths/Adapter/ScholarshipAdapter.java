@@ -76,13 +76,14 @@ public class ScholarshipAdapter extends RecyclerView.Adapter<ScholarshipAdapter.
         TextView itemName;
         ImageView imageView;
         TextView itemDescription;
+        TextView itemDeadline;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             itemName = itemView.findViewById(R.id.ScholarshipName);
             imageView = itemView.findViewById(R.id.scholarshipImage);
             itemDescription = itemView.findViewById(R.id.tvOrgDescription);
-
+            itemDeadline = itemView.findViewById(R.id.tvDeadline);
         }
 
     }

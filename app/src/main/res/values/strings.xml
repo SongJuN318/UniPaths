@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">UniPaths</string>
+    <string name="app_name">Unipaths</string>
 
-    <string name="facebook_app_id">880519029869398</string>
+    <string name="facebook_app_id">373286661756161</string>
     <string name="fb_login_protocol_scheme">fb1234</string>
     <string name="facebook_client_token">56789</string>
 
@@ -13,13 +13,75 @@
     <string name="test_your_knowledge">Let\'s test your knowledge</string>
     <string name="quiz_name">[Quiz Name]</string>
     <string name="_10_questions">10 Questions</string>
-    <string name="time">1 hour 15 mins</string>
+    <string name="time">30 minutes</string>
     <string name="local">Local</string>
     <string name="international">International</string>
     <string name="for_athletes">For Athletes</string>
     <string name="for_disabled_students">For Disabled Students</string>
     <string name="view_all">View All</string>
     <string name="explore_scholarship_opportunities">Explore Scholarship Opportunities</string>
+    <string name="architecture"><![CDATA[Architecture &\n Construction]]></string>
+    <string name="arts"><![CDATA[Arts &\n Communication]]></string>
+    <string name="business"><![CDATA[Business &\n Finance]]></string>
+    <string name="education">Education</string>
+    <string name="health_science">Health Science</string>
+    <string name="information_n_technology">Information \n Technology</string>
+    <string name="law">Law</string>
+    <string name="language">Language</string>
+    <string name="science_technology"><![CDATA[Science, Technology \n Engineering & Math]]></string>
+    <string name="agriculture"><![CDATA[Agriculture, Food &\n Natural Resources]]></string>
+    <string name="back">Back</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="_4">4</string>
+    <string name="_5">5</string>
+    <string name="_6">6</string>
+    <string name="_7">7</string>
+    <string name="_8">8</string>
+    <string name="_9">9</string>
+    <string name="_10">10</string>
+    <string name="option_1">Option 1</string>
+    <string name="option_2">Option 2</string>
+    <string name="option_3">Option 3</string>
+    <string name="option_4">Option 4</string>
+    <string name="submit">Submit</string>
+    <string name="leaderboard">Leaderboard</string>
+    <string name="name">[Name]</string>
+    <string name="point">point</string>
+    <string name="explore_scholarship_opportunities">Explore Scholarship Opportunities</string>
+    <string name="view_all">View All</string>
+    <string name="government">Government</string>
+    <string name="corporate">Corporate</string>
+
+    <string name="before_tips">
+        <![CDATA[
+            <b>Research the Scholarship :</b>\nUnderstand the scholarship organization, its values, and the criteria for selection. Tailor your responses to align with what they are looking for\n\n
+            <b>Know Your Application :</b>\nBe prepared to discuss the information you provided in your application. Review your achievements, experiences, and goals\n\n
+            <b>Prepare Common Questions :</b>\nAnticipate common interview questions and practice your answers. This includes questions about your strengths, weaknesses, achievements, and future goals\n\n
+            <b>Prepare Questions :</b>\nPrepare thoughtful questions to ask the interviewers. This shows your genuine interest in the scholarship and the organization\n\n
+            <b>Dress Appropriately :</b>\nWear professional attire. Dressing well shows respect for the occasion and reflects your seriousness about the scholarship\n\n
+            <b>Mock Interviews :</b>\nPractice with friends, family, or mentors. They can provide valuable feedback and help you refine your answers and body language
+        ]]>
+    </string>
+
+    <string name="during_tips">
+    <![CDATA[
+        <b>Dress Professionally :</b>\nDress in a manner that reflects the importance of the occasion and the respect you have for the scholarship opportunity.\n\n
+        <b>Be Punctual :</b>\nArrive on time for the interview. Punctuality is a sign of responsibility and commitment.\n\n
+        <b>Show Enthusiasm :</b>\nExpress genuine enthusiasm for the scholarship and how it aligns with your academic and career goals.\n\n
+        <b>Emphasize Your Achievements :</b>\nDiscuss your academic achievements, extracurricular activities, and any relevant experiences. Highlight instances where you demonstrated leadership, commitment, and community involvement.\n\n
+        <b>Ask Questions :</b>\nTake the opportunity to ask insightful questions about the scholarship or the organization offering it. This demonstrates your interest and engagement.
+    ]]>
+</string>
+
+    <string name="after_tips">
+    <![CDATA[
+        <b>Send a Thank-You Email :</b>\nSend a polite and concise thank-you email expressing your gratitude for the opportunity. Reiterate your interest in the scholarship and briefly mention what you enjoyed about the interview.\n\n
+        <b>Reflect on the Experience :</b>\nReflect on the interview. Consider what went well and what you could improve upon. This reflection can be valuable for future interviews.\n\n
+        <b>Follow Up if Necessary :</b>\nIf there are any additional materials or information requested after the interview, make sure to provide them promptly.
+    ]]>
+</string>
 
 
 </resources>

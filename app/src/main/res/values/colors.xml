@@ -2,10 +2,14 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="grey">#989898</color>
     <color name="red">#ff0000</color>
     <color name="blue">#0A9ADC</color>
     <color name="gray">#D4D4D4</color>
     <color name="gradient_start_color">#3550DC</color>
     <color name="gradient_end_color">#27E9F7</color>
     <color name="transparent">#00000000</color>
+    <color name="grey">#999999</color>
+    <color name="green">#4CAF50</color>
+    <color name="question_text">#333333</color>
 </resources>

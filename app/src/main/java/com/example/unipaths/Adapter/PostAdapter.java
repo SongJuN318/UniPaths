@@ -25,6 +25,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.unipaths.Activities.CommentActivity;
+import com.example.unipaths.Activities.DiscussionFragment;
 import com.example.unipaths.Activities.FollowerActivity;
 import com.example.unipaths.Activities.PostDetailFragment;
 import com.example.unipaths.Activities.ProfileFragment;
@@ -382,7 +383,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
         });
     }
 
-    private void editPost(String postid){
+    private void editPost(String postid) {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
         alertDialog.setTitle("Edit Post");
 
@@ -394,14 +395,19 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
         editText.setLayoutParams(lp);
         alertDialog.setView(editText);
 
+        // Fetch the current text of the post and set it in the EditText
         getText(postid, editText);
 
         alertDialog.setPositiveButton("Edit",
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        // Get the new description from the EditText
+                        String newDescription = editText.getText().toString();
+
+                        // Update the post's description in the database
                         HashMap<String, Object> hashMap = new HashMap<>();
-                        hashMap.put("description", editText).toString();
+                        hashMap.put("description", newDescription);
 
                         FirebaseDatabase.getInstance().getReference("Posts")
                                 .child(postid).updateChildren(hashMap);
@@ -419,19 +425,25 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
         alertDialog.show();
     }
 
-    private void getText(String postid, EditText editText){
+    private void getText(String postid, EditText editText) {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Posts")
                 .child(postid);
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                editText.setText(dataSnapshot.getValue(Post.class).getDescription());
+                if (dataSnapshot.exists()) {
+                    Post post = dataSnapshot.getValue(Post.class);
+                    if (post != null) {
+                        String currentDescription = post.getDescription();
+                        editText.setText(currentDescription);
+                    }
+                }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                // Handle the error
             }
         });
     }
@@ -443,11 +455,28 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 long currentPostCount = 0;
                 if (dataSnapshot.exists()) {
-                    currentPostCount = (long) dataSnapshot.getValue();
+                    currentPostCount = dataSnapshot.getValue(Long.class);
                 }
+
                 // Ensure postCount doesn't go below zero
                 long updatedPostCount = Math.max(0, currentPostCount - 1);
-                tagReference.child("postCount").setValue(updatedPostCount);
+
+                if (updatedPostCount == 0) {
+                    // If post count becomes zero, delete the tag
+                    deleteTag(tagId);
+                } else {
+                    tagReference.child("postCount").setValue(updatedPostCount)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        // Tag postCount updated successfully
+                                    } else {
+                                        // Handle the error
+                                    }
+                                }
+                            });
+                }
             }
 
             @Override
@@ -455,5 +484,19 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
                 // Handle the error
             }
         });
+    }
+
+    private void deleteTag(String tagId) {
+        FirebaseDatabase.getInstance().getReference("Tags").child(tagId).removeValue()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            // Tag deleted successfully
+                        } else {
+                            // Handle the error
+                        }
+                    }
+                });
     }
 }

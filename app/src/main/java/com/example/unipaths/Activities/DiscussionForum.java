@@ -69,7 +69,6 @@ public class DiscussionForum extends AppCompatActivity implements NavigationView
         setContentView(R.layout.activity_discussion_forum);
 
         drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

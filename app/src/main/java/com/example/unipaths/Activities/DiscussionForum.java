@@ -157,12 +157,19 @@ public class DiscussionForum extends AppCompatActivity implements NavigationView
                     startActivity(personalityIntent);
                     return true;
                 }else if(itemId == R.id.scholarship_icon){
-                    openFragment(new ScholarshipFragment());
+                    Intent scholarshipIntent =new Intent( DiscussionForum.this, ScholarshipMainPage.class);
+                    startActivity(scholarshipIntent);
                     return true;
                 }else if(itemId == R.id.discussion_icon){
                     Intent intent = new Intent(DiscussionForum.this, DiscussionForum.class);
                     startActivity(intent);
                     return true;
+                }else if(itemId==R.id.knowledge_icon){
+                    Intent knowledgeIntent =new Intent( DiscussionForum.this, Knowledge_Universities.class);
+                    startActivity(knowledgeIntent);
+                }else if(itemId==R.id.quizzes_icon){
+                    Intent quizzesIntent =new Intent( DiscussionForum.this, Activity_quiz.class);
+                    startActivity(quizzesIntent);
                 }
                 return false;
             }

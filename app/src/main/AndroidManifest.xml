@@ -23,16 +23,26 @@
             android:name=".Activities.PersonalityTestResult"
             android:exported="false" />
         <activity
+            android:name=".Activities.CommentActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.Activity_personality_test"
-            android:exported="false">
+            android:exported="false"/>
         <activity
             android:name=".Activities.ScholarshipNotification"
             android:exported="false">
         </activity>
         <activity
+            android:name=".Activities.ScholarshipMainPage"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".Activities.ScholarshipInterviewTips"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".Activities.ScholarshipDetails"
             android:exported="false"/>
-          
         <activity
             android:name=".Activities.Activity_quiz"
             android:exported="false" >
@@ -40,15 +50,9 @@
         <activity
             android:name=".Activities.QuizQuestionActivity"
             android:exported="false" />
-<!--        <activity-->
-<!--            android:name=".Activities.Knowledge_Courses"-->
-<!--            android:exported="false" />-->
         <activity
             android:name=".Activities.QuizSummaryActivity"
             android:exported="false" />
-<!--        <activity-->
-<!--            android:name=".Activities.Knowledge_Requirement"-->
-<!--            android:exported="false"/>-->
         <activity
             android:name=".Activities.UniversityInfo"
             android:exported="false" />
@@ -60,9 +64,6 @@
             android:exported="true"
             android:windowSoftInputMode="adjustPan">
         </activity>
-        <activity
-            android:name=".Activities.Activity_personality_test"
-            android:exported="true"></activity>
         <activity
             android:name=".Activities.Activity_personality_update_trait"
             android:exported="false" />

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.PersonalityTestFragment1">
+    tools:context=".Activities.PersonalityTestFragment4">
 
     <LinearLayout
         android:id="@+id/question_container"
@@ -12,15 +11,24 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="vertical">
-        <!-- The question items will be added in PersonalityTestFragment1.java -->
-
+        <!-- The question items will be added in PersonalityTestFragment4.java -->
         <Button
-            android:id="@+id/next_btn"
+            android:id="@+id/done_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Next"
+            android:text="Done"
+            android:background="@drawable/blue_btn"
+            android:textColor="@color/white"
+            android:fontFamily="@font/dmsans"
+            android:layout_marginBottom="10dp"/>
+        <Button
+            android:id="@+id/prev_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Previous"
             android:background="@drawable/blue_btn"
             android:textColor="@color/white"
             android:fontFamily="@font/dmsans"/>
     </LinearLayout>
+
 </androidx.core.widget.NestedScrollView>

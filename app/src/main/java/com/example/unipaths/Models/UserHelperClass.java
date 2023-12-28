@@ -2,7 +2,7 @@ package com.example.unipaths.Models;
 
 public class UserHelperClass {
 
-    String name, email, password, userid, bio, imageurl;
+    String name, email, password, userid, bio, imageurl, personality;
 
     public UserHelperClass() {
     }
@@ -63,4 +63,9 @@ public class UserHelperClass {
     public void setImageurl(String imageurl) {
         this.imageurl = imageurl;
     }
+
+    //Added by zhengyu for personality test purposes, records personality type
+    public String getPersonality() { return personality; }
+
+    public void setPersonality(String personality) { this.personality = personality; }
 }

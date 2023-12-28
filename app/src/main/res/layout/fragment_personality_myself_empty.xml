@@ -9,23 +9,38 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_pic"
-        android:layout_width="97dp"
-        android:layout_height="97dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="64dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="4dp"
+        android:padding="2dp"
         android:src="@drawable/profile_icon"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/circular"
+        app:strokeColor="#787FF6"
+        app:strokeWidth="2dp" />
 
     <TextView
-        android:id="@+id/Username"
+        android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/dmsans"
+        android:text="Student of University Malaya"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/profile_pic"
+        app:layout_constraintTop_toBottomOf="@+id/profile_name" />
+
+    <TextView
+        android:id="@+id/profile_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/dmsans"
         android:text="Name here"
         android:textSize="20sp"
@@ -33,28 +48,29 @@
         app:layout_constraintStart_toEndOf="@+id/profile_pic"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="2dp"
-        android:fontFamily="@font/dmsans"
-        android:text="Student of University Malaya"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/profile_pic"
-        app:layout_constraintTop_toBottomOf="@+id/Username" />
-
     <ImageView
         android:id="@+id/separator_bar"
         android:layout_width="330dp"
         android:layout_height="2dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_pic" />
+
+    <TextView
+        android:id="@+id/i_am"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/ubunturegular"
+        android:text="I am..."
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/separator_bar" />
 
     <ImageView
         android:id="@+id/no_personality"
@@ -65,33 +81,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/i_am" />
-
-    <TextView
-        android:id="@+id/i_am"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="49dp"
-        android:fontFamily="@font/ubunturegular"
-        android:text="I am..."
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/separator_bar" />
-
-    <TextView
-        android:id="@+id/whoops"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:alpha="0.6"
-        android:fontFamily="@font/ubunturegular"
-        android:text="...whoops! Please take the personality test first!"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/no_personality_txt" />
 
     <TextView
         android:id="@+id/no_personality_txt"
@@ -105,4 +94,36 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/no_personality" />
+
+    <TextView
+        android:id="@+id/whoops"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:alpha="0.6"
+        android:fontFamily="@font/ubunturegular"
+        android:text="...whoops! Please take the personality test first!"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/no_personality_txt" />
+
+    <Button
+        android:id="@+id/take_test_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/blue_btn"
+        android:fontFamily="@font/dmsans"
+        android:text="Take the test"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:paddingHorizontal="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/whoops" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

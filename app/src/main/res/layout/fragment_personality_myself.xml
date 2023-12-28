@@ -10,30 +10,24 @@
     <!-- TODO: Update blank fragment layout -->
 
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_pic"
-        android:layout_width="97dp"
-        android:layout_height="97dp"
+        android:padding="2dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:shapeAppearanceOverlay="@style/circular"
+        app:strokeColor="#787FF6"
+        app:strokeWidth="2dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="4dp"
         android:src="@drawable/profile_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/dmsans"
-        android:text="Student of University Malaya"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/profile_pic"
-        app:layout_constraintTop_toBottomOf="@+id/Username" />
+
 
     <TextView
-        android:id="@+id/Username"
+        android:id="@+id/profile_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -70,7 +64,7 @@
         app:layout_constraintTop_toBottomOf="@+id/separator_bar" />
 
     <include
-        android:id="@+id/item_trait"
+        android:id="@+id/personality"
         layout="@layout/item_traits"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -80,20 +74,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/i_am" />
 
-    <Button
-        android:id="@+id/check_traits"
-        android:layout_width="183dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/blue_btn"
-        android:fontFamily="@font/ubunturegular"
-        android:padding="10dp"
-        android:text="Check your other traits"
-        android:textAllCaps="false"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_trait" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,8 +18,11 @@
         android:theme="@style/Theme.UniPaths"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.PersonalityTestResult"
+            android:exported="false" />
+        <activity
             android:name=".Activities.Activity_personality_test"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

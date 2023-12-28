@@ -25,7 +25,20 @@
         android:src="@drawable/baseline_menu_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/ubunturegular"
+        android:text="Personality"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toEndOf="@+id/menuButton"
+        app:layout_constraintTop_toTopOf="parent" />
     <ImageView
         android:id="@+id/content_bg"
         android:layout_width="match_parent"
@@ -96,23 +109,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
-
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="98dp"
-        android:layout_marginTop="25dp"
-        android:fontFamily="@font/ubunturegular"
-        android:text="Personality"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.088"
-        app:layout_constraintStart_toEndOf="@+id/menuButton"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

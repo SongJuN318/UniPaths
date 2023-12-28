@@ -23,18 +23,26 @@
         <activity
             android:name=".Activities.FollowerActivity"
             android:exported="false" />
+      <activity
+            android:name=".Activities.Knowledge_Universities"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
         <activity
-            android:name=".Activities.EditProfileActivity"
+            android:name=".Activities.Activity_personality_test"
+            android:exported="true"></activity>
+        <activity
+            android:name=".Activities.Activity_personality_update_trait"
             android:exported="false" />
         <activity
-            android:name=".Activities.CommentActivity"
-            android:exported="false" />
+            android:name=".Activities.Activity_personality_career_rec"
+            android:exported="true"></activity>
         <activity
-            android:name=".Activities.ImagesActivity"
-            android:exported="false" />
+            android:name=".Activities.Activity_personality_peer_connect"
+            android:exported="true"></activity>
         <activity
-            android:name=".Activities.AddPostPage"
-            android:exported="false" />
+            android:name=".Activities.Activity_personality_main"
+            android:exported="true"></activity>
         <activity
             android:name=".Activities.DiscussionForum"
             android:enableOnBackInvokedCallback="true"

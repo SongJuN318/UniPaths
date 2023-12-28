@@ -1,4 +1,6 @@
 package com.example.unipaths.Activities;
 
-public class ScholarshipPage {
+public class ScholarshipDashboard {
+
+
 }

@@ -18,6 +18,8 @@
     <string name="international">International</string>
     <string name="for_athletes">For Athletes</string>
     <string name="for_disabled_students">For Disabled Students</string>
+    <string name="view_all">View All</string>
+    <string name="explore_scholarship_opportunities">Explore Scholarship Opportunities</string>
     <string name="architecture"><![CDATA[Architecture &\n Construction]]></string>
     <string name="arts"><![CDATA[Arts &\n Communication]]></string>
     <string name="business"><![CDATA[Business &\n Finance]]></string>
@@ -80,7 +82,6 @@
         <b>Follow Up if Necessary :</b>\nIf there are any additional materials or information requested after the interview, make sure to provide them promptly.
     ]]>
 </string>
-
 
 
 </resources>

@@ -81,7 +81,7 @@
                 android:paddingHorizontal="20dp"
                 android:text="@string/view_all"
                 android:textAllCaps="false"
-                android:textColor="@color/grey" />
+                android:textColor="@color/gray" />
 
             <Button
                 android:id="@+id/GovernmentButton"
@@ -92,7 +92,7 @@
                 android:paddingHorizontal="20dp"
                 android:text="@string/government"
                 android:textAllCaps="false"
-                android:textColor="@color/grey" />
+                android:textColor="@color/gray" />
 
             <Button
                 android:id="@+id/CorporateButton"
@@ -103,7 +103,7 @@
                 android:paddingHorizontal="20dp"
                 android:text="@string/corporate"
                 android:textAllCaps="false"
-                android:textColor="@color/grey" />
+                android:textColor="@color/gray" />
 
             <Button
                 android:id="@+id/ForAthletesButton"
@@ -114,7 +114,7 @@
                 android:paddingHorizontal="20dp"
                 android:text="@string/for_athletes"
                 android:textAllCaps="false"
-                android:textColor="@color/grey" />
+                android:textColor="@color/gray" />
 
             <Button
                 android:id="@+id/ForDisabledButton"
@@ -125,7 +125,7 @@
                 android:paddingHorizontal="20dp"
                 android:text="@string/for_disabled_students"
                 android:textAllCaps="false"
-                android:textColor="@color/grey" />
+                android:textColor="@color/gray" />
 
             <Button
                 android:id="@+id/StarredScholarships"

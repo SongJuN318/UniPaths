@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="personality_test_array">
-        <!--Extraversion -->
+    <string-array name="personality_test_array1">
+        <!--Extroversion -->
         <item>Do you regularly seek out social interactions and enjoy meeting new people?</item>
         <item>Are you often the one initiating conversations or social activities with friends?</item>
         <item>Do you feel energized and enthusiastic in group settings or social events?</item>
         <item>Are you comfortable speaking up and expressing your thoughts in a group?</item>
         <item>Do you enjoy being the center of attention in social situations?</item>
-        <item>Are you more likely to say "yes" to invitations to social events than decline?</item>
-        <item>Do you find it easy to strike up conversations with strangers?</item>
-        <item>Are you generally outgoing and assertive in your interactions with others?</item>
 
         <!--Introversion -->
         <item>Do you prefer spending time alone or in smaller, more intimate settings?</item>
@@ -17,7 +14,50 @@
         <item>Do you feel the need for regular periods of solitude to recharge?</item>
         <item>Do you find large social gatherings draining and prefer quieter, more relaxed settings?</item>
         <item>Are you selective about the people with whom you share your thoughts and feelings?</item>
-        <item>Do you prefer one-on-one conversations over group discussions?</item>
-        <item>Are you more comfortable with a few close friends rather than a large circle of acquaintances?</item>
+    </string-array>
+    <string-array name="personality_test_array2">
+        <!--Sensing -->
+        <item>Do you tend to rely more on concrete facts and evidence rather than theories and abstract concepts?</item>
+        <item>Are you someone who pays close attention to details in your environment?</item>
+        <item>When recalling a memory, do you remember specific details such as what you saw, heard, or physically experienced?</item>
+        <item>Do you prefer practical, hands-on activities over theoretical discussions or brainstorming?</item>
+        <item>In decision-making, do you prioritize past experiences and proven methods?</item>
+
+        <!--Intuition -->
+        <item>Do you often find yourself drawn to exploring abstract ideas and theories?</item>
+        <item>You become bored or lose interest when the discussion gets highly theoretical.</item>
+        <item>Are you more interested in brainstorming new concepts or possibilities?</item>
+        <item>Do you often rely on your instincts or gut feelings when making decisions?</item>
+        <item>You have always been fascinated by the question of what, if anything, happens after death.</item>
+    </string-array>
+    <string-array name="personality_test_array3">
+        <!--Thinking -->
+        <item>When making decisions, do you tend to prioritize logic and objective analysis over considering people\'s emotions and values?</item>
+        <item>Are you more comfortable pointing out flaws in arguments or ideas rather than focusing on how others might feel about them?</item>
+        <item>Do you often find yourself making decisions based on reason and rationality?</item>
+        <item>When faced with a problem, do you prefer finding the most efficient and logical solution, even if it might not consider emotional aspects?</item>
+        <item>You are not too interested in discussing various interpretations and analyses of creative works.</item>
+
+        <!--Feeling -->
+        <item>Does seeing other people cry can easily make you feel like you want to cry too?</item>
+        <item>You are very sentimental.</item>
+        <item>Your happiness comes more from helping others accomplish things than your own accomplishments.</item>
+        <item>Does your mood can change very quickly?</item>
+        <item>Are you someone who often relies on empathy and understanding emotions to connect with others on a deeper level?</item>
+    </string-array>
+    <string-array name="personality_test_array4">
+        <!--Judging -->
+        <item>You rarely second-guess the choices that you have made.</item>
+        <item>You feel confident that things will work out for you.</item>
+        <item>You like to use organizing tools like schedules and lists.</item>
+        <item>You complete things methodically without skipping over any steps.</item>
+        <item>You prefer to do your chores before allowing yourself to relax.</item>
+
+        <!--Perceiving -->
+        <item>You are interested in so many things that you find it difficult to choose what to try next.</item>
+        <item>You usually prefer just doing what you feel like at any given moment instead of planning a particular daily routine.</item>
+        <item>You often end up doing things at the last possible moment.</item>
+        <item>You struggle with deadlines.</item>
+        <item>You are very intrigued by things labeled as controversial.</item>
     </string-array>
 </resources>

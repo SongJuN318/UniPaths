@@ -20,11 +20,20 @@
         android:theme="@style/Theme.UniPaths"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.PersonalityTestResult"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Activity_personality_test"
+            android:exported="false">
+        <activity
             android:name=".Activities.ScholarshipNotification"
             android:exported="false">
         </activity>
         <activity
             android:name=".Activities.ScholarshipDetails"
+            android:exported="false"/>
+          
+        <activity
             android:name=".Activities.Activity_quiz"
             android:exported="false" >
         </activity>

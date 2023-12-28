@@ -19,7 +19,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UniPaths"
         tools:targetApi="31">
-
         <activity
             android:name=".Activities.ScholarshipDashboard"
             android:exported="true" >
@@ -28,6 +27,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
 
         </activity>
         <activity android:name=".Activities.ScholarshipMainPage">
@@ -44,55 +44,52 @@
 
         <activity
             android:name=".Activities.ScholarshipDetails"
+            android:exported="false" >
+        </activity>
+
+        <activity
+            android:name=".Activities.Activity_quiz"
+            android:exported="false" >
+        </activity>
+
+        <activity
+            android:name=".Activities.QuizQuestionActivity"
             android:exported="false" />
 <!--        <activity-->
 <!--            android:name=".Activities.Knowledge_Courses"-->
 <!--            android:exported="false" />-->
         <activity
-            android:name=".Activities.Knowledge_Universities"
+            android:name=".Activities.QuizSummaryActivity"
             android:exported="false" />
 <!--        <activity-->
 <!--            android:name=".Activities.Knowledge_Requirement"-->
 <!--            android:exported="false"/>-->
         <activity
-            android:name=".Activities.Activity_personality_test"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:name=".Activities.UniversityInfo"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.FollowerActivity"
+            android:exported="false" />
+      <activity
+            android:name=".Activities.Knowledge_Universities"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
         </activity>
+        <activity
+            android:name=".Activities.Activity_personality_test"
+            android:exported="true"></activity>
         <activity
             android:name=".Activities.Activity_personality_update_trait"
             android:exported="false" />
         <activity
             android:name=".Activities.Activity_personality_career_rec"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".Activities.Activity_personality_peer_connect"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".Activities.Activity_personality_main"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".Activities.DiscussionForum"
             android:enableOnBackInvokedCallback="true"
@@ -112,28 +109,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
-        <meta-data
-            android:name="com.facebook.sdk.ClientToken"
-            android:value="@string/facebook_client_token" />
-
-        <activity
-            android:name="com.facebook.FacebookActivity"
-            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
+        <activity android:name="com.facebook.FacebookActivity"
+            android:configChanges=
+                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name" />
         <activity
             android:name="com.facebook.CustomTabActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>

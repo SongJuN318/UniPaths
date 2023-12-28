@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
     tools:context=".Activities.DiscussionForum"
-    android:fitsSystemWindows="true"
-    >
+    android:fitsSystemWindows="true">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -75,23 +75,13 @@
                             android:orientation="horizontal"
                             android:gravity="center_vertical">
 
-                                <TextView
-                                    android:id="@+id/toolbar_title"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Discussions"
-                                    android:textColor="#FFFFFF"
-                                    android:textSize="18sp"
-                                    android:layout_marginRight="80dp"
-                                    android:layout_marginLeft="80dp"/>
-
                                 <de.hdodenhof.circleimageview.CircleImageView
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     app:shapeAppearanceOverlay="@style/circular"
                                     app:strokeColor="#787FF6"
                                     app:strokeWidth="2dp"
-                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginLeft="270dp"
                                     android:id="@+id/profile_img_side"
                                     android:src="@drawable/profile_icon"/>
 

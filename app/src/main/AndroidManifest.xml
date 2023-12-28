@@ -18,6 +18,16 @@
         android:theme="@style/Theme.UniPaths"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.Activity_quiz"
+            android:exported="false" >
+        </activity>
+        <activity
+            android:name=".Activities.QuizQuestionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.QuizSummaryActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.UniversityInfo"
             android:exported="false" />
         <activity
@@ -64,7 +74,6 @@
         </activity>
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
         <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
-
         <activity android:name="com.facebook.FacebookActivity"
             android:configChanges=
                 "keyboard|keyboardHidden|screenLayout|screenSize|orientation"

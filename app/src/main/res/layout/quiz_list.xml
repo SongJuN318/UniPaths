@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
-
-
+    tools:context=".Activities.Activity_quiz">
+    
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
@@ -15,28 +14,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/background" />
 
-    <ImageButton
-        android:id="@+id/menuButton"
-        android:padding="12dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="Open Menu"
-        android:src="@drawable/baseline_menu_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
-        android:id="@+id/hello_xxx"
+        android:id="@+id/helloTextView"
         android:layout_width="wrap_content"
         android:layout_height="18dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="42dp"
         android:fontFamily="@font/dmsans"
         android:gravity="top"
         android:text="@string/hello"
@@ -58,7 +43,7 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hello_xxx"
+        app:layout_constraintTop_toBottomOf="@+id/helloTextView"
         android:textStyle="bold"/>
 
     <View
@@ -97,11 +82,11 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="15dp"
-                android:background="@android:color/transparent"
+                android:background="@color/transparent"
                 android:fontFamily="@font/ubunturegular"
                 android:text="@string/agriculture"
                 android:textAllCaps="false"
-                android:textColor="#999999"
+                android:textColor="@drawable/button_selector"
                 style="?android:attr/buttonBarButtonStyle" />
 
             <Button
@@ -114,7 +99,7 @@
                 android:fontFamily="@font/ubunturegular"
                 android:text="@string/architecture"
                 android:textAllCaps="false"
-                android:textColor="#999999"
+                android:textColor="@drawable/button_selector"
                 style="?android:attr/buttonBarButtonStyle" />
 
             <Button
@@ -127,7 +112,7 @@
                 android:fontFamily="@font/ubunturegular"
                 android:text="@string/arts"
                 android:textAllCaps="false"
-                android:textColor="#999999"
+                android:textColor="@drawable/button_selector"
                 style="?android:attr/buttonBarButtonStyle"/>
 
             <Button
@@ -140,7 +125,7 @@
                 android:fontFamily="@font/ubunturegular"
                 android:text="@string/business"
                 android:textAllCaps="false"
-                android:textColor="#999999"
+                android:textColor="@drawable/button_selector"
                 style="?android:attr/buttonBarButtonStyle" />
 
             <Button
@@ -153,7 +138,7 @@
                 android:fontFamily="@font/ubunturegular"
                 android:text="@string/education"
                 android:textAllCaps="false"
-                android:textColor="#999999"
+                android:textColor="@drawable/button_selector"
                 style="?android:attr/buttonBarButtonStyle"/>
 
             <Button
@@ -166,7 +151,7 @@
                 android:fontFamily="@font/ubunturegular"
                 android:text="@string/health_science"
                 android:textAllCaps="false"
-                android:textColor="#999999"
+                android:textColor="@drawable/button_selector"
                 style="?android:attr/buttonBarButtonStyle"/>
 
             <Button
@@ -179,7 +164,7 @@
                 android:fontFamily="@font/ubunturegular"
                 android:text="@string/information_n_technology"
                 android:textAllCaps="false"
-                android:textColor="#999999"
+                android:textColor="@drawable/button_selector"
                 style="?android:attr/buttonBarButtonStyle"/>
 
             <Button
@@ -192,7 +177,7 @@
                 android:fontFamily="@font/ubunturegular"
                 android:text="@string/law"
                 android:textAllCaps="false"
-                android:textColor="#999999"
+                android:textColor="@drawable/button_selector"
                 style="?android:attr/buttonBarButtonStyle"
                 />
 
@@ -206,7 +191,7 @@
                 android:fontFamily="@font/ubunturegular"
                 android:text="@string/language"
                 android:textAllCaps="false"
-                android:textColor="#999999"
+                android:textColor="@drawable/button_selector"
                 style="?android:attr/buttonBarButtonStyle"/>
 
             <Button
@@ -219,17 +204,68 @@
                 android:fontFamily="@font/ubunturegular"
                 android:text="@string/science_technology"
                 android:textAllCaps="false"
-                android:textColor="#999999"
+                android:textColor="@drawable/button_selector"
                 style="?android:attr/buttonBarButtonStyle"/>
         </LinearLayout>
     </HorizontalScrollView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvQuizList"
-        android:layout_width="315dp"
-        android:layout_height="482dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="378dp"
+        android:layout_height="384dp"
+        android:layout_marginHorizontal="20px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hsvFieldList" />
+
+    <Button
+        android:id="@+id/buttonLeaderboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/blue_rounded_edge_button"
+        android:fontFamily="@font/ubunturegular"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="125dp"
+        android:paddingVertical="15dp"
+        android:text="Leaderboard"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvQuizList"
+        android:layout_marginTop="24dp"/>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="-16dp"
+            android:background="@drawable/background"
+            android:backgroundTint="#00000000"
+            app:fabCradleMargin="10dp"
+            app:fabCradleRoundedCornerRadius="50dp">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_navigation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@drawable/menu_bar_color"
+                app:itemIconTint="@color/white"
+                app:itemTextColor="@color/white"
+                app:labelVisibilityMode="labeled"
+                app:menu="@menu/bottom_nav_menu" />
+
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -59,6 +59,8 @@ public class DiscussionForum extends AppCompatActivity implements NavigationView
     BottomNavigationView bottomNavigationView;
     Toolbar toolbar;
     FragmentManager fragmentManager;
+
+    NavigationView navigationView;
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private FirebaseUser firebaseUser;
@@ -69,6 +71,7 @@ public class DiscussionForum extends AppCompatActivity implements NavigationView
         setContentView(R.layout.activity_discussion_forum);
 
         drawerLayout = findViewById(R.id.drawer_layout);
+
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

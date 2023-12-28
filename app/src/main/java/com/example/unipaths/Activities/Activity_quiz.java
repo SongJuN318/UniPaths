@@ -31,8 +31,7 @@ public class Activity_quiz extends AppCompatActivity implements QuizAdapter.OnQu
     private TextView helloTextView;
     private DatabaseReference databaseReference;
 
-    // Buttons for different categories
-    private Button btnAgriculture, btnArchitecture, btnArts, btnBusiness, btnEducation, btnHealth, btnIT, btnLanguage, btnLaw, btnSTEM;
+    private Button btnAgriculture, btnArchitecture, btnArts, btnBusiness, btnEducation, btnHealth, btnIT, btnLanguage, btnLaw, btnSTEM, btnLeaderboard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +57,7 @@ public class Activity_quiz extends AppCompatActivity implements QuizAdapter.OnQu
         btnLanguage = findViewById(R.id.button_language);
         btnLaw = findViewById(R.id.button_law);
         btnSTEM = findViewById(R.id.button_science);
+        btnLeaderboard= findViewById(R.id.buttonLeaderboard);
 
         btnAgriculture.setSelected(true);
         databaseReference = FirebaseDatabase.getInstance().getReference("Quiz").child("Agriculture");
@@ -77,6 +77,11 @@ public class Activity_quiz extends AppCompatActivity implements QuizAdapter.OnQu
         displayUsername();
 
         quizAdapter.setOnQuizItemClickListener(this);
+
+        btnLeaderboard.setOnClickListener(v->{
+            Intent intent = new Intent(Activity_quiz.this, QuizLeaderboardActivity.class);
+            startActivity(intent);
+        });
     }
 
     @Override

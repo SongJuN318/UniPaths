@@ -12,18 +12,30 @@
         android:orientation="vertical"
         tools:context=".Activities.SearchFollowing">
 
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="22dp"
+            android:text="Add Post"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="630dp"
             android:padding="8dp"
             android:background="@drawable/main_discussion"
-            android:layout_marginTop="85dp"
+            android:layout_marginTop="45dp"
             android:orientation="vertical">
 
             <com.google.android.material.appbar.AppBarLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="55dp"
+                android:layout_marginTop="70dp"
                 android:elevation="0dp"
                 android:background="@color/white"
                 android:id="@+id/bar">

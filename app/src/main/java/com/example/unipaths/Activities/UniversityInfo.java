@@ -9,68 +9,47 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.unipaths.Models.UserHelperClass;
 import com.example.unipaths.R;
-import com.example.unipaths.databinding.ActivityDiscussionForumBinding;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.List;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class DiscussionForum extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class UniversityInfo extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     DrawerLayout drawerLayout;
     BottomNavigationView bottomNavigationView;
     Toolbar toolbar;
     FragmentManager fragmentManager;
-
-    NavigationView navigationView;
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
     private FirebaseUser firebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_discussion_forum);
+        setContentView(R.layout.activity_university_info);
 
-        drawerLayout = findViewById(R.id.drawer_layout);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -87,63 +66,8 @@ public class DiscussionForum extends AppCompatActivity implements NavigationView
         TextView fullname = headerView.findViewById(R.id.fullname);
         CircleImageView profileImgSide = findViewById(R.id.profile_img_side);
 
-        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference userReference = FirebaseDatabase.getInstance().getReference("users").child(firebaseUser.getUid());
-        userReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()){
-                    UserHelperClass user = dataSnapshot.getValue(UserHelperClass.class);
-
-                    Glide.with(DiscussionForum.this)
-                            .load(user.getImageurl())
-                            .placeholder(R.drawable.profile_icon)
-                            .error(R.drawable.profile_icon)
-                            .into(profileImg);
-
-                    fullname.setText(user.getName());
-
-                    Glide.with(DiscussionForum.this)
-                            .load(user.getImageurl())
-                            .placeholder(R.drawable.profile_icon)
-                            .error(R.drawable.profile_icon)
-                            .into(profileImgSide);
-
-                    profileImgSide.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            SharedPreferences.Editor editor = DiscussionForum.this.getSharedPreferences("PREPS", Context.MODE_PRIVATE).edit();
-                            editor.putString("profileid", user.getUserid());
-                            editor.apply();
-
-                            ((FragmentActivity)DiscussionForum.this).getSupportFragmentManager().beginTransaction().replace(R.id.fram_container, new ProfileFragment()).commit();
-                            drawerLayout.closeDrawer(GravityCompat.START);
-                        }
-                    });
-                    profileImg.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            SharedPreferences.Editor editor = DiscussionForum.this.getSharedPreferences("PREPS", Context.MODE_PRIVATE).edit();
-                            editor.putString("profileid", user.getUserid());
-                            editor.apply();
-
-                            ((FragmentActivity)DiscussionForum.this).getSupportFragmentManager().beginTransaction().replace(R.id.fram_container, new ProfileFragment()).commit();
-                            drawerLayout.closeDrawer(GravityCompat.START);
-                        }
-                    });
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setBackground(null);
-        ImageView profileImage = navigationView.getHeaderView(0).findViewById(R.id.profile_img);
-
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -156,28 +80,16 @@ public class DiscussionForum extends AppCompatActivity implements NavigationView
                     openFragment(new ScholarshipFragment());
                     return true;
                 }else if(itemId == R.id.discussion_icon){
-                    Intent intent = new Intent(DiscussionForum.this, DiscussionForum.class);
+                    Intent intent = new Intent(UniversityInfo.this, DiscussionForum.class);
                     startActivity(intent);
                     return true;
+                }else if(itemId == R.id.knowledge_icon){
+                    Intent intent = new Intent(UniversityInfo.this, UniversityInfo.class);
+                    startActivity(intent);
                 }
                 return false;
             }
         });
-
-        fragmentManager = getSupportFragmentManager();
-
-        tabLayout = findViewById(R.id.tabLayout);
-        viewPager = findViewById(R.id.viewpager);
-
-        tabLayout.setupWithViewPager(viewPager);
-
-        VPAdapter vpAdapter = new VPAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        vpAdapter.addFragment(new DiscussionFragment(), "DISCUSSION");
-        vpAdapter.addFragment(new AddPost(), "ADDPOST");
-        vpAdapter.addFragment(new SearchFollowing(), "FOLLOWINGS");
-        vpAdapter.addFragment(new TagsFragment(), "TAGS");
-        viewPager.setAdapter(vpAdapter);
-
     }
 
     @Override
@@ -196,10 +108,8 @@ public class DiscussionForum extends AppCompatActivity implements NavigationView
             Toast.makeText(this, "Log out successful", Toast.LENGTH_SHORT).show();
             SharedPreferences prefs = getSharedPreferences("PREPS", Context.MODE_PRIVATE);
             prefs.edit().clear().apply();
-            Intent intent = new Intent(DiscussionForum.this, RegisterActivity.class);
+            Intent intent = new Intent(UniversityInfo.this, RegisterActivity.class);
             startActivity(intent);
-        }else if (menuItem.getItemId() == R.id.profile_img) {
-            navigateToProfileFragment(firebaseUser.getUid());
         }
         return true;
 
@@ -211,6 +121,7 @@ public class DiscussionForum extends AppCompatActivity implements NavigationView
         drawerLayout.closeDrawer(GravityCompat.START);
         transaction.commit();
     }
+
     private void navigateToProfileFragment(String profileid) {
         ProfileFragment profileFragment = new ProfileFragment();
 
@@ -224,7 +135,4 @@ public class DiscussionForum extends AppCompatActivity implements NavigationView
 
         drawerLayout.closeDrawer(GravityCompat.START);
     }
-
-
-
 }

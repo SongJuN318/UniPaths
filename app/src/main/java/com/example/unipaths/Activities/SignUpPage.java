@@ -173,7 +173,8 @@ public class SignUpPage extends AppCompatActivity {
                             String userid = firebaseUser.getUid();
                             String bio = "Busy";
                             String imageurl = "https://firebasestorage.googleapis.com/v0/b/unipaths-adb69.appspot.com/o/profile_icon.png?alt=media&token=bfae9b79-9bc4-4c77-b718-72a4051d1341";
-                            UserHelperClass helperClass = new UserHelperClass(name, email, password, userid, bio, imageurl);
+                            int initialScore = 0;
+                            UserHelperClass helperClass = new UserHelperClass(name, email, password, userid, bio, imageurl,initialScore);
                             loadingProgress.setVisibility(View.GONE);
                             reference.child(userid).setValue(helperClass);
                             Toast.makeText(SignUpPage.this, "Account created", Toast.LENGTH_SHORT).show();

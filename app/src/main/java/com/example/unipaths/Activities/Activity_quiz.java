@@ -3,6 +3,7 @@ package com.example.unipaths.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -13,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.unipaths.Adapter.QuizAdapter;
 import com.example.unipaths.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -30,6 +33,8 @@ public class Activity_quiz extends AppCompatActivity implements QuizAdapter.OnQu
     private List<QuizItem> quizItemList;
     private TextView helloTextView;
     private DatabaseReference databaseReference;
+    BottomNavigationView bottomNavigationView;
+    private String username;
 
     private Button btnAgriculture, btnArchitecture, btnArts, btnBusiness, btnEducation, btnHealth, btnIT, btnLanguage, btnLaw, btnSTEM, btnLeaderboard;
 
@@ -82,6 +87,37 @@ public class Activity_quiz extends AppCompatActivity implements QuizAdapter.OnQu
             Intent intent = new Intent(Activity_quiz.this, QuizLeaderboardActivity.class);
             startActivity(intent);
         });
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int itemId = item.getItemId();
+                if (itemId == R.id.personality_icon) {
+                    /*openFragment(new Personality_test());
+                    return  true;*/
+                    //For testing purposes - zhengyu
+                    Intent personalityIntent = new Intent(Activity_quiz.this, Activity_personality_main.class);
+                    startActivity(personalityIntent);
+                    return true;
+                } else if (itemId == R.id.scholarship_icon) {
+                    Intent scholarshipIntent = new Intent(Activity_quiz.this, ScholarshipMainPage.class);
+                    startActivity(scholarshipIntent);
+                    return true;
+                } else if (itemId == R.id.discussion_icon) {
+                    Intent intent = new Intent(Activity_quiz.this, DiscussionForum.class);
+                    startActivity(intent);
+                    return true;
+                } else if (itemId == R.id.knowledge_icon) {
+                    Intent knowledgeIntent = new Intent(Activity_quiz.this, Knowledge_Universities.class);
+                    startActivity(knowledgeIntent);
+                } else if (itemId == R.id.quizzes_icon) {
+                    Intent quizzesIntent = new Intent(Activity_quiz.this, Activity_quiz.class);
+                    startActivity(quizzesIntent);
+                }
+                return false;
+            }
+        });
     }
 
     @Override
@@ -98,10 +134,27 @@ public class Activity_quiz extends AppCompatActivity implements QuizAdapter.OnQu
     private void displayUsername() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            String username = user.getDisplayName();
-            if (username != null && !username.isEmpty()) {
-                helloTextView.setText("Hello, " + username + "!");
-            }
+            String userId = user.getUid();
+            DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(userId);
+
+            userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // Assuming "name" is the key in your database for the user's name
+                        String username = dataSnapshot.child("name").getValue(String.class);
+
+                        if (username != null && !username.isEmpty()) {
+                            helloTextView.setText("Hello, " + username + "!");
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Log.d("UsernameDatabase", "onCancelled: ");
+                }
+            });
         }
     }
 

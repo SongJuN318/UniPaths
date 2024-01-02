@@ -2,16 +2,27 @@ package com.example.unipaths.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.unipaths.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class QuizSummaryActivity extends AppCompatActivity {
@@ -24,6 +35,7 @@ public class QuizSummaryActivity extends AppCompatActivity {
 
         // Retrieve the score from the Intent
         int score = getIntent().getIntExtra("score", 0);
+        addScoreToDatabase(score);
 
         // Find TextViews in your layout
         TextView tvTotalAnswered = findViewById(R.id.tvTotalAnswered);
@@ -59,6 +71,37 @@ public class QuizSummaryActivity extends AppCompatActivity {
         intent.putExtra("quizName",quizName);
         startActivity(intent);
         finish(); // Finish the current activity to prevent going back with the back button
+    }
+    private void addScoreToDatabase(int score) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String userId = user.getUid();
+            DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(userId);
+
+            // Retrieve the current score from the database
+            userRef.child("score").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    // Calculate the new score by adding the current score and the quiz score
+                    int currentScore = dataSnapshot.exists() ? dataSnapshot.getValue(Integer.class) : 0;
+                    int newScore = currentScore + score;
+
+                    // Create a Map to update the "score" field in the database
+                    Map<String, Object> scoreUpdate = new HashMap<>();
+                    scoreUpdate.put("score", newScore);
+
+                    // Update the score in the database
+                    userRef.updateChildren(scoreUpdate)
+                            .addOnSuccessListener(aVoid -> Log.d("QuizSummaryActivity", "Score added successfully"))
+                            .addOnFailureListener(e -> Log.e("QuizSummaryActivity", "Error adding score", e));
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Log.e("QuizSummaryActivity", "Error retrieving current score", databaseError.toException());
+                }
+            });
+        }
     }
 
     private void returnHome(){

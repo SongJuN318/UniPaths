@@ -54,6 +54,10 @@
             android:name=".Activities.QuizSummaryActivity"
             android:exported="false" />
         <activity
+            android:name=".Activities.QuizLeaderboardActivity"
+            android:exported="false" >
+        </activity>
+        <activity
             android:name=".Activities.UniversityInfo"
             android:exported="false" />
         <activity

@@ -2,18 +2,20 @@ package com.example.unipaths.Models;
 
 public class UserHelperClass {
 
-    String name, email, password, userid, bio, imageurl;
+    String name, email, password, userid, bio, imageurl, personality;
+    int score;
 
     public UserHelperClass() {
     }
 
-    public UserHelperClass(String name, String email, String password, String userid, String bio, String imageurl) {
+    public UserHelperClass(String name, String email, String password, String userid, String bio, String imageurl, int score) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.userid = userid;
         this.bio = bio;
         this.imageurl = imageurl;
+        this.score=score;
     }
 
     public String getName() {
@@ -62,5 +64,18 @@ public class UserHelperClass {
 
     public void setImageurl(String imageurl) {
         this.imageurl = imageurl;
+    }
+
+    //Added by zhengyu for personality test purposes, records personality type
+    public String getPersonality() { return personality; }
+
+    public void setPersonality(String personality) { this.personality = personality; }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }

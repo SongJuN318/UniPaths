@@ -1,38 +1,47 @@
 package com.example.unipaths.Activities;
 
 public class Peer {
-    private String peerName, trait1, trait2, trait3, peerDes;
-    private int profilePicId;
+    private String peerName, personality, imageurl, userId;
 
-    public Peer(String peerName, String trait1, String trait2, String trait3, int profilePicId) {
+    public Peer() {
+    }
+
+    public Peer(String peerName, String personality, String imageurl, String userId) {
         this.peerName = peerName;
-        this.trait1 = trait1;
-        this.trait2 = trait2;
-        this.trait3 = trait3;
-        this.profilePicId = profilePicId;
+        this.personality = personality;
+        this.imageurl = imageurl;
+        this.userId = userId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getPeerName() {
         return peerName;
     }
 
-    public String getTrait1() {
-        return trait1;
+    public void setPeerName(String peerName) {
+        this.peerName = peerName;
     }
 
-    public String getTrait2() {
-        return trait2;
+    public String getPersonality() {
+        return personality;
     }
 
-    public String getTrait3() {
-        return trait3;
+    public void setPersonality(String personality) {
+        this.personality = personality;
     }
 
-    public int getProfilePicId() {
-        return profilePicId;
+    public String getImageurl() {
+        return imageurl;
     }
 
-    public String getPeerDes() {
-        return getTrait1()+", "+getTrait2()+", "+getTrait3();
+    public void setImageurl(String imageurl) {
+        this.imageurl = imageurl;
     }
 }

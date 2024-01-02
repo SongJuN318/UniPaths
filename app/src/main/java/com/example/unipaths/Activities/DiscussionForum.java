@@ -157,7 +157,7 @@ public class DiscussionForum extends AppCompatActivity implements NavigationView
                     startActivity(personalityIntent);
                     return true;
                 }else if(itemId == R.id.scholarship_icon){
-                    Intent scholarshipIntent =new Intent( DiscussionForum.this, ScholarshipMainPage.class);
+                    Intent scholarshipIntent =new Intent( DiscussionForum.this, ScholarshipDashboard.class);
                     startActivity(scholarshipIntent);
                     return true;
                 }else if(itemId == R.id.discussion_icon){

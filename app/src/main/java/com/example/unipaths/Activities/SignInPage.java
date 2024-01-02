@@ -65,7 +65,8 @@ public class SignInPage extends AppCompatActivity {
                 new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
-                        startActivity(new Intent(SignInPage.this, DiscussionForum.class));
+                        startActivity(new Intent(SignInPage.this, MainDashboard.class));
+                        startActivity(new Intent(SignInPage.this, MainDashboard.class));
                         finish();
                     }
 
@@ -129,7 +130,7 @@ public class SignInPage extends AppCompatActivity {
                                     DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
                                     loadingProgress.setVisibility(View.GONE);
                                     Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), DiscussionForum.class);
+                                    Intent intent = new Intent(getApplicationContext(), MainDashboard.class);
                                     startActivity(intent);
                                     finish();
                                 } else {
@@ -170,7 +171,7 @@ public class SignInPage extends AppCompatActivity {
 
     void navigateToSecondAcitivity(){
         finish();
-        Intent intent = new Intent(SignInPage.this, DiscussionForum.class);
+        Intent intent = new Intent(SignInPage.this, MainDashboard.class);
         startActivity(intent);
     }
 

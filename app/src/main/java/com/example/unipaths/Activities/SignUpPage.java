@@ -68,7 +68,7 @@ public class SignUpPage extends AppCompatActivity {
                 new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
-                        startActivity(new Intent(SignUpPage.this, DiscussionForum.class));
+                        startActivity(new Intent(SignUpPage.this, MainDashboard.class));
                         finish();
                     }
 
@@ -159,7 +159,7 @@ public class SignUpPage extends AppCompatActivity {
 
     void navigateToSecondAcitivity(){
         finish();
-        Intent intent = new Intent(SignUpPage.this, DiscussionForum.class);
+        Intent intent = new Intent(SignUpPage.this, MainDashboard.class);
         startActivity(intent);
     }
 

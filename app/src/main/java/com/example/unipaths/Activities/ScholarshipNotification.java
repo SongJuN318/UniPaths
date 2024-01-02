@@ -6,17 +6,23 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.unipaths.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.Calendar;
 
 public class ScholarshipNotification extends AppCompatActivity {
 
     private static final int NOTIFICATION_ID = 1;
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +39,38 @@ public class ScholarshipNotification extends AppCompatActivity {
                 } else {
                     cancelNotification();
                 }
+            }
+        });
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setBackground(null);
+
+
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int itemId = item.getItemId();
+                if(itemId == R.id.personality_icon){
+
+                    Intent personalityIntent = new Intent(ScholarshipNotification.this, Activity_personality_main.class);
+                    startActivity(personalityIntent);
+                    return true;
+                }else if(itemId == R.id.scholarship_icon){
+                    Intent scholarshipIntent =new Intent( ScholarshipNotification.this, ScholarshipDashboard.class);
+                    startActivity(scholarshipIntent);
+                    return true;
+                }else if(itemId == R.id.discussion_icon){
+                    Intent intent = new Intent(ScholarshipNotification.this, DiscussionForum.class);
+                    startActivity(intent);
+                    return true;
+                }else if(itemId==R.id.knowledge_icon){
+                    Intent knowledgeIntent =new Intent( ScholarshipNotification.this, Knowledge_Universities.class);
+                    startActivity(knowledgeIntent);
+                }else if(itemId==R.id.quizzes_icon){
+                    Intent quizzesIntent =new Intent( ScholarshipNotification.this, Activity_quiz.class);
+                    startActivity(quizzesIntent);
+                }
+                return false;
             }
         });
     }
@@ -79,6 +117,9 @@ public class ScholarshipNotification extends AppCompatActivity {
         // Cancel the pending intent
         alarmManager.cancel(pendingIntent);
     }
+
+
+
 
 }
 

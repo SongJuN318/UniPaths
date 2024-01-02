@@ -20,6 +20,8 @@
         android:theme="@style/Theme.UniPaths"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.ScholarshipDashboard"
+            android:exported="false" />
             android:name=".Activities.PersonalityTestResult"
             android:exported="false" />
         <activity
@@ -32,6 +34,18 @@
             android:name=".Activities.ScholarshipNotification"
             android:exported="false">
         </activity>
+        <activity android:name=".Activities.ScholarshipMainPage">
+            <!-- Add any necessary intent filters or other attributes here -->
+        </activity>
+
+        <activity android:name=".Activities.ScholarshipInterviewTips">
+            <!-- Add any necessary intent filters or other attributes here -->
+        </activity>
+
+        <activity android:name=".Activities.ScholarshipNotification">
+            <!-- Add any necessary intent filters or other attributes here -->
+        </activity>
+
         <activity
             android:name=".Activities.ScholarshipMainPage"
             android:exported="false">
@@ -42,11 +56,16 @@
         </activity>
         <activity
             android:name=".Activities.ScholarshipDetails"
-            android:exported="false"/>
+            android:exported="false" >
+        </activity>
+        <activity
+            android:name=".Activities.MainDashboard"
+            android:exported="false"></activity>
         <activity
             android:name=".Activities.Activity_quiz"
             android:exported="false" >
         </activity>
+
         <activity
             android:name=".Activities.QuizQuestionActivity"
             android:exported="false" />

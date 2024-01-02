@@ -4,15 +4,19 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.example.unipaths.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.squareup.picasso.Picasso;
 
 public class ScholarshipDetails extends AppCompatActivity {
@@ -22,6 +26,8 @@ public class ScholarshipDetails extends AppCompatActivity {
     TextView scholarshipDescription;
     TextView scholarshipDeadline;
     Button goToPage;
+    BottomNavigationView bottomNavigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +62,40 @@ public class ScholarshipDetails extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setBackground(null);
+
+
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int itemId = item.getItemId();
+                if(itemId == R.id.personality_icon){
+
+                    Intent personalityIntent = new Intent(ScholarshipDetails.this, Activity_personality_main.class);
+                    startActivity(personalityIntent);
+                    return true;
+                }else if(itemId == R.id.scholarship_icon){
+                    Intent scholarshipIntent =new Intent( ScholarshipDetails.this, ScholarshipDashboard.class);
+                    startActivity(scholarshipIntent);
+                    return true;
+                }else if(itemId == R.id.discussion_icon){
+                    Intent intent = new Intent(ScholarshipDetails.this, DiscussionForum.class);
+                    startActivity(intent);
+                    return true;
+                }else if(itemId==R.id.knowledge_icon){
+                    Intent knowledgeIntent =new Intent( ScholarshipDetails.this, Knowledge_Universities.class);
+                    startActivity(knowledgeIntent);
+                }else if(itemId==R.id.quizzes_icon){
+                    Intent quizzesIntent =new Intent( ScholarshipDetails.this, Activity_quiz.class);
+                    startActivity(quizzesIntent);
+                }
+                return false;
+            }
+        });
+
 
 
     }

@@ -150,15 +150,26 @@ public class DiscussionForum extends AppCompatActivity implements NavigationView
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int itemId = item.getItemId();
                 if(itemId == R.id.personality_icon){
-                    openFragment(new Personality_test());
-                    return  true;
+                    /*openFragment(new Personality_test());
+                    return  true;*/
+                    //For testing purposes - zhengyu
+                    Intent personalityIntent = new Intent(DiscussionForum.this, Activity_personality_main.class);
+                    startActivity(personalityIntent);
+                    return true;
                 }else if(itemId == R.id.scholarship_icon){
-                    openFragment(new ScholarshipFragment());
+                    Intent scholarshipIntent =new Intent( DiscussionForum.this, ScholarshipDashboard.class);
+                    startActivity(scholarshipIntent);
                     return true;
                 }else if(itemId == R.id.discussion_icon){
                     Intent intent = new Intent(DiscussionForum.this, DiscussionForum.class);
                     startActivity(intent);
                     return true;
+                }else if(itemId==R.id.knowledge_icon){
+                    Intent knowledgeIntent =new Intent( DiscussionForum.this, Knowledge_Universities.class);
+                    startActivity(knowledgeIntent);
+                }else if(itemId==R.id.quizzes_icon){
+                    Intent quizzesIntent =new Intent( DiscussionForum.this, Activity_quiz.class);
+                    startActivity(quizzesIntent);
                 }
                 return false;
             }

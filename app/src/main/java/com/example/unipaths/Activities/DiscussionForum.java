@@ -211,6 +211,9 @@ public class DiscussionForum extends AppCompatActivity implements NavigationView
             startActivity(intent);
         }else if (menuItem.getItemId() == R.id.profile_img) {
             navigateToProfileFragment(firebaseUser.getUid());
+        } else if (menuItem.getItemId()==R.id.history_icon){
+            Intent intent = new Intent(DiscussionForum.this, Activity_log.class);
+            startActivity(intent);
         }
         return true;
 

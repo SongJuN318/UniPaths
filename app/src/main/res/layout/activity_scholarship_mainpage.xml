@@ -136,7 +136,7 @@
                 android:paddingHorizontal="20dp"
                 android:text="Starred"
                 android:textAllCaps="false"
-                android:textColor="@color/grey" />
+                android:textColor="@color/gray" />
 
 
         </LinearLayout>

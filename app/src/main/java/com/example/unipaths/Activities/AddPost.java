@@ -124,11 +124,10 @@ public class AddPost extends Fragment {
     }
 
     private void uploadImage(){
-        ProgressDialog progressDialog = new ProgressDialog(getContext());
-        progressDialog.setMessage("Posting");
-        progressDialog.show();
-
         if(imageUri != null){
+            ProgressDialog progressDialog = new ProgressDialog(getContext());
+            progressDialog.setMessage("Posting");
+            progressDialog.show();
             StorageReference filereference = storageReference.child(System.currentTimeMillis()
                     + "." + getFileExtension(imageUri));
 

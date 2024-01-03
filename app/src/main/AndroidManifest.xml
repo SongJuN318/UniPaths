@@ -20,6 +20,9 @@
         android:theme="@style/Theme.UniPaths"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.ScholarshipDashboard"
+            android:exported="false" />
+        <activity
             android:name=".Activities.PersonalityTestResult"
             android:exported="false" />
         <activity
@@ -45,17 +48,26 @@
         </activity>
         <activity
             android:name=".Activities.ScholarshipDetails"
-            android:exported="false"/>
+            android:exported="false" >
+        </activity>
+        <activity
+            android:name=".Activities.MainDashboard"
+            android:exported="false"></activity>
         <activity
             android:name=".Activities.Activity_quiz"
             android:exported="false" >
         </activity>
+
         <activity
             android:name=".Activities.QuizQuestionActivity"
             android:exported="false" />
         <activity
             android:name=".Activities.QuizSummaryActivity"
             android:exported="false" />
+        <activity
+            android:name=".Activities.QuizLeaderboardActivity"
+            android:exported="false" >
+        </activity>
         <activity
             android:name=".Activities.UniversityInfo"
             android:exported="false" />
@@ -90,8 +102,14 @@
             android:name=".Activities.SignInPage"
             android:exported="false" />
         <activity
+            android:name=".Activities.EditProfileActivity"
+            android:exported="false" />
+        <activity android:name=".Activities.Activity_log"
+            android:exported="false"/>
+        <activity
             android:name=".Activities.RegisterActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

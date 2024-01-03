@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -15,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.unipaths.Models.ScholarshipItem;
 import com.example.unipaths.Adapter.ScholarshipAdapter;
 import com.example.unipaths.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,6 +32,8 @@ public class ScholarshipMainPage extends AppCompatActivity implements Scholarshi
     DatabaseReference database;
     ScholarshipAdapter scholarshipAdapter;
     ArrayList<ScholarshipItem> list;
+    BottomNavigationView bottomNavigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,6 +114,37 @@ public class ScholarshipMainPage extends AppCompatActivity implements Scholarshi
         });
 
         loadData();
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setBackground(null);
+        
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int itemId = item.getItemId();
+                if(itemId == R.id.personality_icon){
+
+                    Intent personalityIntent = new Intent(ScholarshipMainPage.this, Activity_personality_main.class);
+                    startActivity(personalityIntent);
+                    return true;
+                }else if(itemId == R.id.scholarship_icon){
+                    Intent scholarshipIntent =new Intent( ScholarshipMainPage.this, ScholarshipDashboard.class);
+                    startActivity(scholarshipIntent);
+                    return true;
+                }else if(itemId == R.id.discussion_icon){
+                    Intent intent = new Intent(ScholarshipMainPage.this, DiscussionForum.class);
+                    startActivity(intent);
+                    return true;
+                }else if(itemId==R.id.knowledge_icon){
+                    Intent knowledgeIntent =new Intent( ScholarshipMainPage.this, Knowledge_Universities.class);
+                    startActivity(knowledgeIntent);
+                }else if(itemId==R.id.quizzes_icon){
+                    Intent quizzesIntent =new Intent( ScholarshipMainPage.this, Activity_quiz.class);
+                    startActivity(quizzesIntent);
+                }
+                return false;
+            }
+        });
     }
 
     private void loadData() {
@@ -174,5 +210,6 @@ public class ScholarshipMainPage extends AppCompatActivity implements Scholarshi
         athleteButton.setTextColor(Color.GRAY);
         disabledButton.setTextColor(Color.GRAY);
     }
+
 
 }

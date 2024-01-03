@@ -159,7 +159,7 @@ public class DiscussionForum extends AppCompatActivity implements NavigationView
                     startActivity(personalityIntent);
                     return true;
                 }else if(itemId == R.id.scholarship_icon){
-                    Intent scholarshipIntent =new Intent( DiscussionForum.this, ScholarshipMainPage.class);
+                    Intent scholarshipIntent =new Intent( DiscussionForum.this, ScholarshipDashboard.class);
                     startActivity(scholarshipIntent);
                     return true;
                 }else if(itemId == R.id.discussion_icon){
@@ -209,6 +209,9 @@ public class DiscussionForum extends AppCompatActivity implements NavigationView
             showLogoutConfirmationDialog();
         }else if (menuItem.getItemId() == R.id.profile_img) {
             navigateToProfileFragment(firebaseUser.getUid());
+        } else if (menuItem.getItemId()==R.id.history_icon){
+            Intent intent = new Intent(DiscussionForum.this, Activity_log.class);
+            startActivity(intent);
         }
         return true;
     }

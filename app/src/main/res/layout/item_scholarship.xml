@@ -33,7 +33,7 @@
                 android:id="@+id/ScholarshipName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="18dp"
                 android:layout_toEndOf="@id/scholarshipImage"
                 android:text="Name"
                 android:textColor="@color/black" />

@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -21,8 +22,11 @@ import java.util.Calendar;
 
 public class ScholarshipNotification extends AppCompatActivity {
 
+
     private static final int NOTIFICATION_ID = 1;
     BottomNavigationView bottomNavigationView;
+    private static final String PREFS_NAME = "MyPrefsFile";
+    private static final String SWITCH_STATE_KEY = "switchState";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,9 +35,18 @@ public class ScholarshipNotification extends AppCompatActivity {
 
         Switch notificationSwitch = findViewById(R.id.notificationSwitch);
 
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        boolean switchState = settings.getBoolean(SWITCH_STATE_KEY, false);
+        notificationSwitch.setChecked(switchState);
+
         notificationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // Save switch state to SharedPreferences
+                SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, 0).edit();
+                editor.putBoolean(SWITCH_STATE_KEY, isChecked);
+                editor.apply();
+
                 if (isChecked) {
                     scheduleNotification();
                 } else {

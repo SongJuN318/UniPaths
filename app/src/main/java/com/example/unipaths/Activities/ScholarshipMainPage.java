@@ -18,6 +18,8 @@ import com.example.unipaths.Adapter.ScholarshipAdapter;
 import com.example.unipaths.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,14 +27,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ScholarshipMainPage extends AppCompatActivity implements ScholarshipAdapter.OnScholarshipItemClickListener{
 
     RecyclerView recyclerView;
     DatabaseReference database;
+
     ScholarshipAdapter scholarshipAdapter;
     ArrayList<ScholarshipItem> list;
     BottomNavigationView bottomNavigationView;
+
 
 
     @Override
@@ -55,6 +60,7 @@ public class ScholarshipMainPage extends AppCompatActivity implements Scholarshi
         Button corporateButton = findViewById(R.id.CorporateButton);
         Button athleteButton = findViewById(R.id.ForAthletesButton);
         Button disabledButton = findViewById(R.id.ForDisabledButton);
+        Button savedButton = findViewById(R.id.SavedButton);
         updateButtonColors(viewAllButton);
 
         scholarshipAdapter.setOnScholarshipItemClickListener(this);
@@ -62,19 +68,20 @@ public class ScholarshipMainPage extends AppCompatActivity implements Scholarshi
         viewAllButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Change the database reference when the "Government" button is clicked
+                // Change the database reference when the "View All" button is clicked
                 database = FirebaseDatabase.getInstance().getReference("Scholarship/All");
-                loadData();
+                loadData(database);
 
                 updateButtonColors(viewAllButton);
             }
         });
+
         governmentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Change the database reference when the "Government" button is clicked
                 database = FirebaseDatabase.getInstance().getReference("Scholarship/Government");
-                loadData();
+                loadData(database);
 
                 updateButtonColors(governmentButton);
             }
@@ -85,7 +92,7 @@ public class ScholarshipMainPage extends AppCompatActivity implements Scholarshi
             public void onClick(View view) {
                 // Change the database reference when the "Corporate" button is clicked
                 database = FirebaseDatabase.getInstance().getReference("Scholarship/Corporate");
-                loadData();
+                loadData(database);
 
                 updateButtonColors(corporateButton);
             }
@@ -94,9 +101,9 @@ public class ScholarshipMainPage extends AppCompatActivity implements Scholarshi
         athleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Change the database reference when the "Corporate" button is clicked
+                // Change the database reference when the "Athlete" button is clicked
                 database = FirebaseDatabase.getInstance().getReference("Scholarship/Athlete");
-                loadData();
+                loadData(database);
 
                 updateButtonColors(athleteButton);
             }
@@ -105,15 +112,35 @@ public class ScholarshipMainPage extends AppCompatActivity implements Scholarshi
         disabledButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Change the database reference when the "Corporate" button is clicked
+                // Change the database reference when the "Disabled" button is clicked
                 database = FirebaseDatabase.getInstance().getReference("Scholarship/Disabled");
-                loadData();
+                loadData(database);
 
                 updateButtonColors(disabledButton);
             }
         });
 
-        loadData();
+        savedButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth auth = FirebaseAuth.getInstance();
+                FirebaseUser user = auth.getCurrentUser();
+                String userId;
+
+                if (user != null) {
+                    userId = user.getUid();
+                    DatabaseReference savedScholarshipsRef = FirebaseDatabase.getInstance().getReference("users/" + userId + "/savedScholarships");
+                    loadSavedData(savedScholarshipsRef, true);
+
+                    updateButtonColors(savedButton);
+                }
+            }
+        });
+
+        loadData(database);  // Load default data initially
+
+
+
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setBackground(null);
@@ -147,11 +174,12 @@ public class ScholarshipMainPage extends AppCompatActivity implements Scholarshi
         });
     }
 
-    private void loadData() {
-        database.addValueEventListener(new ValueEventListener() {
+    private void loadData(DatabaseReference reference) {
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                list.clear(); // Clear existing data
+                ArrayList<ScholarshipItem> newList = new ArrayList<>();
+
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     String name = dataSnapshot.child("itemName").getValue(String.class);
                     String imageUrl = dataSnapshot.child("imageURL").getValue(String.class);
@@ -159,15 +187,19 @@ public class ScholarshipMainPage extends AppCompatActivity implements Scholarshi
                     String websiteUrl = dataSnapshot.child("itemWebsite").getValue(String.class);
                     String deadline = dataSnapshot.child("deadline").getValue(String.class);
 
-                    Log.d("ScholarshipMainPage", "DataSnapshot: " + dataSnapshot.toString());
-                    Log.d("ScholarshipMainPage", "Name: " + name);
+                    getSavedStatusFromFirebase(name, new OnSavedStatusCallback() {
+                        @Override
+                        public void onSavedStatusReceived(boolean isSaved) {
+                            // Load all items without checking saved status
+                            ScholarshipItem scholarshipItem = new ScholarshipItem(name, imageUrl, description, websiteUrl, deadline);
+                            scholarshipItem.setSaved(isSaved);
+                            newList.add(scholarshipItem);
 
-
-                    ScholarshipItem scholarshipItem= new ScholarshipItem(name,imageUrl,description,websiteUrl,deadline);
-                    list.add(scholarshipItem);
+                            // Update the adapter's list after adding the scholarship item
+                            scholarshipAdapter.updateList(newList);
+                        }
+                    });
                 }
-                scholarshipAdapter.notifyDataSetChanged();
-                Log.d("ScholarshipMainPage", "Data loaded successfully. Count: " + list.size());
             }
 
             @Override
@@ -176,6 +208,59 @@ public class ScholarshipMainPage extends AppCompatActivity implements Scholarshi
             }
         });
     }
+
+
+
+    private void loadSavedData(DatabaseReference reference, boolean showSaved) {
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<ScholarshipItem> newList = new ArrayList<>();
+
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    String name = dataSnapshot.child("itemName").getValue(String.class);
+                    String imageUrl = dataSnapshot.child("imageURL").getValue(String.class);
+                    String description = dataSnapshot.child("itemDescription").getValue(String.class);
+                    String websiteUrl = dataSnapshot.child("itemWebsite").getValue(String.class);
+                    String deadline = dataSnapshot.child("deadline").getValue(String.class);
+
+                    getSavedStatusFromFirebase(name, new OnSavedStatusCallback() {
+                        @Override
+                        public void onSavedStatusReceived(boolean isSaved) {
+                            if (showSaved) {
+                                // If showing only saved items and the scholarship is saved, add it to the list
+                                if (isSaved) {
+                                    ScholarshipItem scholarshipItem = new ScholarshipItem(name, imageUrl, description, websiteUrl, deadline);
+                                    scholarshipItem.setSaved(isSaved);
+                                    newList.add(scholarshipItem);
+                                }
+                            } else {
+                                // If not showing only saved items, load all items
+                                ScholarshipItem scholarshipItem = new ScholarshipItem(name, imageUrl, description, websiteUrl, deadline);
+                                scholarshipItem.setSaved(isSaved);
+                                newList.add(scholarshipItem);
+                            }
+
+                            // Update the adapter's list
+                            scholarshipAdapter.updateList(newList);
+                        }
+                    });
+                }
+
+                // If showing only saved items and there are no saved scholarships, clear the list
+                if (showSaved && newList.isEmpty()) {
+                    scholarshipAdapter.clearList();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("ScholarshipMainPage", "Error loading saved data: " + error.getMessage());
+            }
+        });
+    }
+
+
 
     @Override
     public void onScholarshipItemClick(int position){
@@ -202,6 +287,7 @@ public class ScholarshipMainPage extends AppCompatActivity implements Scholarshi
         Button corporateButton = findViewById(R.id.CorporateButton);
         Button athleteButton = findViewById(R.id.ForAthletesButton);
         Button disabledButton = findViewById(R.id.ForDisabledButton);
+        Button savedButton = findViewById(R.id.SavedButton);
 
         // Set all button text colors to the default color
         viewAllButton.setTextColor(Color.GRAY);
@@ -209,7 +295,50 @@ public class ScholarshipMainPage extends AppCompatActivity implements Scholarshi
         corporateButton.setTextColor(Color.GRAY);
         athleteButton.setTextColor(Color.GRAY);
         disabledButton.setTextColor(Color.GRAY);
+        savedButton.setTextColor(Color.GRAY);
     }
 
+    private void getSavedStatusFromFirebase(String scholarshipName, OnSavedStatusCallback callback) {
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        FirebaseUser user = auth.getCurrentUser();
+
+        if (user != null) {
+            String userId = user.getUid();
+            DatabaseReference userSavedScholarshipsRef = FirebaseDatabase.getInstance()
+                    .getReference("users/" + userId + "/savedScholarships");
+
+            userSavedScholarshipsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    boolean isSaved = snapshot.hasChild(scholarshipName);
+
+                    // If showing only saved items and the scholarship is saved, or
+                    // if not showing only saved items, set isSaved based on the Firebase data
+                    callback.onSavedStatusReceived(isSaved);
+
+                    // Update the UI here
+                    updateUI();
+                    Log.d("ScholarshipMainPage", "Is scholarship " + scholarshipName + " saved? " + isSaved);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Log.e("ScholarshipMainPage", "Error checking saved status: " + error.getMessage());
+                }
+            });
+        }
+    }
+
+
+
+    private void updateUI() {
+        scholarshipAdapter.notifyDataSetChanged();
+    }
+
+
+    // Add this interface inside your ScholarshipMainPage class
+    public interface OnSavedStatusCallback {
+        void onSavedStatusReceived(boolean isSaved);
+    }
 
 }

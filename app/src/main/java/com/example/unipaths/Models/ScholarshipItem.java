@@ -14,6 +14,17 @@ public class ScholarshipItem implements Parcelable{
     String itemDescription;
     String itemWebsite;
     String deadline;
+    boolean isSaved;
+
+
+    public boolean isSaved() {
+        return isSaved;
+    }
+
+    public void setSaved(boolean saved) {
+        isSaved = saved;
+    }
+
 
     public String getDeadline() {
         return deadline;

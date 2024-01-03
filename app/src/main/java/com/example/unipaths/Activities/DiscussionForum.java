@@ -32,7 +32,6 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.unipaths.Models.UserHelperClass;
 import com.example.unipaths.R;
-import com.example.unipaths.databinding.ActivityDiscussionForumBinding;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;

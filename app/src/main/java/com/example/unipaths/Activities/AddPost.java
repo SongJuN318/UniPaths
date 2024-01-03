@@ -22,6 +22,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.unipaths.Models.History;
 import com.example.unipaths.R;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -42,10 +43,14 @@ import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
+import java.util.TimeZone;
 
 
 public class AddPost extends Fragment {
@@ -166,6 +171,7 @@ public class AddPost extends Fragment {
                             updateOrAddTag(tag, postid);
                         }
                         progressDialog.dismiss();
+                        recordPostHistory();
 
                         Intent intent = new Intent(getActivity(), DiscussionForum.class);
                         startActivity(intent);
@@ -182,6 +188,33 @@ public class AddPost extends Fragment {
         }else {
             Toast.makeText(getContext(), "No image selected", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void recordPostHistory() {
+        String descriptions = description.getText().toString();
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        // Get the current date and time
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy", Locale.getDefault());
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+        dateFormat.setTimeZone(TimeZone.getTimeZone("GMT+8"));
+        timeFormat.setTimeZone(TimeZone.getTimeZone("GMT+8"));
+
+        String currentDate = dateFormat.format(new Date());
+        String currentTime = timeFormat.format(new Date());
+
+        // Create a QuizHistory object
+        History postHistory = new History(descriptions, currentDate, currentTime);
+
+        // Get the reference to the user's Quiz history
+        DatabaseReference postHistoryRef = FirebaseDatabase.getInstance().getReference("users")
+                .child(userId)
+                .child("Post")
+                .child(descriptions);
+
+        // Set the quiz history data
+        postHistoryRef.setValue(postHistory);
+
     }
 
     @Override

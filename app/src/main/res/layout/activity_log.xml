@@ -81,7 +81,8 @@
             android:fontFamily="@font/ubunturegular"
             android:text="Discussion Forum"
             android:textAllCaps="false"
-            android:textColor="@drawable/button_selector" />
+            android:textColor="@drawable/button_selector"
+            android:textSize="16dp"/>
 
         <Button
             android:id="@+id/button_Quizzes"
@@ -95,20 +96,9 @@
             android:fontFamily="@font/ubunturegular"
             android:text="Quizzes"
             android:textAllCaps="false"
-            android:textColor="@drawable/button_selector" />
-
-        <Button
-            android:id="@+id/button_Test"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="15dp"
-            android:background="@android:color/transparent"
-            android:fontFamily="@font/ubunturegular"
-            android:text="Personality Test"
-            android:textAllCaps="false"
-            android:textColor="@drawable/button_selector" />
+            android:layout_marginLeft="50dp"
+            android:textColor="@drawable/button_selector"
+            android:textSize="16dp"/>
 
     </LinearLayout>
 

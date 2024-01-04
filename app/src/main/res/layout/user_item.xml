@@ -28,7 +28,7 @@
             android:text="username"
             android:maxLines="1"
             android:textStyle="bold"
-            android:fontFamily="@font/playfair_display"
+            android:fontFamily="@font/ubunturegular"
             android:textColor="@color/black"/>
 
         <TextView
@@ -36,6 +36,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/bio"
             android:text="Bio"
+            android:fontFamily="@font/ubunturegular"
             android:maxLines="1"/>
 
 

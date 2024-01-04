@@ -14,6 +14,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="22dp"
         android:text="Tags"
+        android:fontFamily="@font/ubunturegular"
+        android:textStyle="bold"
         android:textColor="#FFFFFF"
         android:textSize="18sp" />
 
@@ -48,8 +50,8 @@
             android:background="#EAF5FF"
             android:hint="Search"
             android:textSize="10dp"
+            android:fontFamily="@font/ubunturegular"
             android:textStyle="bold"
-            android:fontFamily="@font/playfair_display"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"/>
 

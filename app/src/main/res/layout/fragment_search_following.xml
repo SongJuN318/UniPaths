@@ -8,6 +8,8 @@
 
     <TextView
         android:id="@+id/toolbar_title"
+        android:fontFamily="@font/ubunturegular"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -47,7 +49,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:background="#EAF5FF"
-            android:fontFamily="@font/playfair_display"
+            android:fontFamily="@font/ubunturegular"
             android:hint="Search"
             android:textColor="#20339A"
             android:textSize="10dp"

@@ -26,6 +26,7 @@
         android:textColor="#20339A"
         android:id="@+id/fullname"
         android:textSize="18dp"
+        android:fontFamily="@font/ubunturegular"
         android:textStyle="bold"/>
 
     <View

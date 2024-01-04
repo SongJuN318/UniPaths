@@ -8,12 +8,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/background"
+        android:backgroundTint="@color/transparent"
         android:orientation="vertical"
         tools:context=".Activities.SearchFollowing">
 
         <TextView
             android:id="@+id/toolbar_title"
+            android:fontFamily="@font/ubunturegular"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -28,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="630dp"
             android:padding="8dp"
-            android:background="@drawable/main_discussion"
+            android:backgroundTint="@color/transparent"
             android:layout_marginTop="45dp"
             android:orientation="vertical">
 
@@ -62,8 +64,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="POST"
+                            android:fontFamily="@font/ubunturegular"
+                            android:textStyle="bold"
                             android:id="@+id/post"
-                            android:textSize="16sp"
+                            android:textSize="18sp"
                             android:layout_marginEnd="10dp"
                             android:layout_centerVertical="true"
                             android:layout_alignParentEnd="true"
@@ -97,22 +101,26 @@
                     style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColorHint="#20339A"
+                    android:drawableLeft="@drawable/baseline_tag_24"
                     android:textColor="#20339A"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/ubunturegular"
+                    android:textColorHint="#20339A"
                     android:textSize="15dp"
-                    android:drawableLeft="@drawable/baseline_tag_24"/>
+                    android:textStyle="bold" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn"
-                android:layout_width="80dp"
+                android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:layout_gravity="center"
                 android:background="@drawable/background"
                 android:text="Add tag"
-                android:textSize="10sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/ubunturegular"
+                android:textAllCaps="false"
+                android:textSize="13sp"
                 app:backgroundTint="#878FBF" />
 
             <ImageView
@@ -129,6 +137,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:hint="Description"
+                android:fontFamily="@font/ubunturegular"
                 android:textStyle="bold"
                 android:layout_marginEnd="20sp"
                 android:layout_marginStart="20sp"
@@ -139,7 +148,9 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CHOOSE IMAGE"
+                android:text="Choose Image"
+                android:textAllCaps="false"
+                android:fontFamily="@font/ubunturegular"
                 android:padding="10dp"
                 android:textStyle="bold"
                 android:textColor="@color/white"

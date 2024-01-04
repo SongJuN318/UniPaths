@@ -19,7 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class Activity_personality_update_trait extends AppCompatActivity {
+public class Activity_personality_check_result extends AppCompatActivity {
     private Button backBtn;
     private ConstraintLayout personalityLayout;
     private ImageButton moreBtn;
@@ -33,7 +33,7 @@ public class Activity_personality_update_trait extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_personality_update_trait);
+        setContentView(R.layout.activity_personality_check_result);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         userId = firebaseUser.getUid();
@@ -46,7 +46,6 @@ public class Activity_personality_update_trait extends AppCompatActivity {
         moreBtn = personalityLayout.findViewById(R.id.more_btn);
         personalityTV = personalityLayout.findViewById(R.id.trait_name);
 
-        //Fetch from firebase
         fetchPersonalityFromUser();
 
         moreBtn.setOnClickListener(new View.OnClickListener() {

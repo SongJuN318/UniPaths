@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/white"
     tools:context=".Activities.EditProfileActivity">
     
     <com.google.android.material.appbar.AppBarLayout
@@ -37,6 +38,7 @@
                     android:text="Edit Profile"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="10dp"
+                    android:fontFamily="@font/ubunturegular"
                     android:textStyle="bold"
                     android:textSize="18sp"
                     android:textColor="#20339A"
@@ -48,6 +50,8 @@
                     android:text="SAVE"
                     android:layout_marginRight="10dp"
                     android:id="@+id/save"
+                    android:fontFamily="@font/ubunturegular"
+                    android:textStyle="bold"
                     android:textSize="16sp"
                     android:layout_centerVertical="true"
                     android:textColor="#20339A"
@@ -77,6 +81,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Change Photo"
+            android:fontFamily="@font/ubunturegular"
+            android:textStyle="bold"
             android:layout_gravity="center"
             android:id="@+id/tv_change"
             android:textColor="#20339A"
@@ -87,6 +93,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/fullname"
             android:hint="Full Name"
+            android:fontFamily="@font/ubunturegular"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             android:layout_marginTop="20dp"/>
@@ -95,6 +102,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/bio"
+            android:fontFamily="@font/ubunturegular"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             android:hint="Bio" />

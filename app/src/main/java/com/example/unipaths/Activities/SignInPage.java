@@ -65,19 +65,16 @@ public class SignInPage extends AppCompatActivity {
                 new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
-                        startActivity(new Intent(SignInPage.this, MainDashboard.class));
-                        startActivity(new Intent(SignInPage.this, MainDashboard.class));
+                        startActivity(new Intent(SignInPage.this, DiscussionForum.class));
                         finish();
                     }
 
                     @Override
                     public void onCancel() {
-                        // App code
                     }
 
                     @Override
                     public void onError(FacebookException exception) {
-                        // App code
                     }
                 });
 
@@ -117,28 +114,29 @@ public class SignInPage extends AppCompatActivity {
 
                 if(email.isEmpty() || password.isEmpty()){
                     showMessage("Please Verify all fields");
-                    loginBtn.setVisibility(View.VISIBLE);
                     loadingProgress.setVisibility(View.INVISIBLE);
-                }
+                }else {
 
-                mAuth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                loadingProgress.setVisibility(View.GONE);
-                                if (task.isSuccessful()) {
-                                    DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
+                    mAuth.signInWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
                                     loadingProgress.setVisibility(View.GONE);
-                                    Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), MainDashboard.class);
-                                    startActivity(intent);
-                                    finish();
-                                } else {
-                                    Toast.makeText(SignInPage.this, "Authentication failed.",
-                                            Toast.LENGTH_SHORT).show();
+                                    if (task.isSuccessful()) {
+                                        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
+                                        loadingProgress.setVisibility(View.GONE);
+                                        Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(getApplicationContext(), DiscussionForum.class);
+                                        startActivity(intent);
+                                        finish();
+                                    } else {
+                                        Toast.makeText(SignInPage.this, "Authentication failed.",
+                                                Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-                            }
-                        });
+                            });
+
+                }
             }
         });
 
@@ -171,7 +169,7 @@ public class SignInPage extends AppCompatActivity {
 
     void navigateToSecondAcitivity(){
         finish();
-        Intent intent = new Intent(SignInPage.this, MainDashboard.class);
+        Intent intent = new Intent(SignInPage.this, DiscussionForum.class);
         startActivity(intent);
     }
 

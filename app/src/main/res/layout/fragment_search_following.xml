@@ -3,11 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:backgroundTint="@color/transparent"
     tools:context=".Activities.SearchFollowing">
 
     <TextView
         android:id="@+id/toolbar_title"
+        android:fontFamily="@font/ubunturegular"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -17,15 +19,15 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp" />
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="630dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="85dp"
-        android:background="@drawable/main_discussion" />
+<!--    <View-->
+<!--        android:id="@+id/view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="630dp"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_marginTop="85dp"-->
+<!--        android:background="@drawable/main_discussion" />-->
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
@@ -47,7 +49,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:background="#EAF5FF"
-            android:fontFamily="@font/playfair_display"
+            android:fontFamily="@font/ubunturegular"
             android:hint="Search"
             android:textColor="#20339A"
             android:textSize="10dp"

@@ -14,4 +14,18 @@
     <style name="ThemeOverlay.AppCompat.navTheme">
         <item name="colorPrimary">@color/white</item>
     </style>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <!-- other style attributes -->
+
+        <!-- Define a custom style for the menu items -->
+        <item name="android:actionMenuTextAppearance">@style/MyMenuTextAppearance</item>
+    </style>
+
+    <!-- Define a custom style for the menu text appearance -->
+    <style name="MyMenuTextAppearance" parent="@android:style/TextAppearance.Widget.TextView">
+        <item name="android:textSize">16sp</item> <!-- Set your desired text size -->
+        <item name="android:fontFamily">@font/ubunturegular</item> <!-- Reference the font resource -->
+    </style>
+
 </resources>

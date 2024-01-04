@@ -8,6 +8,8 @@
 
     <TextView
         android:id="@+id/toolbar_title"
+        android:fontFamily="@font/ubunturegular"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -71,12 +73,15 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/posts"
+                                android:fontFamily="@font/ubunturegular"
                                 android:textColor="@color/black"
                                 android:layout_gravity="center"
                                 android:textSize="18sp"
                                 android:textStyle="bold"/>
 
                             <TextView
+                                android:fontFamily="@font/ubunturegular"
+                                android:textStyle="bold"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="posts"/>
@@ -93,6 +98,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/followers"
+                                android:fontFamily="@font/ubunturegular"
                                 android:textColor="@color/black"
                                 android:layout_gravity="center"
                                 android:textSize="18sp"
@@ -101,6 +107,8 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/ubunturegular"
+                                android:textStyle="bold"
                                 android:text="followers"/>
 
                         </LinearLayout>
@@ -115,6 +123,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/following"
+                                android:fontFamily="@font/ubunturegular"
                                 android:textColor="@color/black"
                                 android:layout_gravity="center"
                                 android:textSize="18sp"
@@ -123,6 +132,8 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/ubunturegular"
+                                android:textStyle="bold"
                                 android:text="following"/>
 
                         </LinearLayout>
@@ -152,6 +163,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
+                    android:fontFamily="@font/ubunturegular"
                     android:id="@+id/fullname"
                     android:textStyle="bold"
                     android:textSize="16sp"
@@ -161,6 +173,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:fontFamily="@font/ubunturegular"
                     android:id="@+id/bio"
                     android:maxLines="5"
                     android:textColor="@color/black"/>

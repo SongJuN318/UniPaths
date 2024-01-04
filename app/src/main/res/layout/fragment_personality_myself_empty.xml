@@ -23,17 +23,7 @@
         app:strokeColor="#787FF6"
         app:strokeWidth="2dp" />
 
-    <TextView
-        android:id="@+id/description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/dmsans"
-        android:text="Student of University Malaya"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/profile_pic"
-        app:layout_constraintTop_toBottomOf="@+id/profile_name" />
+
 
     <TextView
         android:id="@+id/profile_name"
@@ -74,9 +64,9 @@
 
     <ImageView
         android:id="@+id/no_personality"
-        android:layout_width="171dp"
-        android:layout_height="171dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="15dp"
         android:src="@drawable/no_personality"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,10 +76,10 @@
         android:id="@+id/no_personality_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/ubunturegular"
         android:text="No personality?"
-        android:textSize="40sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -99,7 +89,7 @@
         android:id="@+id/whoops"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:alpha="0.6"
         android:fontFamily="@font/ubunturegular"
         android:text="...whoops! Please take the personality test first!"
@@ -113,7 +103,7 @@
         android:id="@+id/take_test_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/blue_btn"
         android:fontFamily="@font/dmsans"
         android:text="Take the test"

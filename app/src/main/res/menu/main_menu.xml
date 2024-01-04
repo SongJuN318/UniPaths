@@ -7,15 +7,9 @@
         <item android:id="@+id/setting_icon"
             android:icon="@drawable/setting_icon"
             android:title="Setting and Privacy" />
-        <item android:id="@+id/saved_icon"
-            android:icon="@drawable/baseline_bookmark_border_24"
-            android:title="Saved"/>
         <item android:id="@+id/history_icon"
             android:icon="@drawable/baseline_history_24"
             android:title="History" />
-        <item android:id="@+id/liked_icon"
-            android:icon="@drawable/baseline_favorite_24"
-            android:title="Liked"/>
         <item android:id="@+id/friend_icon"
             android:icon="@drawable/baseline_friends_24"
             android:title="Following"/>

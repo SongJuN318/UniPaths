@@ -26,6 +26,9 @@
             android:name=".Activities.PersonalityTestResult"
             android:exported="false" />
         <activity
+            android:name=".Activities.EditProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.CommentActivity"
             android:exported="false" />
         <activity
@@ -37,11 +40,8 @@
         </activity>
         <activity android:name=".Activities.ScholarshipMainPage">
         </activity>
-
         <activity android:name=".Activities.ScholarshipInterviewTips">
         </activity>
-
-
         <activity
             android:name=".Activities.ScholarshipDetails"
             android:exported="false" >
@@ -100,8 +100,14 @@
             android:name=".Activities.SignInPage"
             android:exported="false" />
         <activity
+            android:name=".Activities.EditProfileActivity"
+            android:exported="false" />
+        <activity android:name=".Activities.Activity_log"
+            android:exported="false"/>
+        <activity
             android:name=".Activities.RegisterActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

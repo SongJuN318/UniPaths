@@ -151,9 +151,6 @@ public class DiscussionForum extends AppCompatActivity implements NavigationView
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int itemId = item.getItemId();
                 if(itemId == R.id.personality_icon){
-                    /*openFragment(new Personality_test());
-                    return  true;*/
-                    //For testing purposes - zhengyu
                     Intent personalityIntent = new Intent(DiscussionForum.this, Activity_personality_main.class);
                     startActivity(personalityIntent);
                     return true;

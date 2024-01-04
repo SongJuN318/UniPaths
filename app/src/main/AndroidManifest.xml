@@ -26,6 +26,9 @@
             android:name=".Activities.PersonalityTestResult"
             android:exported="false" />
         <activity
+            android:name=".Activities.EditProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.CommentActivity"
             android:exported="false" />
         <activity

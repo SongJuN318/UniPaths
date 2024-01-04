@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:backgroundTint="@color/transparent"
     tools:context=".Activities.SearchFollowing">
 
     <TextView
@@ -17,15 +17,15 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp" />
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="630dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="85dp"
-        android:background="@drawable/main_discussion" />
+<!--    <View-->
+<!--        android:id="@+id/view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="630dp"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_marginTop="85dp"-->
+<!--        android:background="@drawable/main_discussion" />-->
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"

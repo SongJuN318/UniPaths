@@ -13,7 +13,9 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
@@ -30,7 +32,6 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.unipaths.Models.UserHelperClass;
 import com.example.unipaths.R;
-import com.example.unipaths.databinding.ActivityDiscussionForumBinding;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -204,11 +205,7 @@ public class DiscussionForum extends AppCompatActivity implements NavigationView
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
         if (menuItem.getItemId() == R.id.logout_icon) {
-            Toast.makeText(this, "Log out successful", Toast.LENGTH_SHORT).show();
-            SharedPreferences prefs = getSharedPreferences("PREPS", Context.MODE_PRIVATE);
-            prefs.edit().clear().apply();
-            Intent intent = new Intent(DiscussionForum.this, RegisterActivity.class);
-            startActivity(intent);
+            showLogoutConfirmationDialog();
         }else if (menuItem.getItemId() == R.id.profile_img) {
             navigateToProfileFragment(firebaseUser.getUid());
         } else if (menuItem.getItemId()==R.id.history_icon){
@@ -216,15 +213,36 @@ public class DiscussionForum extends AppCompatActivity implements NavigationView
             startActivity(intent);
         }
         return true;
-
     }
 
-    private void openFragment(Fragment fragment){
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.fram_container, fragment);
-        drawerLayout.closeDrawer(GravityCompat.START);
-        transaction.commit();
+    private void showLogoutConfirmationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Confirm Logout");
+        builder.setMessage("Are you sure you want to log out?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                logoutUser();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Do nothing, simply close the dialog
+                dialog.dismiss();
+            }
+        });
+        builder.show();
     }
+
+    private void logoutUser() {
+        Toast.makeText(this, "Log out successful", Toast.LENGTH_SHORT).show();
+        SharedPreferences prefs = getSharedPreferences("PREPS", Context.MODE_PRIVATE);
+        prefs.edit().clear().apply();
+        Intent intent = new Intent(DiscussionForum.this, RegisterActivity.class);
+        startActivity(intent);
+    }
+
     private void navigateToProfileFragment(String profileid) {
         ProfileFragment profileFragment = new ProfileFragment();
 

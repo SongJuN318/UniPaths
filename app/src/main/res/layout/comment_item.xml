@@ -5,8 +5,8 @@
     android:padding="8dp">
     
     <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
         android:id="@+id/image_profile"/>
 
     <LinearLayout
@@ -20,6 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
+            android:fontFamily="@font/playfair_display"
             android:textColor="@color/black"
             android:id="@+id/username"/>
 
@@ -27,6 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/comment"
+            android:fontFamily="@font/ubunturegular"
             android:textColor="@color/black"
             android:maxLines="5"/>
 

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.unipaths.Models.History;
 import com.example.unipaths.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -19,10 +20,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.TimeZone;
 
 
 public class QuizSummaryActivity extends AppCompatActivity {
@@ -36,6 +41,7 @@ public class QuizSummaryActivity extends AppCompatActivity {
         // Retrieve the score from the Intent
         int score = getIntent().getIntExtra("score", 0);
         addScoreToDatabase(score);
+        recordQuizHistory();
 
         // Find TextViews in your layout
         TextView tvTotalAnswered = findViewById(R.id.tvTotalAnswered);
@@ -72,6 +78,34 @@ public class QuizSummaryActivity extends AppCompatActivity {
         startActivity(intent);
         finish(); // Finish the current activity to prevent going back with the back button
     }
+    private void recordQuizHistory() {
+        String quizName = getIntent().getStringExtra("quizName");
+        // Get the current user ID
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        // Get the current date and time
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy", Locale.getDefault());
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+        dateFormat.setTimeZone(TimeZone.getTimeZone("GMT+8"));
+        timeFormat.setTimeZone(TimeZone.getTimeZone("GMT+8"));
+
+        String currentDate = dateFormat.format(new Date());
+        String currentTime = timeFormat.format(new Date());
+
+        // Create a QuizHistory object
+        History quizHistory = new History(quizName, currentDate, currentTime);
+
+        // Get the reference to the user's Quiz history
+        DatabaseReference quizHistoryRef = FirebaseDatabase.getInstance().getReference("users")
+                .child(userId)
+                .child("Quiz")
+                .child(quizName);
+
+        // Set the quiz history data
+        quizHistoryRef.setValue(quizHistory);
+
+    }
+
     private void addScoreToDatabase(int score) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {

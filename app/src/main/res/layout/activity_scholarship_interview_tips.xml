@@ -77,7 +77,7 @@
             android:paddingHorizontal="30dp"
             android:text="Before"
             android:textAllCaps="false"
-            android:textColor="@color/grey" />
+            android:textColor="@color/gray" />
 
         <Button
             android:id="@+id/DuringButton"
@@ -88,7 +88,7 @@
             android:paddingHorizontal="30dp"
             android:text="During"
             android:textAllCaps="false"
-            android:textColor="@color/grey" />
+            android:textColor="@color/gray" />
 
         <Button
             android:id="@+id/AfterButton"
@@ -99,7 +99,7 @@
             android:paddingHorizontal="30dp"
             android:text="After"
             android:textAllCaps="false"
-            android:textColor="@color/grey" />
+            android:textColor="@color/gray" />
 
 
     </LinearLayout>

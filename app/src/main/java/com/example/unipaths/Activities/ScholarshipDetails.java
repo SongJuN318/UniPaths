@@ -196,8 +196,8 @@ public class ScholarshipDetails extends AppCompatActivity implements NavigationV
         }else if (menuItem.getItemId() == R.id.profile_img) {
             navigateToProfileFragment(firebaseUser.getUid());
         } else if (menuItem.getItemId()==R.id.history_icon){
-//            Intent intent = new Intent(ScholarshipMainPage.this, Activity_log.class);
-//            startActivity(intent);
+            Intent intent = new Intent(ScholarshipDetails.this, Activity_log.class);
+            startActivity(intent);
         }
         return true;
     }

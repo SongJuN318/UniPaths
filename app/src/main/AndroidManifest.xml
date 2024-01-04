@@ -41,6 +41,9 @@
         <activity android:name=".Activities.ScholarshipInterviewTips">
         </activity>
 
+        <activity android:name=".Activities.EditProfileActivity"
+                 android:exported="false">
+        </activity>
 
         <activity
             android:name=".Activities.ScholarshipDetails"

@@ -38,21 +38,19 @@
             android:name=".Activities.ScholarshipNotification"
             android:exported="false">
         </activity>
-        <activity
-            android:name=".Activities.ScholarshipMainPage"
-            android:exported="false">
+        <activity android:name=".Activities.ScholarshipMainPage">
         </activity>
-        <activity
-            android:name=".Activities.ScholarshipInterviewTips"
-            android:exported="false">
+        <activity android:name=".Activities.ScholarshipInterviewTips">
         </activity>
         <activity
             android:name=".Activities.ScholarshipDetails"
             android:exported="false" >
         </activity>
+
         <activity
             android:name=".Activities.MainDashboard"
             android:exported="false"></activity>
+
         <activity
             android:name=".Activities.Activity_quiz"
             android:exported="false" >

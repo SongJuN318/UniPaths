@@ -44,7 +44,6 @@ public class Activity_log extends AppCompatActivity {
         helloTextView = findViewById(R.id.helloTextView);
         btnDiscussion=findViewById(R.id.button_Discussion);
         btnQuizzes=findViewById(R.id.button_Quizzes);
-        btnTest=findViewById(R.id.button_Test);
 
         displayUsername();
 

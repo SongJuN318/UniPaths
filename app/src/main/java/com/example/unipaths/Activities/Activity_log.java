@@ -34,7 +34,7 @@ public class Activity_log extends AppCompatActivity {
     private DatabaseReference userRef;
     private RecyclerView recyclerView;
     private HistoryAdapter adapter;
-    private Button btnDiscussion,btnQuizzes,btnTest;
+    private Button btnDiscussion,btnQuizzes;
     private BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +46,7 @@ public class Activity_log extends AppCompatActivity {
         btnQuizzes=findViewById(R.id.button_Quizzes);
 
         displayUsername();
+        btnDiscussion.setSelected(true);
         fetchPostHistory();
 
         btnQuizzes.setOnClickListener(v->{
@@ -89,7 +90,6 @@ public class Activity_log extends AppCompatActivity {
     }
     private void clearButtonSelection() {
         // Clear the selected state for all buttons
-        btnTest.setSelected(false);
         btnQuizzes.setSelected(false);
         btnDiscussion.setSelected(false);
 

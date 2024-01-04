@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 public class PersonalityGuidanceFragment extends Fragment {
     private View rootView;
     private ImageButton takeQuizBtn, careerRecBtn, peerConnectBtn, pastResultsBtn;
+    private Button resultBtn;
     private String userId;
 
     @Override
@@ -34,7 +36,9 @@ public class PersonalityGuidanceFragment extends Fragment {
         careerRecBtn = rootView.findViewById(R.id.career_rec_icon);
         peerConnectBtn = rootView.findViewById(R.id.peer_connect_icon);
         pastResultsBtn = rootView.findViewById(R.id.past_results_icon);
+        resultBtn = rootView.findViewById(R.id.result_btn);
         userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        checkPersonalityTestStatus(userId, this::setResultBtnVisible, this::setResultBtnInvisible);
 
         takeQuizBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,6 +104,23 @@ public class PersonalityGuidanceFragment extends Fragment {
 
             }
         });
+    }
+
+    private void setResultBtnVisible(){
+        resultBtn.setVisibility(View.VISIBLE);
+        resultBtn.setEnabled(true);
+        resultBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent resultIntent = new Intent(getActivity(), Activity_personality_check_result.class);
+                startActivity(resultIntent);
+            }
+        });
+    }
+
+    private void setResultBtnInvisible(){
+        resultBtn.setVisibility(View.INVISIBLE);
+        resultBtn.setEnabled(false);
     }
 
 

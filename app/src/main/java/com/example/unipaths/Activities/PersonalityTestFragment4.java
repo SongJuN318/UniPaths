@@ -36,6 +36,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.TimeZone;
 
 public class PersonalityTestFragment4 extends Fragment {
     private int totalScore;
@@ -50,7 +51,7 @@ public class PersonalityTestFragment4 extends Fragment {
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference userRef;
-    private String personality;
+    private String personality, perType;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -133,13 +134,14 @@ public class PersonalityTestFragment4 extends Fragment {
                                 }
                             }
                             String currentDate = getCurrentDate();
+                            String currentTime = getCurrentTime();
                             DatabaseReference personalityRef = FirebaseDatabase.getInstance().getReference().child("Personality").child(personality);
                             personalityRef.child("type").addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    String perType = snapshot.getValue(String.class);
+                                    perType = snapshot.getValue(String.class);
                                     Log.d("TAG", "PerType is: "+perType);
-                                    PastPersonality pastP = new PastPersonality(personality, currentDate, perType);
+                                    PastPersonality pastP = new PastPersonality(personality, currentDate, perType, currentTime);
                                     personalityList.add(pastP);
                                     userRef.child("personalityList").setValue(personalityList);
                                 }
@@ -166,6 +168,14 @@ public class PersonalityTestFragment4 extends Fragment {
         return rootView;
     }
 
+    private String getCurrentTime() {
+        Calendar calendar = Calendar.getInstance();
+        Date currentDate = calendar.getTime();
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+        timeFormat.setTimeZone(TimeZone.getTimeZone("GMT+8"));
+        return timeFormat.format(currentDate);
+    }
+
     private void getPersonalityName() {
         DatabaseReference personalityRef = FirebaseDatabase.getInstance().getReference().child("Personality").child(personality);
         personalityRef.child("type").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -182,16 +192,10 @@ public class PersonalityTestFragment4 extends Fragment {
     }
 
     private String getCurrentDate() {
-        // Create a Calendar instance
         Calendar calendar = Calendar.getInstance();
-
-        // Get the current date as a Date object
         Date currentDate = calendar.getTime();
-
-        // Define the desired date format
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-
-        // Format the current date using the specified format
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy", Locale.getDefault());
+        dateFormat.setTimeZone(TimeZone.getTimeZone("GMT+8"));
         return dateFormat.format(currentDate);
     }
 

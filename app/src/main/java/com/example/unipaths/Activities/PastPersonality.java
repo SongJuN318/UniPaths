@@ -1,13 +1,13 @@
 package com.example.unipaths.Activities;
 
 public class PastPersonality {
-    private String personalityName;
-    private String dateTaken;
+    private String personalityName, dateTaken, timeTaken;
 
-    public PastPersonality(String personalityName, String dateTaken, String personalityType) {
+    public PastPersonality(String personalityName, String dateTaken, String personalityType, String timeTaken) {
         this.personalityName = personalityName;
         this.dateTaken = dateTaken;
         this.personalityType = personalityType;
+        this.timeTaken = timeTaken;
     }
 
     private String personalityType;
@@ -42,5 +42,13 @@ public class PastPersonality {
 
     public void setPersonalityType(String personalityType) {
         this.personalityType = personalityType;
+    }
+
+    public String getTimeTaken() {
+        return timeTaken;
+    }
+
+    public void setTimeTaken(String timeTaken) {
+        this.timeTaken = timeTaken;
     }
 }

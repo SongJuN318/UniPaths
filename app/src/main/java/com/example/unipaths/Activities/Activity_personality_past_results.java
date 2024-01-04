@@ -21,13 +21,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Activity_personality_past_results extends AppCompatActivity {
     private Button backBtn;
     private PastResultsRecyclerViewAdapter adapter;
     private RecyclerView recyclerView;
-    private List<PastPersonality> personalityList = new ArrayList<>();
+    private List<PastPersonality> personalityList, reversedList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,8 @@ public class Activity_personality_past_results extends AppCompatActivity {
         setContentView(R.layout.activity_personality_past_results);
         backBtn = findViewById(R.id.back_icon);
 
+        personalityList = new ArrayList<>();
+        reversedList = new ArrayList<>();
         recyclerView = findViewById(R.id.recycler_view_past_results);
         fetchPersonalitiesFromUser();
         adapter = new PastResultsRecyclerViewAdapter(personalityList);
@@ -57,11 +60,14 @@ public class Activity_personality_past_results extends AppCompatActivity {
                 if (snapshot.exists()){
                     for (DataSnapshot dataSnapshot:snapshot.getChildren()){
                         PastPersonality pastPersonality = dataSnapshot.getValue(PastPersonality.class);
-                        personalityList.add(pastPersonality);
+                        reversedList.add(pastPersonality);
                         Log.d("TAG", "Personality is: "+pastPersonality.getPersonalityType());
                         Log.d("TAG", "Past personality added to list");
-                        adapter.notifyDataSetChanged();
                     }
+                    Collections.reverse(reversedList);
+                    personalityList.clear();
+                    personalityList.addAll(reversedList);
+                    adapter.notifyDataSetChanged();
                 }
             }
 

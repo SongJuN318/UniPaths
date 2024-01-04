@@ -28,6 +28,7 @@ public class PastResultsRecyclerViewAdapter extends RecyclerView.Adapter<PastRes
         PastPersonality pastPersonality = personalityList.get(position);
         holder.careerName.setText(pastPersonality.getPersonalityType());
         holder.dateTaken.setText(pastPersonality.getDateTaken());
+        holder.timeTaken.setText(pastPersonality.getTimeTaken());
     }
 
     @Override
@@ -36,12 +37,13 @@ public class PastResultsRecyclerViewAdapter extends RecyclerView.Adapter<PastRes
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView careerName, dateTaken;
+        private TextView careerName, dateTaken, timeTaken;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            careerName = itemView.findViewById(R.id.career_name);
+            careerName = itemView.findViewById(R.id.personality_name);
             dateTaken = itemView.findViewById(R.id.date_taken);
+            timeTaken = itemView.findViewById(R.id.time_taken);
         }
     }
 }

@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -110,10 +112,31 @@ public class EditProfileActivity extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateProfile(fullname.getText().toString(),bio.getText().toString());
+                showSaveConfirmationDialog();
+            }
+        });
+    }
+
+    private void showSaveConfirmationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Confirm Save");
+        builder.setMessage("Are you sure you want to save changes?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // User confirmed, proceed to save changes
+                updateProfile(fullname.getText().toString(), bio.getText().toString());
                 startActivity(new Intent(EditProfileActivity.this, ProfileFragment.class));
             }
         });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // User canceled, do nothing
+                dialog.dismiss();
+            }
+        });
+        builder.show();
     }
 
     private void updateProfile(String fullname, String bio) {

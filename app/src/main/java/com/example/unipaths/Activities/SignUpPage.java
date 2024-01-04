@@ -121,10 +121,13 @@ public class SignUpPage extends AppCompatActivity {
                 final String name =  userName.getText().toString();
                 final String email = userEmail.getText().toString();
 
-                if(email.isEmpty() || password.isEmpty() || password2.isEmpty() || name.isEmpty() || !password.equals(password2)){
+                if(email.isEmpty() || password.isEmpty() || password2.isEmpty() || name.isEmpty()){
                     showMessage("Please Verify all fields");
                     loadingProgress.setVisibility(View.GONE);
-                }else{
+                } else if (!password.equals(password2)){
+                    showMessage("Different password input!");
+                    loadingProgress.setVisibility(View.GONE);
+                } else{
                     loadingProgress.setVisibility(View.VISIBLE);
                     CreateUserAccount(email, name, password);
                 }

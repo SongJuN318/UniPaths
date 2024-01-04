@@ -70,7 +70,7 @@
         android:paddingTop="10dp">
 
         <Button
-            android:id="@+id/button_argriculture"
+            android:id="@+id/button_Discussion"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
             android:textColor="@drawable/button_selector" />
 
         <Button
-            android:id="@+id/button_architecture"
+            android:id="@+id/button_Quizzes"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
             android:textColor="@drawable/button_selector" />
 
         <Button
-            android:id="@+id/button_arts"
+            android:id="@+id/button_Test"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -114,7 +114,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvQuizList"
+        android:id="@+id/rvHistoryLog"
         android:layout_width="match_parent"
         android:layout_height="454dp"
         android:layout_marginHorizontal="20px"

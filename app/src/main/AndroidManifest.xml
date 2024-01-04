@@ -8,7 +8,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -20,8 +19,12 @@
         android:theme="@style/Theme.UniPaths"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.Activity_personality_past_results"
+            android:exported="false" />
+        <activity
             android:name=".Activities.ScholarshipDashboard"
             android:exported="false" />
+        <activity
             android:name=".Activities.PersonalityTestResult"
             android:exported="false" />
         <activity
@@ -29,43 +32,25 @@
             android:exported="false" />
         <activity
             android:name=".Activities.Activity_personality_test"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".Activities.ScholarshipNotification"
-            android:exported="false">
-        </activity>
-        <activity android:name=".Activities.ScholarshipMainPage">
-            <!-- Add any necessary intent filters or other attributes here -->
-        </activity>
-
-        <activity android:name=".Activities.ScholarshipInterviewTips">
-            <!-- Add any necessary intent filters or other attributes here -->
-        </activity>
-
-        <activity android:name=".Activities.ScholarshipNotification">
-            <!-- Add any necessary intent filters or other attributes here -->
-        </activity>
-
-        <activity
-            android:name=".Activities.ScholarshipMainPage"
-            android:exported="false">
-        </activity>
-        <activity
-            android:name=".Activities.ScholarshipInterviewTips"
-            android:exported="false">
-        </activity>
-        <activity
-            android:name=".Activities.ScholarshipDetails"
-            android:exported="false" >
-        </activity>
-        <activity
-            android:name=".Activities.MainDashboard"
             android:exported="false"></activity>
         <activity
+            android:name=".Activities.ScholarshipMainPage"
+            android:exported="false"></activity>
+        <activity
+            android:name=".Activities.ScholarshipInterviewTips"
+            android:exported="false"></activity>
+        <activity
+            android:name=".Activities.ScholarshipDetails"
+            android:exported="false"></activity>
+        <activity
+            android:name=".Activities.MainDashboard"
+            android:exported="false" />
+        <activity
             android:name=".Activities.Activity_quiz"
-            android:exported="false" >
-        </activity>
-
+            android:exported="false"></activity>
         <activity
             android:name=".Activities.QuizQuestionActivity"
             android:exported="false" />
@@ -74,31 +59,29 @@
             android:exported="false" />
         <activity
             android:name=".Activities.QuizLeaderboardActivity"
-            android:exported="false" >
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".Activities.UniversityInfo"
             android:exported="false" />
         <activity
             android:name=".Activities.FollowerActivity"
             android:exported="false" />
-      <activity
+        <activity
             android:name=".Activities.Knowledge_Universities"
             android:exported="true"
-            android:windowSoftInputMode="adjustPan">
-        </activity>
+            android:windowSoftInputMode="adjustPan"></activity>
         <activity
             android:name=".Activities.Activity_personality_update_trait"
             android:exported="false" />
         <activity
             android:name=".Activities.Activity_personality_career_rec"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Activities.Activity_personality_peer_connect"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Activities.Activity_personality_main"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Activities.DiscussionForum"
             android:enableOnBackInvokedCallback="true"
@@ -118,25 +101,32 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
-        <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
-        <activity android:name="com.facebook.FacebookActivity"
-            android:configChanges=
-                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="com.facebook.sdk.ClientToken"
+            android:value="@string/facebook_client_token" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name" />
         <activity
             android:name="com.facebook.CustomTabActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
 
         <receiver android:name=".Activities.NotificationReceiver" />
-
     </application>
 
 </manifest>

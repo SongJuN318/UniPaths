@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,11 +24,18 @@ import com.example.unipaths.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class PersonalityTestFragment4 extends Fragment {
     private int totalScore;
@@ -42,6 +50,7 @@ public class PersonalityTestFragment4 extends Fragment {
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference userRef;
+    private String personality;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -91,7 +100,7 @@ public class PersonalityTestFragment4 extends Fragment {
                     String trait2 = personalityViewModel.getTrait2();
                     String trait3 = personalityViewModel.getTrait3();
                     String trait4 = personalityViewModel.getTrait4();
-                    String personality = personalityViewModel.getPersonality();
+                    personality = personalityViewModel.getPersonality();
                     userRef.child("personality").setValue(personality)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
@@ -113,6 +122,41 @@ public class PersonalityTestFragment4 extends Fragment {
                                     //Leave empty first, will add if needed
                                 }
                             });
+                    userRef.child("personalityList").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            List<PastPersonality> personalityList = new ArrayList<>();
+                            if (snapshot.exists()){
+                                for (DataSnapshot dataSnapshot:snapshot.getChildren()){
+                                    PastPersonality pastPersonality = dataSnapshot.getValue(PastPersonality.class);
+                                    personalityList.add(pastPersonality);
+                                }
+                            }
+                            String currentDate = getCurrentDate();
+                            DatabaseReference personalityRef = FirebaseDatabase.getInstance().getReference().child("Personality").child(personality);
+                            personalityRef.child("type").addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    String perType = snapshot.getValue(String.class);
+                                    Log.d("TAG", "PerType is: "+perType);
+                                    PastPersonality pastP = new PastPersonality(personality, currentDate, perType);
+                                    personalityList.add(pastP);
+                                    userRef.child("personalityList").setValue(personalityList);
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
                 }
                 else {
                     Toast.makeText(requireContext(), "Please finish all the questions!", Toast.LENGTH_SHORT).show();
@@ -120,6 +164,35 @@ public class PersonalityTestFragment4 extends Fragment {
             }
         });
         return rootView;
+    }
+
+    private void getPersonalityName() {
+        DatabaseReference personalityRef = FirebaseDatabase.getInstance().getReference().child("Personality").child(personality);
+        personalityRef.child("type").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String perName = snapshot.getValue(String.class);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private String getCurrentDate() {
+        // Create a Calendar instance
+        Calendar calendar = Calendar.getInstance();
+
+        // Get the current date as a Date object
+        Date currentDate = calendar.getTime();
+
+        // Define the desired date format
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+
+        // Format the current date using the specified format
+        return dateFormat.format(currentDate);
     }
 
     private boolean calculateTotalScore() {

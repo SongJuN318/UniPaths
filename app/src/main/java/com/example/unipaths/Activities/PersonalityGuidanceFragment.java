@@ -9,12 +9,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.unipaths.R;
-import com.google.firebase.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class PersonalityGuidanceFragment extends Fragment {
     private View rootView;
-    private ImageButton takeQuizBtn, careerRecBtn, peerConnectBtn, checkResultBtn;
+    private ImageButton takeQuizBtn, careerRecBtn, peerConnectBtn, pastResultsBtn;
     private String userId;
 
     @Override
@@ -35,7 +33,7 @@ public class PersonalityGuidanceFragment extends Fragment {
         takeQuizBtn = rootView.findViewById(R.id.take_quiz_icon);
         careerRecBtn = rootView.findViewById(R.id.career_rec_icon);
         peerConnectBtn = rootView.findViewById(R.id.peer_connect_icon);
-        checkResultBtn = rootView.findViewById(R.id.check_result_icon);
+        pastResultsBtn = rootView.findViewById(R.id.past_results_icon);
         userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         takeQuizBtn.setOnClickListener(new View.OnClickListener() {
@@ -66,10 +64,10 @@ public class PersonalityGuidanceFragment extends Fragment {
                         Toast.makeText(getContext(), "Please take the personality test first!", Toast.LENGTH_SHORT).show();
                     });
         });
-        checkResultBtn.setOnClickListener(v -> {
+        pastResultsBtn.setOnClickListener(v -> {
             checkPersonalityTestStatus(userId,
                     ()->{
-                        Intent intent = new Intent(getActivity(), Activity_personality_update_trait.class);
+                        Intent intent = new Intent(getActivity(), Activity_personality_past_results.class);
                         startActivity(intent);
                     },
                     ()->{

@@ -7,6 +7,8 @@
     tools:context=".Activities.Tag_Display_Fragment">
 
     <TextView
+        android:fontFamily="@font/ubunturegular"
+        android:textStyle="bold"
         android:id="@+id/toolbar_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -68,6 +70,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="15dp"
+                            android:fontFamily="@font/ubunturegular"
                             android:textStyle="bold"
                             android:textColor="@color/black"/>
 
@@ -75,6 +78,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text=" posts"
+                            android:fontFamily="@font/ubunturegular"
+                            android:textStyle="bold"
                             android:textSize="15dp"
                             android:textColor="#7A7A7A"/>
 
@@ -85,6 +90,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:fontFamily="@font/ubunturegular"
+                        android:textStyle="bold"
                         android:textColor="@color/black"
                         android:background="#E7F9FF"/>
 
@@ -101,10 +108,11 @@
 
                 <TextView
                     android:id="@+id/tagName"
+                    android:fontFamily="@font/ubunturegular"
+                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
-                    android:textStyle="bold"
                     android:textSize="20sp"
                     android:textColor="@color/black"/>
 

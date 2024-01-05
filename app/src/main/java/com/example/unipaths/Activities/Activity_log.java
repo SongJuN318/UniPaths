@@ -34,7 +34,7 @@ public class Activity_log extends AppCompatActivity {
     private DatabaseReference userRef;
     private RecyclerView recyclerView;
     private HistoryAdapter adapter;
-    private Button btnDiscussion,btnQuizzes,btnTest;
+    private Button btnDiscussion,btnQuizzes;
     private BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,14 +44,20 @@ public class Activity_log extends AppCompatActivity {
         helloTextView = findViewById(R.id.helloTextView);
         btnDiscussion=findViewById(R.id.button_Discussion);
         btnQuizzes=findViewById(R.id.button_Quizzes);
-        btnTest=findViewById(R.id.button_Test);
 
         displayUsername();
+        btnDiscussion.setSelected(true);
+        fetchPostHistory();
 
         btnQuizzes.setOnClickListener(v->{
             clearButtonSelection();
             btnQuizzes.setSelected(true);
             fetchQuizHistory();
+        });
+        btnDiscussion.setOnClickListener(view -> {
+            clearButtonSelection();
+            btnDiscussion.setSelected(true);
+            fetchPostHistory();
         });
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -84,7 +90,6 @@ public class Activity_log extends AppCompatActivity {
     }
     private void clearButtonSelection() {
         // Clear the selected state for all buttons
-        btnTest.setSelected(false);
         btnQuizzes.setSelected(false);
         btnDiscussion.setSelected(false);
 
@@ -116,6 +121,47 @@ public class Activity_log extends AppCompatActivity {
             });
         }
     }
+
+    private void fetchPostHistory(){
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        FirebaseUser user = auth.getCurrentUser();
+        String userId;
+
+        if (user != null) {
+            userId = user.getUid();
+            DatabaseReference quizRef = FirebaseDatabase.getInstance().getReference("users/" + userId + "/Post");
+
+            recyclerView = findViewById(R.id.rvHistoryLog);
+            adapter = new HistoryAdapter();
+
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            recyclerView.setAdapter(adapter);
+            quizRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    List<History> postHistoryList = new ArrayList<>();
+
+                    for (DataSnapshot quizSnapshot : dataSnapshot.getChildren()) {
+                        String date = quizSnapshot.child("date").getValue(String.class);
+                        String time = quizSnapshot.child("time").getValue(String.class);
+                        String title = quizSnapshot.child("title").getValue(String.class);
+
+                        postHistoryList.add(new History(title, date, time));
+                    }
+
+
+                    // Update the adapter with the fetched data
+                    adapter.setHistoryList(postHistoryList);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    // Handle errors
+                }
+            });
+        }
+    }
+
     private void fetchQuizHistory() {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseUser user = auth.getCurrentUser();

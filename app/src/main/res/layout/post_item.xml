@@ -35,6 +35,7 @@
                 android:id="@+id/username"
                 android:layout_gravity="center_vertical"
                 android:textSize="16sp"
+                android:fontFamily="@font/ubunturegular"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
 
@@ -83,6 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:fontFamily="@font/ubunturegular"
             android:textStyle="bold"
             android:id="@+id/likes"
             android:textColor="@color/black"/>
@@ -91,6 +93,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:fontFamily="@font/ubunturegular"
             android:textStyle="bold"
             android:id="@+id/publisher"
             android:textColor="@color/black"/>
@@ -99,7 +102,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginEnd="5dp"
             android:id="@+id/description"
+            android:fontFamily="@font/ubunturegular"
             android:textColor="@color/black"/>
 
         <TextView
@@ -107,6 +112,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:id="@+id/tags_tv"
+            android:textStyle="bold"
+            android:fontFamily="@font/ubunturegular"
             android:textColor="#878686"/>
 
         <TextView
@@ -116,6 +123,8 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp"
             android:id="@+id/comments"
+            android:textStyle="bold"
+            android:fontFamily="@font/ubunturegular"
             android:text="View All 20 Comments"
             android:textColor="#9A9797"/>
 

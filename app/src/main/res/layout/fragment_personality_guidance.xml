@@ -29,7 +29,7 @@
                 android:background="@drawable/login_btn"
                 android:contentDescription="Take Quiz"
                 android:paddingBottom="18dp"
-                app:srcCompat="@drawable/take_quiz"
+                app:srcCompat="@drawable/edit_trait"
                 tools:layout_editor_absoluteX="51dp"
                 tools:layout_editor_absoluteY="271dp" />
 
@@ -43,7 +43,7 @@
                 android:fontFamily="@font/ubunturegular"
                 android:lineSpacingMultiplier="0.9"
                 android:padding="4dp"
-                android:text="Take the personality test"
+                android:text="Personality test"
                 android:textAlignment="center"
                 android:textColor="#FA2A75"
                 android:textStyle="bold"
@@ -102,7 +102,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="35dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="5dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -144,10 +144,10 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/check_result_card_view"
+        android:id="@+id/past_results_card_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="50dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="5dp"
@@ -155,18 +155,18 @@
         app:layout_constraintTop_toBottomOf="@+id/career_rec_card_view">
 
         <FrameLayout
-            android:id="@+id/check_result_layout"
+            android:id="@+id/past_results_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/check_result_icon"
+                android:id="@+id/past_results_icon"
                 android:layout_width="130dp"
                 android:layout_height="130dp"
                 android:background="@drawable/login_btn"
                 android:contentDescription="Edit trait"
                 android:paddingBottom="18dp"
-                app:srcCompat="@drawable/edit_trait"
+                app:srcCompat="@drawable/take_quiz"
                 tools:layout_editor_absoluteX="51dp"
                 tools:layout_editor_absoluteY="271dp" />
 
@@ -180,7 +180,7 @@
                 android:fontFamily="@font/ubunturegular"
                 android:lineSpacingMultiplier="0.9"
                 android:padding="4dp"
-                android:text="Check results"
+                android:text="Past results"
                 android:textAlignment="center"
                 android:textColor="#1CA7EC"
                 android:textStyle="bold"
@@ -188,5 +188,24 @@
                 tools:layout_editor_absoluteY="372dp" />
         </FrameLayout>
     </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/result_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textSize="15dp"
+        android:text="Check my result"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:fontFamily="@font/ubunturegular"
+        android:background="@drawable/blue_btn"
+        android:padding="10dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/peer_connect_card_view" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

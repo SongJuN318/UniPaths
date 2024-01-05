@@ -2,7 +2,7 @@ package com.example.unipaths.Models;
 
 public class UserHelperClass {
 
-    String name, email, password, userid, bio, imageurl, personality;
+    String name, email, password, userid, bio, imageurl, personality, post;
     int score;
 
     public UserHelperClass() {

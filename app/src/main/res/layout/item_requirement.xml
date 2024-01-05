@@ -12,6 +12,7 @@
         android:background="#005CCC"
         android:paddingHorizontal="15dp"
         android:paddingVertical="10dp"
+        android:fontFamily="@font/ubunturegular"
         android:textColor="#EAFFFE"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -22,6 +23,7 @@
         android:layout_height="wrap_content"
         android:background="#CBE4FF"
         android:padding="15dp"
+        android:fontFamily="@font/ubunturegular"
         android:textSize="18sp"
         android:textStyle="bold" />
 

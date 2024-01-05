@@ -18,6 +18,8 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
@@ -72,12 +74,14 @@ public class Knowledge_Universities extends AppCompatActivity implements Navigat
     Toolbar toolbar;
     BottomNavigationView bottomNavigationView;
     private FirebaseUser firebaseUser;
+    TextView greet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_knowledge_universities);
 
+        greet = findViewById(R.id.greet);
         drawerLayout = findViewById(R.id.drawer_layout);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -165,7 +169,7 @@ public class Knowledge_Universities extends AppCompatActivity implements Navigat
                             .into(profileImg);
 
                     fullname.setText(user.getName());
-
+                    greet.setText("Hello, "+user.getName());
                 }
             }
 
@@ -237,10 +241,9 @@ public class Knowledge_Universities extends AppCompatActivity implements Navigat
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
         if (menuItem.getItemId() == R.id.logout_icon) {
-            Toast.makeText(this, "Log out successful", Toast.LENGTH_SHORT).show();
-            SharedPreferences prefs = getSharedPreferences("PREPS", Context.MODE_PRIVATE);
-            prefs.edit().clear().apply();
-            Intent intent = new Intent(Knowledge_Universities.this, RegisterActivity.class);
+            showLogoutConfirmationDialog();
+        } else if (menuItem.getItemId()==R.id.history_icon){
+            Intent intent = new Intent(Knowledge_Universities.this, Activity_log.class);
             startActivity(intent);
         }
         return true;
@@ -258,6 +261,34 @@ public class Knowledge_Universities extends AppCompatActivity implements Navigat
         transaction.commit();
 
         drawerLayout.closeDrawer(GravityCompat.START);
+    }
+
+    private void showLogoutConfirmationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Confirm Logout");
+        builder.setMessage("Are you sure you want to log out?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                logoutUser();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Do nothing, simply close the dialog
+                dialog.dismiss();
+            }
+        });
+        builder.show();
+    }
+
+    private void logoutUser() {
+        Toast.makeText(this, "Log out successful", Toast.LENGTH_SHORT).show();
+        SharedPreferences prefs = getSharedPreferences("PREPS", Context.MODE_PRIVATE);
+        prefs.edit().clear().apply();
+        Intent intent = new Intent(Knowledge_Universities.this, RegisterActivity.class);
+        startActivity(intent);
     }
 
 }

@@ -19,12 +19,11 @@
             <View
                 android:id="@+id/view"
                 android:layout_width="match_parent"
-                android:layout_height="635dp"
+                android:layout_height="593dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="-20dp"
+                android:layout_marginBottom="-70dp"
                 android:background="@drawable/main_discussion"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -33,18 +32,45 @@
 
 
             <TextView
-                android:id="@+id/text_header1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:layout_marginStart="20dp"
-                android:text="What should you know"
+                android:layout_marginTop="22dp"
+                android:text="Basic Knowledge"
                 android:fontFamily="@font/ubunturegular"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/greet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:layout_marginStart="20dp"
+                android:text="Hello, xxx!"
+                android:fontFamily="@font/ubunturegular"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/TV2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:text="Did you know..."
+                android:fontFamily="@font/ubunturegular"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/greet"/>
 
             <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
@@ -86,7 +112,7 @@
                 android:layout_height="23dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="110dp"
+                android:layout_marginTop="140dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.493"
                 app:layout_constraintStart_toStartOf="parent"
@@ -139,7 +165,7 @@
                 android:id="@+id/fragment_know"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="130dp"
+                android:layout_marginTop="150dp"
                 android:layout_marginBottom="75dp"
                 android:layout_weight="1"
                 app:layout_constraintBottom_toTopOf="parent"

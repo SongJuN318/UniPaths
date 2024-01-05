@@ -184,7 +184,7 @@ public class ScholarshipMainPage extends AppCompatActivity implements Scholarshi
                     startActivity(scholarshipIntent);
                     return true;
                 }else if(itemId == R.id.discussion_icon){
-                    Intent intent = new Intent(ScholarshipMainPage.this, ScholarshipMainPage.class);
+                    Intent intent = new Intent(ScholarshipMainPage.this, DiscussionForum.class);
                     startActivity(intent);
                     return true;
                 }else if(itemId==R.id.knowledge_icon){

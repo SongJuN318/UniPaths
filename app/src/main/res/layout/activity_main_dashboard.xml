@@ -7,9 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -41,11 +39,6 @@
         android:layout_height="match_parent">
 
 
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
@@ -55,7 +48,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                />
 
             <TextView
                 android:id="@+id/name"
@@ -95,13 +89,26 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/TurnOnNotification" />
 
-            <Button
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="28dp"
+            android:elevation="2dp"
+            android:text="Join Discussions"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/Discussion" />
+
+        <ImageButton
                 android:id="@+id/Discussion"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="50dp"
-                android:background="@drawable/blue_rounded_edge_button"
+                android:background="@drawable/discussion_button_background"
                 android:text="Join Discussions"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
@@ -109,59 +116,101 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/BottomPart" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="28dp"
+            android:elevation="2dp"
+            android:text="Test Your Personality"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/Personality" />
 
-            <Button
+        <ImageButton
                 android:id="@+id/Personality"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/blue_rounded_edge_button"
-                android:text="Test Your Personality"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
+                android:background="@drawable/personality_button_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.238"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Discussion" />
 
-            <Button
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="28dp"
+            android:elevation="2dp"
+            android:text="Discover Universities"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/Knowledge" />
+
+        <ImageButton
                 android:id="@+id/Knowledge"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/blue_rounded_edge_button"
-                android:text="Discover Universities"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
+                android:background="@drawable/uni_background_button"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.238"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Personality" />
 
-            <Button
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="28dp"
+            android:elevation="2dp"
+            android:text="Discover Scholarship Opportunities"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/Scholarship" />
+
+        <ImageButton
                 android:id="@+id/Scholarship"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/blue_rounded_edge_button"
-                android:text="Discover Scholarship Opportunities"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
+                android:background="@drawable/scholarship_background_button"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.476"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Knowledge" />
 
-            <Button
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="28dp"
+            android:elevation="2dp"
+            android:text="Test Your Knowledge"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/Quiz" />
+
+        <ImageButton
                 android:id="@+id/Quiz"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/blue_rounded_edge_button"
+                android:background="@drawable/quiz_button_background"
                 android:text="Test Your Knowledge"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
@@ -172,7 +221,7 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView

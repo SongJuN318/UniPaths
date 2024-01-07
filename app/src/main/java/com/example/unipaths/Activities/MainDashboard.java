@@ -4,11 +4,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,17 +57,16 @@ public class MainDashboard extends AppCompatActivity implements NavigationView.O
         setContentView(R.layout.activity_main_dashboard);
         displayUsername();
 
-        Button discussion = findViewById(R.id.Discussion);
-        Button personality = findViewById(R.id.Personality);
-        Button knowledge = findViewById(R.id.Knowledge);
-        Button scholarship = findViewById(R.id.Scholarship);
-        Button quiz = findViewById(R.id.Quiz);
+        ImageButton discussion = findViewById(R.id.Discussion);
+        ImageButton personality = findViewById(R.id.Personality);
+        ImageButton knowledge = findViewById(R.id.Knowledge);
+        ImageButton scholarship = findViewById(R.id.Scholarship);
+        ImageButton quiz = findViewById(R.id.Quiz);
 
 
         discussion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start ScholarshipMainpage activity
                 Intent intent = new Intent(MainDashboard.this, DiscussionForum.class);
                 startActivity(intent);
             }
@@ -74,7 +75,6 @@ public class MainDashboard extends AppCompatActivity implements NavigationView.O
         personality.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start ScholarshipMainpage activity
                 Intent intent = new Intent(MainDashboard.this, Activity_personality_main.class);
                 startActivity(intent);
             }
@@ -83,7 +83,6 @@ public class MainDashboard extends AppCompatActivity implements NavigationView.O
         knowledge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start ScholarshipMainpage activity
                 Intent intent = new Intent(MainDashboard.this, Knowledge_Universities.class);
                 startActivity(intent);
             }
@@ -92,7 +91,6 @@ public class MainDashboard extends AppCompatActivity implements NavigationView.O
         scholarship.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start ScholarshipMainpage activity
                 Intent intent = new Intent(MainDashboard.this, ScholarshipDashboard.class);
                 startActivity(intent);
             }
@@ -101,7 +99,6 @@ public class MainDashboard extends AppCompatActivity implements NavigationView.O
         quiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start ScholarshipMainpage activity
                 Intent intent = new Intent(MainDashboard.this, Activity_quiz.class);
                 startActivity(intent);
             }
@@ -177,8 +174,8 @@ public class MainDashboard extends AppCompatActivity implements NavigationView.O
         }else if (menuItem.getItemId() == R.id.profile_img) {
             navigateToProfileFragment(firebaseUser.getUid());
         } else if (menuItem.getItemId()==R.id.history_icon){
-//            Intent intent = new Intent(ScholarshipDashboard.this, Activity_log.class);
-//            startActivity(intent);
+            Intent intent = new Intent(MainDashboard.this, Activity_log.class);
+            startActivity(intent);
         }
         return true;
     }

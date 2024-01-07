@@ -81,7 +81,6 @@ public class Activity_personality_main extends AppCompatActivity implements Navi
         headerView = navigationView.getHeaderView(0);
         profileImg = headerView.findViewById(R.id.profile_img);
         fullname = headerView.findViewById(R.id.fullname);
-        profileImgSide = findViewById(R.id.profile_img_side);
         greet1 = findViewById(R.id.greet_1);
 
         tabLayout = findViewById(R.id.tab_layout);
@@ -135,22 +134,7 @@ public class Activity_personality_main extends AppCompatActivity implements Navi
                     fullname.setText(user.getName());
                     greet1.setText("Good day, "+user.getName());
 
-                    Glide.with(Activity_personality_main.this)
-                            .load(user.getImageurl())
-                            .placeholder(R.drawable.profile_icon)
-                            .error(R.drawable.profile_icon)
-                            .into(profileImgSide);
 
-                    profileImgSide.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            SharedPreferences.Editor editor = Activity_personality_main.this.getSharedPreferences("PREPS", Context.MODE_PRIVATE).edit();
-                            editor.putString("profileid", user.getUserid());
-                            editor.apply();
-
-                            navigateToProfileFragment(user.getUserid());
-                        }
-                    });
                     profileImg.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

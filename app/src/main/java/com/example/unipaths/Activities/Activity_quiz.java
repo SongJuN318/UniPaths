@@ -162,14 +162,15 @@ public class Activity_quiz extends AppCompatActivity implements QuizAdapter.OnQu
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
                     UserHelperClass user = dataSnapshot.getValue(UserHelperClass.class);
+                    if (!isDestroyed()) {
+                        Glide.with(Activity_quiz.this)
+                                .load(user.getImageurl())
+                                .placeholder(R.drawable.profile_icon)
+                                .error(R.drawable.profile_icon)
+                                .into(profileImg);
 
-                    Glide.with(Activity_quiz.this)
-                            .load(user.getImageurl())
-                            .placeholder(R.drawable.profile_icon)
-                            .error(R.drawable.profile_icon)
-                            .into(profileImg);
-
-                    fullname.setText(user.getName());
+                        fullname.setText(user.getName());
+                    }
                     profileImg.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
